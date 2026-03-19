@@ -37,22 +37,81 @@
 
     <section class="section">
       <div class="container contact-grid">
-        <form class="contact-form" name="contact" method="POST" data-netlify="true" action="thank-you.html">
-          <input type="hidden" name="form-name" value="contact" />
-          <label>Name<input type="text" name="name" placeholder="Your name" required /></label>
-          <label>Business Name<input type="text" name="business_name" placeholder="Company name" required /></label>
-          <label>Email<input type="email" name="email" placeholder="name@company.com" required /></label>
-          <label>Phone<input type="tel" name="phone" placeholder="Phone number" required /></label>
-          <label>Postcode<input type="text" name="postcode" placeholder="Postcode" /></label>
-          <label>Type of Premises<input type="text" name="premises_type" placeholder="Office, communal area, other" /></label>
-          <label>Message<textarea rows="6" name="message" placeholder="Tell us about your requirements" required></textarea></label>
+        <form
+          class="contact-form"
+          action="https://formspree.io/f/mzdjyqnv"
+          method="POST"
+        >
+          <label>
+            Name
+            <input type="text" name="name" placeholder="Your name" required />
+          </label>
+
+          <label>
+            Business Name
+            <input type="text" name="business_name" placeholder="Company name" required />
+          </label>
+
+          <label>
+            Email
+            <input type="email" name="email" placeholder="name@company.com" required />
+          </label>
+
+          <label>
+            Phone
+            <input type="tel" name="phone" placeholder="Phone number" />
+          </label>
+
+          <label>
+            Postcode
+            <input type="text" name="postcode" placeholder="Postcode" />
+          </label>
+
+          <label>
+            Type of Premises
+            <input
+              type="text"
+              name="premises_type"
+              placeholder="Office, communal area, other"
+            />
+          </label>
+
+          <label>
+            Message
+            <textarea
+              name="message"
+              rows="6"
+              placeholder="Tell us about your requirements"
+              required
+            ></textarea>
+          </label>
+
+          <input
+            type="hidden"
+            name="_subject"
+            value="New enquiry from FC Cleaning Company website"
+          />
+
           <button class="btn btn-primary" type="submit">Send Enquiry</button>
         </form>
+
         <aside class="contact-panel">
-          <div class="info-box"><h3>Phone</h3><p>0161 399 0482</p></div>
-          <div class="info-box"><h3>Email</h3><p>fernando.c@fccleaningcompany.com</p></div>
-          <div class="info-box"><h3>Location</h3><p>Manchester, UK</p></div>
-          <div class="info-box"><h3>Hours</h3><p>Mon–Fri, 8:00–18:00</p></div>
+          <div class="info-box">
+            <h3>Phone</h3>
+            <p>0161 399 0482</p>
+          </div>
+          <div class="info-box">
+            <h3>Email</h3>
+            <p>fernando.c@fccleaningcompany.com</p>
+          </div>
+          <div class="info-box">
+            <h3>Location</h3>
+            <p>Manchester, UK</p>
+          </div>
+          <div class="info-box">
+            <h3>Hours</h3>
+            <p>Mon–Fri, 8:00–18:00</p>
+          </div>
         </aside>
       </div>
     </section>
@@ -60,9 +119,23 @@
 
   <footer class="site-footer">
     <div class="container footer-grid">
-      <div><h3>FC Cleaning Company Ltd</h3><p>Commercial cleaning for Manchester businesses.</p></div>
-      <div><h4>Pages</h4><a href="index.html">Home</a><a href="services.html">Services</a><a href="about.html">About</a><a href="contact.html">Contact</a></div>
-      <div><h4>Contact</h4><p>Phone: 0161 399 0482</p><p>Email: fernando.c@fccleaningcompany.com</p><p>Manchester, UK</p></div>
+      <div>
+        <h3>FC Cleaning Company Ltd</h3>
+        <p>Commercial cleaning for Manchester businesses.</p>
+      </div>
+      <div>
+        <h4>Pages</h4>
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p>Phone: 0161 399 0482</p>
+        <p>Email: fernando.c@fccleaningcompany.com</p>
+        <p>Manchester, UK</p>
+      </div>
     </div>
   </footer>
 </body>
