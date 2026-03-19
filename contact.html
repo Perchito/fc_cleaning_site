@@ -39,6 +39,7 @@
       <div class="container contact-grid">
         <form
           class="contact-form"
+          id="contact-form"
           action="https://formspree.io/f/mzdjyqnv"
           method="POST"
         >
@@ -86,8 +87,14 @@
             ></textarea>
           </label>
 
-        
+          <input
+            type="hidden"
+            name="_subject"
+            value="New enquiry from FC Cleaning Company website"
+          />
+
           <button class="btn btn-primary" type="submit">Send Enquiry</button>
+          <p id="form-status" style="margin-top: 12px; color: #0f8b8d; font-weight: 600;"></p>
         </form>
 
         <aside class="contact-panel">
@@ -133,5 +140,35 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    const form = document.getElementById("contact-form");
+    const status = document.getElementById("form-status");
+
+    form.addEventListener("submit", async function (event) {
+      event.preventDefault();
+
+      const data = new FormData(form);
+
+      try {
+        const response = await fetch(form.action, {
+          method: "POST",
+          body: data,
+          headers: {
+            "Accept": "application/json"
+          }
+        });
+
+        if (response.ok) {
+          form.reset();
+          window.location.href = "thank-you.html";
+        } else {
+          status.textContent = "Sorry, there was a problem sending your enquiry. Please try again.";
+        }
+      } catch (error) {
+        status.textContent = "Sorry, there was a problem sending your enquiry. Please try again.";
+      }
+    });
+  </script>
 </body>
 </html>
