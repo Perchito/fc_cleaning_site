@@ -17,12 +17,22 @@
         <img src="LOGO-RGBA.png" alt="FC Cleaning Company logo" />
         <span>FC Cleaning Company Ltd</span>
       </a>
-      <nav class="nav">
+
+      <!-- Hamburger button (mobile) -->
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- Main navigation -->
+      <nav class="nav" id="primary-nav">
         <a href="index.html">Home</a>
         <a href="services.html">Services</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
       </nav>
+
       <a class="btn btn-primary desktop-cta" href="contact.html">Get a Quote</a>
     </div>
   </header>
@@ -99,12 +109,17 @@
         <div class="section-heading left">
           <p class="eyebrow">Trust</p>
           <h2>Professional first impression</h2>
-          
         </div>
         <div class="card-grid three-up">
-          <article class="quote-card"><p>“Reliable, professional and easy to deal with.”</p><span>Office Manager</span></article>
-          <article class="quote-card"><p>“A clean, polished image for our workplace.”</p><span>Facilities Team</span></article>
-          <article class="quote-card"><p>“Flexible around our business hours.”</p><span>Property Manager</span></article>
+          <article class="quote-card">
+            <p>“Reliable, professional and easy to deal with.”</p><span>Office Manager</span>
+          </article>
+          <article class="quote-card">
+            <p>“A clean, polished image for our workplace.”</p><span>Facilities Team</span>
+          </article>
+          <article class="quote-card">
+            <p>“Flexible around our business hours.”</p><span>Property Manager</span>
+          </article>
         </div>
       </div>
     </section>
@@ -115,8 +130,7 @@
           <h2>Need a reliable cleaning partner?</h2>
           <p>Tell us about your premises and we’ll arrange the next steps.</p>
         </div>
-        <a class="btn btn-light" href="contact.html">Contact us
-        </a>
+        <a class="btn btn-light" href="contact.html">Contact us</a>
       </div>
     </section>
   </main>
@@ -142,5 +156,17 @@
       </div>
     </div>
   </footer>
+
+  <!-- Mobile nav toggle script -->
+  <script>
+    const navToggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('.nav');
+
+    navToggle.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('is-open');
+      navToggle.classList.toggle('is-open', isOpen);
+      navToggle.setAttribute('aria-expanded', isOpen);
+    });
+  </script>
 </body>
 </html>
