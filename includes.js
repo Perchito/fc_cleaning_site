@@ -15,4 +15,19 @@ async function loadInclude(id, file) {
 document.addEventListener('DOMContentLoaded', () => {
   loadInclude('site-header', 'header.html');
   loadInclude('site-footer', 'footer.html');
+  
+  // Menu toggle script (runs after header loads)
+  setTimeout(() => {
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('.nav');
+    
+    if (toggle && nav) {
+      toggle.addEventListener('click', function() {
+        toggle.classList.toggle('is-open');
+        nav.classList.toggle('is-open');
+      });
+    } else {
+      console.log('Menu elements not found');
+    }
+  }, 100);
 });
