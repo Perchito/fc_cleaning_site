@@ -169,10 +169,19 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
 .mock-office {
   min-height: 290px;
   border-radius: 20px;
-  background:
-    linear-gradient(135deg, rgba(15,139,141,.15), rgba(15,23,42,.08)),
-    linear-gradient(180deg, #dbeafe, #f8fafc);
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+.mock-office img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
 
 .hero-card-text { padding: 1rem .4rem .2rem; }
 
