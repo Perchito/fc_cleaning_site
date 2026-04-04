@@ -520,7 +520,6 @@ h2 {
   border: 1px solid var(--line);
   border-radius: 22px;
   background: var(--white);
-  padding: 0;
   overflow: hidden;
 }
 
@@ -536,6 +535,10 @@ h2 {
 
 .faq-card summary::-webkit-details-marker {
   display: none;
+}
+
+.faq-card summary::marker {
+  content: "";
 }
 
 .faq-card summary::after {
@@ -562,6 +565,11 @@ h2 {
 
 .faq-card summary:hover {
   background: #fcfcfc;
+}
+
+.faq-card summary:focus-visible {
+  outline: 2px solid rgba(15, 139, 141, 0.2);
+  outline-offset: -2px;
 }
 
 }
