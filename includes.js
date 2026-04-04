@@ -8,15 +8,15 @@ async function loadInclude(id, file) {
 }
 
 function initMobileMenu() {
-  const navToggle = document.querySelector('.nav-toggle');
+  const toggle = document.querySelector('.nav-toggle');
   const nav = document.querySelector('.nav');
 
-  if (!navToggle || !nav) return;
+  if (!toggle || !nav) return;
 
-  navToggle.addEventListener('click', () => {
+  toggle.addEventListener('click', () => {
     const isOpen = nav.classList.toggle('is-open');
-    navToggle.classList.toggle('is-open', isOpen);
-    navToggle.setAttribute('aria-expanded', isOpen);
+    toggle.classList.toggle('is-open', isOpen);
+    toggle.setAttribute('aria-expanded', String(isOpen));
   });
 }
 
@@ -26,6 +26,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     await loadInclude('site-footer', 'footer.html');
     initMobileMenu();
   } catch (err) {
-    console.error(err);
+    console.error('Include failed:', err);
   }
 });
