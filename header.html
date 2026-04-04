@@ -1,11 +1,11 @@
 <header class="site-header">
   <div class="container nav-wrap">
     <a class="brand" href="index.html">
-      <img src="LOGO-RGBA.png" alt="FC Cleaning Company logo">
+      <img src="LOGO-RGBA.jpg" alt="FC Cleaning Company logo" />
       <span>FC Cleaning Company Ltd</span>
     </a>
 
-    <button class="nav-toggle" aria-label="Toggle navigation">
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
       <span></span>
       <span></span>
       <span></span>
@@ -20,17 +20,4 @@
 
     <a href="contact.html" class="btn btn-primary desktop-cta">Get a quote</a>
   </div>
-  <script>
-    const navToggle = document.querySelector('.nav-toggle');
-    const nav = document.querySelector('.nav');
-
-    navToggle.addEventListener('click', () => {
-      const isOpen = nav.classList.toggle('is-open');
-      navToggle.classList.toggle('is-open', isOpen);
-      navToggle.setAttribute('aria-expanded', isOpen);
-    });
-  </script> 
 </header>
-
-
-
