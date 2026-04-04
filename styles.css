@@ -501,4 +501,15 @@ h2 {
   .page-hero {
     padding: 3.5rem 0 1.8rem;
   }
+
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 300ms;
+  animation-timing-function: ease;
+}
+
 }
