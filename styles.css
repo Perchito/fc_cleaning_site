@@ -512,61 +512,56 @@ h2 {
   animation-timing-function: ease;
 }
 
-.faq-list {
-  display: grid;
-  gap: 1.3rem;
+.faq-grid {
+  align-items: start;
 }
 
-.faq-item {
+.faq-card {
   border: 1px solid var(--line);
   border-radius: 22px;
   background: var(--white);
+  padding: 0;
   overflow: hidden;
 }
 
-.faq-item summary {
+.faq-card summary {
   list-style: none;
   cursor: pointer;
   padding: 1.4rem 3.8rem 1.4rem 1.4rem;
   font-size: 1.05rem;
   font-weight: 700;
-  position: relative;
   color: var(--text);
+  position: relative;
 }
 
-.faq-item summary::-webkit-details-marker {
+.faq-card summary::-webkit-details-marker {
   display: none;
 }
 
-.faq-item summary::after {
+.faq-card summary::after {
   content: "+";
   position: absolute;
   right: 1.4rem;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 1.6rem;
+  top: 1.35rem;
+  font-size: 1.5rem;
   line-height: 1;
   color: var(--teal);
   font-weight: 500;
 }
 
-.faq-item[open] summary::after {
+.faq-card[open] summary::after {
   content: "−";
 }
 
-.faq-item p {
+.faq-card p {
   margin: 0;
   padding: 0 1.4rem 1.4rem;
-  color: var(--muted);
+  color: var(--text);
+  line-height: 1.7;
 }
 
-.faq-item summary:hover {
-  background: #f8fafc;
-}
-
-.faq-item summary:focus-visible {
-  outline: 2px solid rgba(15, 139, 141, 0.2);
-  outline-offset: -2px;
+.faq-card summary:hover {
+  background: #fcfcfc;
 }
 
 }
