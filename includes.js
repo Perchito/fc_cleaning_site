@@ -49,11 +49,33 @@ function initMobileMenu() {
   });
 }
 
+function initFaviconSwitcher() {
+  const favicon = document.getElementById('favicon');
+  if (!favicon) return;
+
+  const darkModeQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+  function updateFavicon() {
+    favicon.href = darkModeQuery.matches
+      ? 'images/company-logo/fc-logo-white-icon.png'
+      : 'images/company-logo/fc-logo-black-icon.png';
+  }
+
+  updateFavicon();
+
+  if (darkModeQuery.addEventListener) {
+    darkModeQuery.addEventListener('change', updateFavicon);
+  } else {
+    darkModeQuery.addListener(updateFavicon);
+  }
+}
+
 document.addEventListener('DOMContentLoaded', async () => {
   try {
     await loadInclude('site-header', 'header.html');
     await loadInclude('site-footer', 'footer.html');
     initMobileMenu();
+    initFaviconSwitcher();
   } catch (err) {
     console.error('Include failed:', err);
   }
