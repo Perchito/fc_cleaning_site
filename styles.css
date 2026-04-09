@@ -264,6 +264,7 @@ select {
 
 .hero-grid {
   grid-template-columns: 1.2fr 0.9fr;
+  align-items: start;
 }
 
 .split {
