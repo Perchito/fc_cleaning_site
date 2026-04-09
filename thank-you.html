@@ -9,43 +9,111 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
   <div id="site-header"></div>
 
   <main class="page-main">
-    <section class="page-hero">
-      <div class="container">
-        <p class="eyebrow">Thank you</p>
-        <h1>Your enquiry has been sent</h1>
-        <p class="lead narrow">
-          Thanks for contacting FC Cleaning Company. We’ve received your message and will review your enquiry as soon as possible.
-        </p>
+    <section class="page-hero page-hero-saas">
+      <div class="container services-hero">
+        <div>
+          <div class="hero-badge">
+            <i class="fa-solid fa-circle-check"></i>
+            Your enquiry has been received
+          </div>
+          <p class="eyebrow">Thank you</p>
+          <h1>Thanks for getting in touch</h1>
+          <p class="lead">
+            We’ve received your enquiry and will review the details you sent. If needed, we’ll arrange a quick call or site visit before preparing the right next step for your premises.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="services.html">View Services</a>
+            <a class="btn btn-secondary" href="index.html">Back to Home</a>
+          </div>
+        </div>
+
+        <div class="services-hero-panel">
+          <div class="services-hero-stat">
+            <strong>Enquiry received</strong>
+            <span>Your message has been submitted successfully.</span>
+          </div>
+          <div class="services-hero-stat">
+            <strong>Next-step review</strong>
+            <span>We’ll assess your premises details and cleaning requirements.</span>
+          </div>
+          <div class="services-hero-stat">
+            <strong>Possible site visit</strong>
+            <span>Where useful, we may arrange a quick call or visit.</span>
+          </div>
+          <div class="services-hero-stat">
+            <strong>Tailored response</strong>
+            <span>You’ll receive a proposal or clear recommendation based on your site.</span>
+          </div>
+        </div>
       </div>
     </section>
 
     <section class="section">
-      <div class="container split">
-        <div class="card">
-          <h2>What happens next</h2>
-          <p>
-            We’ll look over the details you sent and, if needed, arrange a quick call or site visit to understand your premises, cleaning frequency, and business requirements.
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">What happens next</p>
+          <h2>A simple follow-up process</h2>
+          <p class="lead section-lead">
+            We keep the next steps straightforward so you know what to expect after submitting your enquiry.
           </p>
-          <p>
-            After that, we’ll send a clear tailored proposal so you can decide on the best next step for your site.
-          </p>
+        </div>
 
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="index.html">Back to Home</a>
-            <a class="btn btn-secondary" href="services.html">View Services</a>
-          </div>
+        <div class="card-grid three-up">
+          <article class="card process-card">
+            <div class="process-number">01</div>
+            <h3>We review your enquiry</h3>
+            <p>We look over the details you submitted, including site type, cleaning needs, and any scheduling information.</p>
+          </article>
+
+          <article class="card process-card">
+            <div class="process-number">02</div>
+            <h3>We clarify anything important</h3>
+            <p>If needed, we may arrange a quick call or site visit to understand the premises and recommend the right scope.</p>
+          </article>
+
+          <article class="card process-card">
+            <div class="process-number">03</div>
+            <h3>We send a tailored next step</h3>
+            <p>You’ll receive a clear response based on your site, whether that is a proposal, recommendation, or follow-up question.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft">
+      <div class="container split split-tight">
+        <div>
+          <p class="eyebrow">Why clients choose FC</p>
+          <h2>Clear communication and dependable next steps</h2>
+          <p class="lead">
+            We work with commercial clients who want straightforward communication, owner-managed accountability, and practical recommendations built around the site.
+          </p>
         </div>
 
         <div class="bullet-panel">
-          <div class="bullet-item">Your enquiry has been received.</div>
-          <div class="bullet-item">We may contact you to confirm a few details.</div>
-          <div class="bullet-item">Site visits can be arranged where needed.</div>
-          <div class="bullet-item">You’ll receive a tailored response based on your premises.</div>
+          <div class="bullet-item">
+            <i class="fa-solid fa-user-check"></i>
+            Owner-managed communication from the first enquiry onward.
+          </div>
+          <div class="bullet-item">
+            <i class="fa-solid fa-clipboard-check"></i>
+            Recommendations based on your premises and service needs.
+          </div>
+          <div class="bullet-item">
+            <i class="fa-solid fa-building"></i>
+            Built for offices, shared workplaces, and managed commercial spaces.
+          </div>
+          <div class="bullet-item">
+            <i class="fa-solid fa-location-dot"></i>
+            Manchester-based service with clear, practical support.
+          </div>
         </div>
       </div>
     </section>
@@ -53,10 +121,14 @@
     <section class="cta-band">
       <div class="container cta-band-wrap">
         <div>
-          <h2>Need to add more details?</h2>
-          <p>You can contact us directly if there is anything important you want to include with your enquiry.</p>
+          <p class="eyebrow eyebrow-light">Explore more</p>
+          <h2>Want to review our services while you wait?</h2>
+          <p>You can explore the types of commercial cleaning support we offer for offices, communal areas, and managed buildings.</p>
         </div>
-        <a class="btn btn-light" href="contact.html">Contact us</a>
+        <div class="cta-actions">
+          <a class="btn btn-light" href="services.html">View Services</a>
+          <a class="btn btn-secondary cta-outline" href="contact.html">Send another enquiry</a>
+        </div>
       </div>
     </section>
   </main>
