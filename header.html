@@ -1,20 +1,26 @@
 <header class="site-header">
   <div class="container nav-wrap">
-    <a class="brand" href="index.html">
+    <a class="brand" href="index.html" aria-label="FC Cleaning home">
       <img src="images/company-logo/FC-NAVY.jpg" alt="FC Cleaning Company logo" />
       <div class="brand-text">
-        <strong>FC Cleaning</strong>
+        <strong>FC Cleaning Company</strong>
         <span>Commercial Cleaning in Manchester</span>
       </div>
     </a>
 
-    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+    <button
+      class="nav-toggle"
+      type="button"
+      aria-label="Open navigation menu"
+      aria-expanded="false"
+      aria-controls="site-navigation"
+    >
       <span></span>
       <span></span>
       <span></span>
     </button>
 
-    <nav class="nav">
+    <nav class="nav" id="site-navigation" aria-label="Primary navigation">
       <a href="index.html">Home</a>
       <a href="services.html">Services</a>
       <a href="about.html">About</a>
