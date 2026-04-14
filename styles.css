@@ -1410,33 +1410,31 @@ h2 {
     right: 0;
     top: 50%;
     transform: translateY(-50%);
+    touch-action: none; /* 👈 important for dragging */
+
     display: inline-flex;
     align-items: center;
     justify-content: center;
+
     padding: 1rem 0.7rem;
-    background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+    background: linear-gradient(135deg, var(--teal), var(--teal-dark));
     color: var(--white);
     font-weight: 800;
     font-size: 0.9rem;
+
     border-radius: 24px 0 0 24px;
     z-index: 998;
-    writing-mode: vertical-rl;
+
     text-decoration: none;
-    box-shadow: 0 8px 18px rgba(15, 139, 141, 0.18);
-    overflow: hidden;
-    -webkit-tap-highlight-color: transparent;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
   }
 
-  .mobile-quote-tab:focus,
-  .mobile-quote-tab:active {
-    outline: none;
-    box-shadow: 0 8px 18px rgba(15, 139, 141, 0.18);
+  .mobile-quote-tab span {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
   }
 }
+
 
 #contact-form {
   scroll-margin-top: 100px;
 }
-

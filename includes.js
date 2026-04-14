@@ -71,11 +71,13 @@ function initFaviconSwitcher() {
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
+  initFaviconSwitcher();
+  initDraggableQuoteTab();
+
   try {
     await loadInclude('site-header', 'header.html');
     await loadInclude('site-footer', 'footer.html');
     initMobileMenu();
-    initFaviconSwitcher();
   } catch (err) {
     console.error('Include failed:', err);
   }
@@ -91,3 +93,66 @@ window.addEventListener('scroll', () => {
     header.classList.remove('scrolled');
   }
 });
+
+function initDraggableQuoteTab() {
+  const tab = document.querySelector('.mobile-quote-tab');
+  if (!tab) return;
+
+  let isDragging = false;
+  let moved = false;
+  let startY = 0;
+  let currentTop = window.innerHeight / 2;
+
+  const saved = localStorage.getItem('quoteTabTop');
+  if (saved) {
+    currentTop = parseFloat(saved);
+  }
+
+  function applyPosition() {
+    const minTop = 80;
+    const maxTop = window.innerHeight - 80;
+    currentTop = Math.max(minTop, Math.min(maxTop, currentTop));
+    tab.style.top = currentTop + 'px';
+    tab.style.transform = 'translateY(-50%)';
+  }
+
+  applyPosition();
+
+  tab.addEventListener('touchstart', (e) => {
+    isDragging = true;
+    moved = false;
+    startY = e.touches[0].clientY;
+  }, { passive: true });
+
+  tab.addEventListener('touchmove', (e) => {
+    if (!isDragging) return;
+
+    const moveY = e.touches[0].clientY;
+    const delta = moveY - startY;
+
+    if (Math.abs(delta) > 3) {
+      moved = true;
+    }
+
+    currentTop += delta;
+    startY = moveY;
+    applyPosition();
+
+    e.preventDefault();
+  }, { passive: false });
+
+  tab.addEventListener('touchend', () => {
+    if (!isDragging) return;
+    isDragging = false;
+    localStorage.setItem('quoteTabTop', currentTop);
+  });
+
+  tab.addEventListener('click', (e) => {
+    if (moved) {
+      e.preventDefault();
+      moved = false;
+    }
+  });
+
+  window.addEventListener('resize', applyPosition);
+}
