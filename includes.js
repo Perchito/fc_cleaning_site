@@ -80,3 +80,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     console.error('Include failed:', err);
   }
 });
+
+window.addEventListener('scroll', () => {
+  const header = document.querySelector('.site-header');
+  if (!header) return;
+
+  if (window.scrollY > 20) {
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
+});

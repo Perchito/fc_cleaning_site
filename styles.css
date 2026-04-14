@@ -27,7 +27,10 @@ body {
   color: var(--text);
   background: var(--white);
   line-height: 1.6;
+    padding-top: 82px; /* match your header height */
+
 }
+
 
 body.menu-open {
   overflow: hidden;
@@ -55,12 +58,21 @@ select {
   margin: 0 auto;
 }
 
+
 .site-header {
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 200;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  transition: all 0.3s ease;
   background: var(--navy);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.site-header.scrolled {
+  background: rgba(19, 26, 44, 0.92);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
 .nav-wrap {
@@ -889,12 +901,25 @@ h2 {
 
 .services-grid,
 .about-stats-grid,
-.faq-grid,
-.faq-grid-saas,
 .faq-support-grid,
 .contact-grid-saas,
 .split-tight {
   align-items: stretch;
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.faq-grid,
+.faq-grid-saas {
+  align-items: start;
+}
+
+.faq-card,
+.faq-card-saas {
+  align-self: start;
 }
 
 .service-top {
@@ -1378,3 +1403,36 @@ h2 {
   }
   
 }
+
+.mobile-quote-tab {
+  display: none;
+}
+@media (max-width: 900px) {
+  .mobile-quote-tab {
+    position: fixed;
+    right: 0px; /* small gap from edge */
+    top: 50%;
+    transform: translateY(-50%) rotate(180deg);
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 1rem 0.7rem;
+
+    background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+    color: var(--white);
+
+    font-weight: 800;
+    font-size: 0.9rem;
+
+    border-radius: 0 24px 24px 0; /* 🔥 FULLY ROUNDED */
+    
+    box-shadow: 0 12px 30px rgba(15, 139, 141, 0.28);
+
+    z-index: 998;
+    writing-mode: vertical-rl;
+    text-decoration: none;
+  }
+}
+
