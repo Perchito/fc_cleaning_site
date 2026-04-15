@@ -394,6 +394,10 @@ h2 {
 .three-up {
   grid-template-columns: repeat(3, 1fr);
 }
+.four-up {
+  grid-template-columns: repeat(4, 1fr);
+}
+
 
 .two-up {
   grid-template-columns: repeat(2, 1fr);
@@ -451,7 +455,17 @@ h2 {
   margin: 1.5rem 0;
 }
 
-.mini-points,
+.mini-points {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.3rem 1.5rem;
+  margin: 1.3rem 0 0;
+  padding: 0;
+  list-style: none;
+  color: var(--muted);
+  font-weight: 600;
+}
+
 .hero-proof-list {
   display: flex;
   flex-wrap: wrap;
@@ -484,7 +498,7 @@ h2 {
   border: 1px solid rgba(226, 232, 240, 0.95);
   border-radius: 30px;
   padding: 1.1rem;
-  box-shadow: 0 30px 80px rgba(15, 23, 42, 0.10), 0 8px 30px rgba(15, 139, 141, 0.06);
+  box-shadow: 0 30px 80px rgba(6, 40, 120, 0.1), 0 8px 30px rgba(15, 139, 141, 0.06);
   backdrop-filter: blur(12px);
 }
 
@@ -495,7 +509,6 @@ h2 {
   min-height: 340px;
   padding: 12px;
   border-radius: 24px;
-  background: linear-gradient(180deg, #f8fbfd 0%, #eef8f8 100%);
 }
 
 .mock-office img {
@@ -692,7 +705,6 @@ h2 {
   position: absolute;
   inset: 0 0 auto 0;
   height: 4px;
-  background: linear-gradient(90deg, var(--teal), #56c3c5);
   opacity: 0;
   transition: opacity 0.25s ease;
 }
