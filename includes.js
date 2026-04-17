@@ -1,16 +1,36 @@
-async function loadInclude(id, file) {
-  const el = document.getElementById(id);
-  if (!el) return;
+// NEW: Faster parallel header/footer loading
+async function loadIncludes() {
+  try {
+    // Preload header for above-fold priority
+    const headerPreload = document.createElement('link');
+    headerPreload.rel = 'preload';
+    headerPreload.href = 'header.html';
+    headerPreload.as = 'fetch';
+    document.head.appendChild(headerPreload);
 
-  const resp = await fetch(file);
-  if (!resp.ok) throw new Error(`Failed to load ${file}`);
-  el.innerHTML = await resp.text();
+    // Load header + footer SIMULTANEOUSLY (not one after the other)
+    const [headerResp, footerResp] = await Promise.all([
+      fetch('header.html'),
+      fetch('footer.html')
+    ]);
+
+    if (!headerResp.ok) throw new Error('Header failed');
+    if (!footerResp.ok) throw new Error('Footer failed');
+
+    document.getElementById('site-header').innerHTML = await headerResp.text();
+    document.getElementById('site-footer').innerHTML = await footerResp.text();
+
+    // Run your mobile menu AFTER content loads
+    initMobileMenu();
+  } catch (err) {
+    console.error('Includes failed:', err);
+  }
 }
 
+// ===== ALL YOUR EXISTING FUNCTIONS (unchanged) =====
 function initMobileMenu() {
   const toggle = document.querySelector('.nav-toggle');
   const nav = document.querySelector('.nav');
-
   if (!toggle || !nav) return;
 
   const closeMenu = () => {
@@ -69,30 +89,6 @@ function initFaviconSwitcher() {
     darkModeQuery.addListener(updateFavicon);
   }
 }
-
-document.addEventListener('DOMContentLoaded', async () => {
-  initFaviconSwitcher();
-  initDraggableQuoteTab();
-
-  try {
-    await loadInclude('site-header', 'header.html');
-    await loadInclude('site-footer', 'footer.html');
-    initMobileMenu();
-  } catch (err) {
-    console.error('Include failed:', err);
-  }
-});
-
-window.addEventListener('scroll', () => {
-  const header = document.querySelector('.site-header');
-  if (!header) return;
-
-  if (window.scrollY > 20) {
-    header.classList.add('scrolled');
-  } else {
-    header.classList.remove('scrolled');
-  }
-});
 
 function initDraggableQuoteTab() {
   const tab = document.querySelector('.mobile-quote-tab');
@@ -156,3 +152,22 @@ function initDraggableQuoteTab() {
 
   window.addEventListener('resize', applyPosition);
 }
+
+// ===== Scroll effect (unchanged) =====
+window.addEventListener('scroll', () => {
+  const header = document.querySelector('.site-header');
+  if (!header) return;
+
+  if (window.scrollY > 20) {
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
+});
+
+// ===== UPDATED DOMContentLoaded =====
+document.addEventListener('DOMContentLoaded', async () => {
+  initFaviconSwitcher();
+  initDraggableQuoteTab();
+  loadIncludes();  // Now FASTER parallel loading!
+});
