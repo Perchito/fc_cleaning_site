@@ -19,6 +19,7 @@ async function loadIncludes() {
     document.getElementById('site-footer').innerHTML = await footerResp.text();
 
     initMobileMenu();
+    initDraggableQuoteTab(); // run AFTER header exists
   } catch (err) {
     console.error('Includes failed:', err);
   }
@@ -84,7 +85,7 @@ function initFaviconSwitcher() {
   }
 }
 
-// ===== FIXED DRAGGABLE QUOTE TAB =====
+// ===== DRAGGABLE QUOTE TAB =====
 function initDraggableQuoteTab() {
   const tab = document.querySelector('.mobile-quote-tab');
   if (!tab) return;
@@ -99,12 +100,24 @@ function initDraggableQuoteTab() {
     currentTop = parseFloat(saved);
   }
 
-  function applyPosition() {
-    const headerHeight = 82; // matches your CSS header height
-    const tabHalfHeight = tab.offsetHeight / 2;
+  function getHeaderBottom() {
+    const header = document.querySelector('.site-header');
+    if (!header) return 82;
+    return header.getBoundingClientRect().bottom;
+  }
 
-    const minTop = headerHeight + tabHalfHeight + 12;
-    const maxTop = window.innerHeight - tabHalfHeight - 12;
+  function getTabVisualHeight() {
+    return tab.getBoundingClientRect().height;
+  }
+
+  function applyPosition() {
+    const headerBottom = getHeaderBottom();
+    const tabHalfHeight = getTabVisualHeight() / 2;
+    const topGap = 12;
+    const bottomGap = 12;
+
+    const minTop = headerBottom + tabHalfHeight + topGap;
+    const maxTop = window.innerHeight - tabHalfHeight - bottomGap;
 
     currentTop = Math.max(minTop, Math.min(maxTop, currentTop));
 
@@ -166,8 +179,7 @@ window.addEventListener('scroll', () => {
 });
 
 // ===== INIT =====
-document.addEventListener('DOMContentLoaded', async () => {
+document.addEventListener('DOMContentLoaded', () => {
   initFaviconSwitcher();
-  initDraggableQuoteTab();
   loadIncludes();
 });

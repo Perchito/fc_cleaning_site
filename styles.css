@@ -1511,3 +1511,7 @@ h2 {
 #contact-form {
 	scroll-margin-top: 100px;
 }
+
+.mobile-quote-tab {
+	z-index: 1001;
+}
