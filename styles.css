@@ -1477,28 +1477,28 @@ h2 {
 }
 
 @media (max-width: 900px) {
-.mobile-quote-tab {
-	position: fixed;
-	right: 0;
-	top: 50%;
-	transform: translateY(-50%);
-	touch-action: none;
+	.mobile-quote-tab {
+		position: fixed;
+		right: 0;
+		top: 50%;
+		transform: translateY(-50%);
+		touch-action: none;
+		/* 👈 important for dragging */
 
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
 
-	padding: 1rem 0.7rem;
-	background: linear-gradient(135deg, var(--teal), var(--teal-dark));
-	color: var(--white);
-	font-weight: 800;
-	font-size: 0.9rem;
+		padding: 1rem 0.7rem;
+		background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+		color: var(--white);
+		font-weight: 800;
+		font-size: 0.9rem;
 
-	border-radius: 24px 0 0 24px;
-	z-index: 1001;
-	text-decoration: none;
-	transition: opacity 0.25s ease, transform 0.25s ease;
-}
+		border-radius: 24px 0 0 24px;
+		z-index: 1000;
+		text-decoration: none;
+	}
 
 	.mobile-quote-tab span {
 		writing-mode: vertical-rl;
