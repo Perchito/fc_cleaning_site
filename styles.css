@@ -1481,9 +1481,8 @@ h2 {
 		position: fixed;
 		right: 0;
 		top: 50%;
-		transform: translateY(-50%);
+		transform: translateY(-50%) translateX(0);
 		touch-action: none;
-		/* 👈 important for dragging */
 
 		display: inline-flex;
 		align-items: center;
@@ -1498,6 +1497,15 @@ h2 {
 		border-radius: 24px 0 0 24px;
 		z-index: 1000;
 		text-decoration: none;
+		opacity: 1;
+		transition: opacity 0.3s ease, transform 0.3s ease;
+		will-change: transform, opacity;
+	}
+
+	body.menu-open .mobile-quote-tab {
+		opacity: 0;
+		pointer-events: none;
+		transform: translateY(-50%) translateX(110%);
 	}
 
 	.mobile-quote-tab span {
