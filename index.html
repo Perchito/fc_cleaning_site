@@ -14,8 +14,8 @@
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="fonts/fontawesome/css/all.min.css">
   <link rel="preload" href="header.html" as="fetch">
-<link rel="preload" href="styles.css" as="style">
-<link rel="preload" href="includes.js" as="script">
+  <link rel="preload" href="styles.css" as="style">
+  <link rel="preload" href="includes.js" as="script">
 </head>
 <body>
   <div id="site-header"></div>
@@ -36,7 +36,8 @@
             <a class="btn btn-primary" href="contact.html#contact-form">Request a Free Quote</a>
             <a class="btn btn-secondary" href="services.html">View Services</a>
           </div>
-          <ul class="mini-points">
+
+          <ul class="mini-points mini-points-mobile">
             <li><i class="fa-solid fa-check"></i> DBS-vetted staffs</li>
             <li><i class="fa-solid fa-check"></i> Public liability insurance</li>
             <li><i class="fa-solid fa-check"></i> Employers’ liability insurance</li>
@@ -44,17 +45,27 @@
           </ul>
         </div>
 
-        <div class="hero-card hero-showcase">
-          <div class="mock-office">
-            <img src="images/card-images/wet-sign.jpg" alt="Cleaner wiping a desk in a modern office" fetchpriority="high" decoding="async" />
+        <div class="hero-side">
+          <div class="hero-card hero-showcase">
+            <div class="mock-office">
+              <img src="images/card-images/wet-sign.jpg" alt="Cleaner wiping a desk in a modern office" fetchpriority="high" decoding="async" />
+            </div>
+
+            <div class="hero-card-text">
+              <strong>Built for commercial environments</strong>
+              <p>
+                From routine office cleaning to communal areas and deeper reset cleans, services are tailored around how your site operates.
+              </p>
+              <a href="services.html" class="card-link">Explore our services <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
           </div>
-          <div class="hero-card-text">
-            <strong>Built for commercial environments</strong>
-            <p>
-              From routine office cleaning to communal areas and deeper reset cleans, services are tailored around how your site operates.
-            </p>
-            <a href="services.html" class="card-link">Explore our services <i class="fa-solid fa-arrow-right"></i></a>
-          </div>
+
+          <ul class="mini-points hero-mini-points mini-points-desktop">
+            <li><i class="fa-solid fa-check"></i> DBS-vetted staffs</li>
+            <li><i class="fa-solid fa-check"></i> Public liability insurance</li>
+            <li><i class="fa-solid fa-check"></i> Employers’ liability insurance</li>
+            <li><i class="fa-solid fa-check"></i> Manchester-based commercial experience</li>
+          </ul>
         </div>
       </div>
     </section>

@@ -278,6 +278,12 @@ select {
 		linear-gradient(180deg, #f8fbfd 0%, #ffffff 100%);
 }
 
+.hero-side {
+	display: grid;
+	gap: 1.5rem;
+	align-items: start;
+}
+
 .hero-grid,
 .split,
 .contact-grid,
@@ -484,6 +490,33 @@ h2 {
 	font-weight: 600;
 }
 
+.hero-mini-points {
+	margin-top: 1.4rem;
+}
+
+.mini-points-mobile li,
+.mini-points-desktop li {
+	list-style: none;
+}
+
+.mini-points-mobile {
+	display: none;
+}
+
+.mini-points-desktop {
+	display: grid;
+}
+
+@media (max-width: 900px) {
+	.mini-points-mobile {
+		display: grid;
+	}
+
+	.mini-points-desktop {
+		display: none;
+	}
+}
+
 .hero-proof-list {
 	display: flex;
 	flex-wrap: wrap;
@@ -628,11 +661,15 @@ h2 {
 .trust-item {
 	display: flex;
 	align-items: center;
+	justify-content: center;
 	gap: 0.7rem;
 	color: var(--navy);
 	font-weight: 700;
-	  justify-content: center;
-
+	text-align: center;
+	white-space: nowrap;
+}
+.trust-item span {
+	display: inline-block;
 }
 
 .card,
