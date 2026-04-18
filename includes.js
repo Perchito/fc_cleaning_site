@@ -1,14 +1,12 @@
 // NEW: Faster parallel header/footer loading
 async function loadIncludes() {
   try {
-    // Preload header for above-fold priority
     const headerPreload = document.createElement('link');
     headerPreload.rel = 'preload';
     headerPreload.href = 'header.html';
     headerPreload.as = 'fetch';
     document.head.appendChild(headerPreload);
 
-    // Load header + footer SIMULTANEOUSLY (not one after the other)
     const [headerResp, footerResp] = await Promise.all([
       fetch('header.html'),
       fetch('footer.html')
@@ -20,14 +18,13 @@ async function loadIncludes() {
     document.getElementById('site-header').innerHTML = await headerResp.text();
     document.getElementById('site-footer').innerHTML = await footerResp.text();
 
-    // Run your mobile menu AFTER content loads
     initMobileMenu();
   } catch (err) {
     console.error('Includes failed:', err);
   }
 }
 
-// ===== ALL YOUR EXISTING FUNCTIONS (unchanged) =====
+// ===== MOBILE MENU =====
 function initMobileMenu() {
   const toggle = document.querySelector('.nav-toggle');
   const nav = document.querySelector('.nav');
@@ -51,11 +48,7 @@ function initMobileMenu() {
 
   toggle.addEventListener('click', () => {
     const isOpen = nav.classList.contains('is-open');
-    if (isOpen) {
-      closeMenu();
-    } else {
-      openMenu();
-    }
+    isOpen ? closeMenu() : openMenu();
   });
 
   nav.querySelectorAll('a').forEach(link => {
@@ -69,6 +62,7 @@ function initMobileMenu() {
   });
 }
 
+// ===== FAVICON SWITCH =====
 function initFaviconSwitcher() {
   const favicon = document.getElementById('favicon');
   if (!favicon) return;
@@ -90,6 +84,7 @@ function initFaviconSwitcher() {
   }
 }
 
+// ===== FIXED DRAGGABLE QUOTE TAB =====
 function initDraggableQuoteTab() {
   const tab = document.querySelector('.mobile-quote-tab');
   if (!tab) return;
@@ -105,9 +100,14 @@ function initDraggableQuoteTab() {
   }
 
   function applyPosition() {
-    const minTop = 80;
-    const maxTop = window.innerHeight - 80;
+    const headerHeight = 82; // matches your CSS header height
+    const tabHalfHeight = tab.offsetHeight / 2;
+
+    const minTop = headerHeight + tabHalfHeight + 12;
+    const maxTop = window.innerHeight - tabHalfHeight - 12;
+
     currentTop = Math.max(minTop, Math.min(maxTop, currentTop));
+
     tab.style.top = currentTop + 'px';
     tab.style.transform = 'translateY(-50%)';
   }
@@ -153,7 +153,7 @@ function initDraggableQuoteTab() {
   window.addEventListener('resize', applyPosition);
 }
 
-// ===== Scroll effect (unchanged) =====
+// ===== HEADER SCROLL EFFECT =====
 window.addEventListener('scroll', () => {
   const header = document.querySelector('.site-header');
   if (!header) return;
@@ -165,9 +165,9 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// ===== UPDATED DOMContentLoaded =====
+// ===== INIT =====
 document.addEventListener('DOMContentLoaded', async () => {
   initFaviconSwitcher();
   initDraggableQuoteTab();
-  loadIncludes();  // Now FASTER parallel loading!
+  loadIncludes();
 });
