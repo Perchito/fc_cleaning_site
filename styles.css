@@ -798,6 +798,17 @@ h2 {
 	font-weight: 800;
 }
 
+.split-text-center {
+  display: flex;
+  justify-content: center;
+}
+
+.split-text-center .lead {
+  max-width: 760px;
+  text-align: center;
+  margin: 0 auto;
+}
+
 .bullet-panel {
 	display: grid;
 	gap: 0.8rem;
