@@ -1,12 +1,6 @@
-// NEW: Faster parallel header/footer loading
+// Parallel header/footer loading with body-flash prevention
 async function loadIncludes() {
   try {
-    const headerPreload = document.createElement('link');
-    headerPreload.rel = 'preload';
-    headerPreload.href = 'header.html';
-    headerPreload.as = 'fetch';
-    document.head.appendChild(headerPreload);
-
     const [headerResp, footerResp] = await Promise.all([
       fetch('header.html'),
       fetch('footer.html')
@@ -19,9 +13,13 @@ async function loadIncludes() {
     document.getElementById('site-footer').innerHTML = await footerResp.text();
 
     initMobileMenu();
-    initDraggableQuoteTab(); // run AFTER header exists
+    initDraggableQuoteTab();
+
+    // Reveal body smoothly once header/footer are in place
+    document.body.style.opacity = '1';
   } catch (err) {
     console.error('Includes failed:', err);
+    document.body.style.opacity = '1'; // always reveal even on error
   }
 }
 
@@ -57,9 +55,7 @@ function initMobileMenu() {
   });
 
   window.addEventListener('resize', () => {
-    if (window.innerWidth > 900) {
-      closeMenu();
-    }
+    if (window.innerWidth > 900) closeMenu();
   });
 }
 
@@ -96,9 +92,7 @@ function initDraggableQuoteTab() {
   let currentTop = window.innerHeight / 2;
 
   const saved = localStorage.getItem('quoteTabTop');
-  if (saved) {
-    currentTop = parseFloat(saved);
-  }
+  if (saved) currentTop = parseFloat(saved);
 
   function getHeaderBottom() {
     const header = document.querySelector('.site-header');
@@ -113,14 +107,9 @@ function initDraggableQuoteTab() {
   function applyPosition() {
     const headerBottom = getHeaderBottom();
     const tabHalfHeight = getTabVisualHeight() / 2;
-    const topGap = 12;
-    const bottomGap = 12;
-
-    const minTop = headerBottom + tabHalfHeight + topGap;
-    const maxTop = window.innerHeight - tabHalfHeight - bottomGap;
-
+    const minTop = headerBottom + tabHalfHeight + 12;
+    const maxTop = window.innerHeight - tabHalfHeight - 12;
     currentTop = Math.max(minTop, Math.min(maxTop, currentTop));
-
     tab.style.top = currentTop + 'px';
     tab.style.transform = 'translateY(-50%)';
   }
@@ -135,18 +124,12 @@ function initDraggableQuoteTab() {
 
   tab.addEventListener('touchmove', (e) => {
     if (!isDragging) return;
-
     const moveY = e.touches[0].clientY;
     const delta = moveY - startY;
-
-    if (Math.abs(delta) > 3) {
-      moved = true;
-    }
-
+    if (Math.abs(delta) > 3) moved = true;
     currentTop += delta;
     startY = moveY;
     applyPosition();
-
     e.preventDefault();
   }, { passive: false });
 
@@ -157,10 +140,7 @@ function initDraggableQuoteTab() {
   });
 
   tab.addEventListener('click', (e) => {
-    if (moved) {
-      e.preventDefault();
-      moved = false;
-    }
+    if (moved) { e.preventDefault(); moved = false; }
   });
 
   window.addEventListener('resize', applyPosition);
@@ -170,15 +150,14 @@ function initDraggableQuoteTab() {
 window.addEventListener('scroll', () => {
   const header = document.querySelector('.site-header');
   if (!header) return;
-
-  if (window.scrollY > 20) {
-    header.classList.add('scrolled');
-  } else {
-    header.classList.remove('scrolled');
-  }
+  header.classList.toggle('scrolled', window.scrollY > 20);
 });
 
 // ===== INIT =====
+// Hide body immediately so header/footer fetch doesn't cause a visible layout jump
+document.body.style.opacity = '0';
+document.body.style.transition = 'opacity 0.15s ease';
+
 document.addEventListener('DOMContentLoaded', () => {
   initFaviconSwitcher();
   loadIncludes();
