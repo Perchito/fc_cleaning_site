@@ -1,8 +1,5 @@
 <header class="site-header" id="site-header">
 
-  <!-- Step 1 font: Plus Jakarta Sans via Fontshare -->
-  <link href="https://api.fontshare.com/v2/css?f[]=plus-jakarta-sans@400,500,600,700,800&display=swap" rel="stylesheet">
-
   <div class="container nav-wrap">
 
     <!-- Brand -->
@@ -10,12 +7,12 @@
       <img
         src="images/company-logo/FC-NO-BG.png"
         alt="FC Cleaning Company logo"
-        width="60" height="60"
+        width="56" height="56"
         loading="eager"
       />
       <div class="brand-text">
-        <strong>FC Cleaning Company</strong>
-        <span>Restaurant &amp; Commercial Kitchen Cleaning</span>
+        <strong>FC Cleaning Company Ltd</strong>
+        <span>Commercial Cleaning Manchester</span>
       </div>
     </a>
 
@@ -27,27 +24,36 @@
       aria-expanded="false"
       aria-controls="site-navigation"
     >
-      <span></span>
-      <span></span>
-      <span></span>
+      <span></span><span></span><span></span>
     </button>
 
     <!-- Primary nav -->
     <nav class="nav" id="site-navigation" aria-label="Primary navigation">
       <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
       <a href="services.html">Services</a>
-      <a href="about.html">About</a>
       <a href="faq.html">FAQ</a>
-      <a href="contact.html">Contact</a>
+      <a href="contact.html">Contact Us</a>
+
+      <!-- Mobile-only CTAs inside nav -->
+      <div class="nav-mobile-cta">
+        <a href="tel:+441613990482" class="btn btn-ghost" style="justify-content:center;">
+          <i class="fa-solid fa-phone" aria-hidden="true"></i> 0161 399 0482
+        </a>
+        <a href="contact.html#contact-form" class="btn btn-primary" style="justify-content:center;">
+          <i class="fa-solid fa-calendar-check" aria-hidden="true"></i> Get a Free Quote
+        </a>
+      </div>
     </nav>
 
-    <!-- Desktop CTA group -->
+    <!-- Desktop CTAs -->
     <div class="nav-cta-group">
-      <a href="tel:+441613990482" class="nav-phone desktop-cta" aria-label="Call us on 0161 399 0482">
+      <a href="tel:+441613990482" class="nav-phone desktop-cta" aria-label="Call 0161 399 0482">
         <i class="fa-solid fa-phone" aria-hidden="true"></i>
         <span>0161 399 0482</span>
       </a>
       <a href="contact.html#contact-form" class="btn btn-primary desktop-cta">
+        <i class="fa-solid fa-calendar-check" aria-hidden="true"></i>
         Get a Free Quote
       </a>
     </div>
@@ -56,84 +62,41 @@
 </header>
 
 <style>
-  /* Nav phone link */
   .nav-phone {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.45rem;
-    padding: 0.55rem 0.9rem;
-    border: 1.5px solid rgba(255,255,255,0.15);
+    display: inline-flex; align-items: center; gap: 0.45rem;
+    padding: 0.5rem 0.9rem;
+    border: 1.5px solid rgba(255,255,255,0.14);
     border-radius: var(--radius-full);
-    color: rgba(229,231,235,0.85);
-    font-size: 0.88rem;
-    font-weight: 700;
-    letter-spacing: -0.01em;
+    color: rgba(229,231,235,0.82);
+    font-size: 0.88rem; font-weight: 700;
     transition: color var(--transition), border-color var(--transition), background var(--transition);
   }
-
   .nav-phone:hover {
-    color: var(--white);
-    border-color: rgba(255,255,255,0.30);
+    color: var(--white); border-color: rgba(255,255,255,0.30);
     background: rgba(255,255,255,0.06);
   }
-
-  .nav-phone i { font-size: 0.82rem; }
-
-  /* Scrolled state: slight blur for glass effect */
-  .site-header.scrolled {
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-  }
-
-  /* Active page link highlight */
-  .nav a[aria-current="page"] {
-    color: var(--white);
-  }
-
-  .nav a[aria-current="page"]::after {
-    transform: scaleX(1);
-  }
-
-  /* Mobile: show phone in nav menu too */
+  .nav-phone i { font-size: 0.8rem; }
+  .site-header.scrolled { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+  .nav a[aria-current="page"] { color: var(--white); }
+  .nav a[aria-current="page"]::after { transform: scaleX(1); }
   @media (max-width: 900px) {
     .nav-phone.desktop-cta { display: none; }
-
-    .nav::after {
-      content: '';
-      display: block;
-      margin-top: auto;
-    }
-
-    .nav-mobile-cta {
-      display: flex;
-      flex-direction: column;
-      gap: 0.65rem;
-      margin-top: 1rem;
-      padding-top: 1rem;
-      border-top: 1px solid rgba(255,255,255,0.08);
-    }
+    .nav-mobile-cta { display: flex; flex-direction: column; gap: 0.65rem; margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid rgba(255,255,255,0.08); }
   }
-
-  @media (min-width: 901px) {
-    .nav-mobile-cta { display: none; }
-  }
+  @media (min-width: 901px) { .nav-mobile-cta { display: none; } }
 </style>
 
 <script>
-  /* Scrolled class for glass header */
   (function () {
     var header = document.getElementById('site-header');
     if (!header) return;
-    var onScroll = function () {
-      header.classList.toggle('scrolled', window.scrollY > 40);
-    };
+    var onScroll = function () { header.classList.toggle('scrolled', window.scrollY > 40); };
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
   })();
 
-  /* Active nav link */
   (function () {
-    var links = document.querySelectorAll('.nav a');
+    var links = document.querySelectorAll('.nav a:not(.btn)');
     var path = window.location.pathname.split('/').pop() || 'index.html';
     links.forEach(function (link) {
       var href = link.getAttribute('href');
@@ -143,12 +106,10 @@
     });
   })();
 
-  /* Hamburger toggle */
   (function () {
     var toggle = document.querySelector('.nav-toggle');
-    var nav    = document.getElementById('site-navigation');
+    var nav = document.getElementById('site-navigation');
     if (!toggle || !nav) return;
-
     toggle.addEventListener('click', function () {
       var open = toggle.classList.toggle('is-open');
       nav.classList.toggle('is-open', open);
@@ -156,8 +117,6 @@
       toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
       toggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
     });
-
-    /* Close on nav link click */
     nav.querySelectorAll('a').forEach(function (link) {
       link.addEventListener('click', function () {
         toggle.classList.remove('is-open');
@@ -167,8 +126,6 @@
         toggle.setAttribute('aria-label', 'Open navigation menu');
       });
     });
-
-    /* Close on Escape */
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && nav.classList.contains('is-open')) {
         toggle.classList.remove('is-open');
