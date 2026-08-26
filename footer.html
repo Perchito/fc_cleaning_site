@@ -1,55 +1,253 @@
 <footer class="site-footer">
+
+  <!-- Footer CTA strip -->
+  <div class="footer-cta-strip">
+    <div class="container footer-cta-inner">
+      <div class="footer-cta-text">
+        <p class="footer-cta-label">Ready to book?</p>
+        <p class="footer-cta-heading">Get your free quote today</p>
+      </div>
+      <div class="footer-cta-actions">
+        <a href="tel:+441613990482" class="btn btn-primary">
+          <i class="fa-solid fa-phone" aria-hidden="true"></i>
+          0161 399 0482
+        </a>
+        <a href="contact.html#contact-form" class="btn cta-outline">
+          Send us a message
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer main -->
   <div class="container footer-top">
+
+    <!-- Brand col -->
     <div class="footer-brand">
-      <h3>FC Cleaning Company Ltd</h3>
+      <div class="footer-logo-wrap">
+        <img
+          src="images/company-logo/FC-NO-BG.png"
+          alt="FC Cleaning Company logo"
+          width="52" height="52"
+          loading="lazy"
+        />
+        <span>FC Cleaning Company Ltd</span>
+      </div>
       <p>
-        Specialist restaurant, pub, bar, café, takeaway, and commercial kitchen cleaning across Manchester. Reliable hospitality cleaning built around service hours, presentation, and consistent standards.
+        Specialist restaurant, pub, bar, caf&eacute;, takeaway and commercial kitchen cleaning across Manchester. Reliable hospitality cleaning built around your service hours.
       </p>
+      <!-- Trust badges -->
+      <div class="footer-trust">
+        <div class="footer-trust-badge">
+          <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+          <span>Fully Insured</span>
+        </div>
+        <div class="footer-trust-badge">
+          <i class="fa-solid fa-star" aria-hidden="true"></i>
+          <span>5-Star Rated</span>
+        </div>
+        <div class="footer-trust-badge">
+          <i class="fa-solid fa-clock" aria-hidden="true"></i>
+          <span>Flexible Hours</span>
+        </div>
+      </div>
     </div>
 
+    <!-- Pages col -->
     <div class="footer-links-col">
-      <h4>Pages</h4>
+      <h4>Quick Links</h4>
       <a href="index.html">Home</a>
       <a href="services.html">Services</a>
-      <a href="about.html">About</a>
+      <a href="about.html">About Us</a>
       <a href="faq.html">FAQ</a>
       <a href="contact.html">Contact</a>
     </div>
 
-<div class="footer-links-col">
-  <h4>Services</h4>
-  <a href="services.html#kitchen-cleaning">Commercial Kitchen Cleaning</a>
-  <a href="services.html#venue-cleaning">Restaurant, Pub & Bar Cleaning</a>
-  <a href="services.html#deep-cleaning">Hospitality Deep Cleaning</a>
-  <a href="services.html#front-house-cleaning">Washroom & Front-of-House Cleaning</a>
-</div>
+    <!-- Services col -->
+    <div class="footer-links-col">
+      <h4>Our Services</h4>
+      <a href="services.html#kitchen-cleaning">Commercial Kitchen Cleaning</a>
+      <a href="services.html#venue-cleaning">Restaurant, Pub &amp; Bar Cleaning</a>
+      <a href="services.html#deep-cleaning">Hospitality Deep Cleaning</a>
+      <a href="services.html#front-house-cleaning">Washroom &amp; Front-of-House</a>
+    </div>
+
+    <!-- Contact col -->
     <div class="footer-contact">
-      <h4>Contact</h4>
+      <h4>Get in Touch</h4>
 
       <div class="footer-contact-item">
-        <i class="fa-solid fa-phone"></i>
-        <span>0161 399 0482</span>
+        <i class="fa-solid fa-phone" aria-hidden="true"></i>
+        <a href="tel:+441613990482">0161 399 0482</a>
       </div>
 
       <div class="footer-contact-item">
-        <i class="fa-solid fa-envelope"></i>
-        <span>fernando.c@fccleaningcompany.com</span>
+        <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+        <a href="mailto:fernando.c@fccleaningcompany.com">fernando.c@fccleaningcompany.com</a>
       </div>
 
       <div class="footer-contact-item">
-        <i class="fa-solid fa-location-dot"></i>
+        <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
         <span>Manchester, UK</span>
       </div>
 
       <div class="footer-contact-item">
-        <i class="fa-solid fa-clock"></i>
-        <span>Flexible scheduling including early mornings, evenings & weekends</span>
+        <i class="fa-solid fa-clock" aria-hidden="true"></i>
+        <span>Early mornings, evenings &amp; weekends available</span>
       </div>
     </div>
+
   </div>
 
+  <!-- Footer bottom bar -->
   <div class="container footer-bottom">
-    <p>© 2026 FC Cleaning Company Ltd. All rights reserved.</p>
-    <a href="contact.html#contact-form" class="footer-bottom-link">Request a Quote</a>
+    <p>&copy; 2026 FC Cleaning Company Ltd. All rights reserved.</p>
+    <a href="contact.html#contact-form" class="footer-bottom-link btn btn-primary" style="min-height:40px;padding:0.55rem 1.1rem;font-size:0.86rem;">
+      Get a Free Quote
+    </a>
   </div>
+
 </footer>
+
+<style>
+  /* --- FOOTER CTA STRIP --- */
+  .footer-cta-strip {
+    background: linear-gradient(135deg, var(--teal-dark) 0%, var(--teal) 100%);
+    padding: 2.25rem 0;
+  }
+
+  .footer-cta-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .footer-cta-label {
+    margin: 0;
+    color: rgba(255,255,255,0.75);
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .footer-cta-heading {
+    margin: 0.2rem 0 0;
+    color: var(--white);
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    font-weight: 800;
+    letter-spacing: -0.025em;
+  }
+
+  .footer-cta-actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+  }
+
+  .footer-cta-strip .btn-primary {
+    background: var(--white);
+    color: var(--teal-dark);
+    border-color: var(--white);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  }
+
+  .footer-cta-strip .btn-primary:hover {
+    background: var(--bg);
+    border-color: var(--bg);
+  }
+
+  .footer-cta-strip .cta-outline {
+    color: var(--white);
+    border-color: rgba(255,255,255,0.4);
+    background: transparent;
+  }
+
+  .footer-cta-strip .cta-outline:hover {
+    background: rgba(255,255,255,0.12);
+    border-color: rgba(255,255,255,0.6);
+  }
+
+  /* --- FOOTER LOGO WRAP --- */
+  .footer-logo-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .footer-logo-wrap img {
+    border-radius: 10px;
+    flex-shrink: 0;
+  }
+
+  .footer-logo-wrap span {
+    color: var(--white);
+    font-weight: 800;
+    font-size: 0.95rem;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+  }
+
+  /* --- FOOTER TRUST BADGES --- */
+  .footer-trust {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.1rem;
+  }
+
+  .footer-trust-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.35rem 0.75rem;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: var(--radius-full);
+    background: rgba(255,255,255,0.05);
+    color: rgba(229,231,235,0.80);
+    font-size: 0.78rem;
+    font-weight: 600;
+  }
+
+  .footer-trust-badge i {
+    color: var(--teal);
+    font-size: 0.72rem;
+  }
+
+  /* --- FOOTER CONTACT LINKS --- */
+  .footer-contact-item a {
+    color: #94a3b8;
+    transition: color var(--transition);
+  }
+
+  .footer-contact-item a:hover {
+    color: var(--white);
+  }
+
+  /* --- RESPONSIVE --- */
+  @media (max-width: 900px) {
+    .footer-cta-inner {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .footer-cta-actions {
+      width: 100%;
+    }
+
+    .footer-cta-actions .btn {
+      flex: 1;
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .footer-cta-actions {
+      flex-direction: column;
+    }
+  }
+</style>
