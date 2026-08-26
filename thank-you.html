@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Thank You | FC Cleaning Company</title>
@@ -18,51 +15,114 @@
   <div id="site-header"></div>
 
   <main class="page-main">
+
+    <!-- HERO -->
     <section class="page-hero page-hero-saas">
       <div class="container services-hero" style="grid-template-columns:1fr;max-width:820px;">
         <div>
-          <div class="hero-badge"><i class="fa-solid fa-circle-check"></i> Restaurant cleaning enquiry received</div>
-          <h1>Thank you for your enquiry</h1>
-          <p class="lead">We've received your details and will review them shortly. If needed, we'll arrange a quick call or site visit before recommending the right next step for your restaurant, pub, bar, café, takeaway or commercial kitchen.</p>
+          <div class="hero-badge">
+            <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+            Restaurant cleaning enquiry received
+          </div>
+          <h1>Thank you &mdash; we&rsquo;ve got your enquiry</h1>
+          <p class="lead">We&rsquo;ll review your venue details and get back to you shortly. If you&rsquo;d prefer to speak with us now, call or message us directly.</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="services.html">View Services</a>
-            <a class="btn btn-secondary" href="index.html">Back to Home</a>
+            <a class="btn btn-primary" href="tel:+441613990482">
+              <i class="fa-solid fa-phone" aria-hidden="true"></i> 0161 399 0482
+            </a>
+            <a class="btn btn-secondary" href="https://wa.me/447473379928?text=Hi%2C%20I%27d%20like%20to%20follow%20up%20on%20my%20cleaning%20enquiry." target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> WhatsApp Us
+            </a>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- WHAT HAPPENS NEXT -->
     <section class="section section-soft">
-      <div class="container split split-tight">
-        <div>
+      <div class="container">
+        <div class="section-heading">
           <p class="eyebrow">What happens next</p>
-          <h2>We'll keep the process straightforward</h2>
+          <h2>We&rsquo;ll keep the process straightforward</h2>
         </div>
-        <div>
-          <p class="lead">We review your venue type, cleaning needs, service hours, kitchen setup, customer areas, and any scheduling details you submitted.</p>
-          <p>If we need anything else, we'll be in touch. Otherwise, we'll move ahead with a proposal or recommendation that fits your venue.</p>
+        <div class="card-grid three-up">
+          <article class="card process-card">
+            <div class="process-number">01</div>
+            <h3>We review your details</h3>
+            <p>We look at your venue type, kitchen setup, service hours, customer areas, and any scheduling requirements you shared.</p>
+          </article>
+          <article class="card process-card">
+            <div class="process-number">02</div>
+            <h3>We get in touch</h3>
+            <p>We&rsquo;ll arrange a quick call or site visit to confirm your requirements before putting together a proposal.</p>
+          </article>
+          <article class="card process-card">
+            <div class="process-number">03</div>
+            <h3>You receive a tailored quote</h3>
+            <p>We send a clear cleaning proposal matched to your venue, schedule, and the areas that need covering.</p>
+          </article>
         </div>
       </div>
     </section>
 
+    <!-- CONTACT DETAILS -->
+    <section class="section">
+      <div class="container split split-tight">
+        <div>
+          <p class="eyebrow">Prefer to speak now?</p>
+          <h2>Reach us directly</h2>
+        </div>
+        <div>
+          <p class="lead">If you&rsquo;d like to discuss your enquiry before we follow up, you&rsquo;re welcome to call or message us directly.</p>
+          <div style="display:flex;flex-direction:column;gap:1rem;margin-top:1.25rem;">
+            <div style="display:flex;align-items:center;gap:0.75rem;">
+              <i class="fa-solid fa-phone" style="color:var(--teal);font-size:1.1rem;" aria-hidden="true"></i>
+              <a href="tel:+441613990482" style="font-weight:600;color:inherit;">0161 399 0482</a>
+            </div>
+            <div style="display:flex;align-items:center;gap:0.75rem;">
+              <i class="fa-brands fa-whatsapp" style="color:var(--teal);font-size:1.1rem;" aria-hidden="true"></i>
+              <a href="https://wa.me/447473379928?text=Hi%2C%20I%27d%20like%20to%20follow%20up%20on%20my%20cleaning%20enquiry." target="_blank" rel="noopener noreferrer" style="font-weight:600;color:inherit;">Message us on WhatsApp</a>
+            </div>
+            <div style="display:flex;align-items:center;gap:0.75rem;">
+              <i class="fa-solid fa-envelope" style="color:var(--teal);font-size:1.1rem;" aria-hidden="true"></i>
+              <a href="mailto:fernando.c@fccleaningcompany.com" style="font-weight:600;color:inherit;">fernando.c@fccleaningcompany.com</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA BAND -->
     <section class="cta-band">
       <div class="container cta-band-wrap">
         <div>
           <p class="eyebrow eyebrow-light">Explore more</p>
           <h2>Learn more about our restaurant cleaning services</h2>
-          <p>See how we support restaurants, pubs, bars, cafés, takeaways and commercial kitchens across Manchester.</p>
+          <p>See how we support restaurants, pubs, bars, caf&eacute;s, takeaways and commercial kitchens across Manchester.</p>
         </div>
         <div class="cta-actions">
-          <a class="btn btn-light" href="services.html">View Services</a>
-          <a class="btn btn-secondary cta-outline" href="faq.html">Read FAQs</a>
+          <a class="btn btn-light" href="services.html">
+            <i class="fa-solid fa-list" aria-hidden="true"></i> View Services
+          </a>
+          <a class="btn cta-outline" href="faq.html">
+            <i class="fa-solid fa-circle-question" aria-hidden="true"></i> Read FAQs
+          </a>
         </div>
       </div>
     </section>
+
   </main>
 
   <div id="site-footer"></div>
-  <a href="https://wa.me/447473379928?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20your%20cleaning%20services." class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">
-    <i class="fa-brands fa-whatsapp"></i>
+
+  <a
+    href="https://wa.me/447473379928?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20your%20cleaning%20services."
+    class="whatsapp-float"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Chat with us on WhatsApp"
+  >
+    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
   </a>
 
   <script src="includes.js"></script>

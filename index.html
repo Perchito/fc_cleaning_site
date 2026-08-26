@@ -14,6 +14,68 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="preload" href="styles.css" as="style">
   <link rel="preload" href="includes.js" as="script">
+
+  <!-- LocalBusiness structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "FC Cleaning Company",
+    "description": "Owner-managed restaurant, pub, bar, caf\u00e9, takeaway and commercial kitchen cleaning in Manchester. Flexible cleaning scheduled around service hours.",
+    "url": "https://www.fccleaningcompany.com/",
+    "telephone": "+441613990482",
+    "email": "fernando.c@fccleaningcompany.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Manchester",
+      "addressRegion": "Greater Manchester",
+      "addressCountry": "GB"
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": "Manchester"
+    },
+    "sameAs": [],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Restaurant Cleaning Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Commercial Kitchen Cleaning",
+            "description": "Deep cleaning for restaurant kitchens, prep areas, floors, tiles, surfaces, and grease-prone spaces."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Restaurant, Pub and Bar Cleaning",
+            "description": "Routine cleaning for dining rooms, bars, entrances, customer areas, and service spaces."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Hospitality Deep Cleaning",
+            "description": "Periodic reset cleans for kitchens, washrooms, floors, and high-touch areas."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Washroom and Front-of-House Cleaning",
+            "description": "Cleaning for customer toilets, waiting areas, entrances, and front-of-house presentation."
+          }
+        }
+      ]
+    }
+  }
+  </script>
 </head>
 <body>
 
