@@ -90,6 +90,7 @@ function initDraggableQuoteTab() {
   let moved = false;
   let startY = 0;
   let currentTop = window.innerHeight / 2;
+  let resizeTicking = false;
 
   const saved = localStorage.getItem('quoteTabTop');
   if (saved) currentTop = parseFloat(saved);
@@ -143,15 +144,31 @@ function initDraggableQuoteTab() {
     if (moved) { e.preventDefault(); moved = false; }
   });
 
-  window.addEventListener('resize', applyPosition);
+  // Throttle resize via rAF
+  window.addEventListener('resize', () => {
+    if (!resizeTicking) {
+      resizeTicking = true;
+      requestAnimationFrame(() => {
+        applyPosition();
+        resizeTicking = false;
+      });
+    }
+  });
 }
 
 // ===== HEADER SCROLL EFFECT =====
+// Throttled with requestAnimationFrame so it never blocks the main thread
+let scrollTicking = false;
 window.addEventListener('scroll', () => {
-  const header = document.querySelector('.site-header');
-  if (!header) return;
-  header.classList.toggle('scrolled', window.scrollY > 20);
-});
+  if (!scrollTicking) {
+    scrollTicking = true;
+    requestAnimationFrame(() => {
+      const header = document.querySelector('.site-header');
+      if (header) header.classList.toggle('scrolled', window.scrollY > 20);
+      scrollTicking = false;
+    });
+  }
+}, { passive: true });
 
 // ===== INIT =====
 // Hide body immediately so header/footer fetch doesn't cause a visible layout jump
