@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Restaurant, Pub & Commercial Kitchen Cleaning Manchester | FC Cleaning Company Ltd</title>
@@ -14,167 +11,699 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.fccleaningcompany.com/" />
 
-  <link rel="stylesheet" href="styles.css" />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="preload" href="header.html" as="fetch">
-  <link rel="preload" href="styles.css" as="style">
-  <link rel="preload" href="includes.js" as="script">
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    /* ── DESIGN TOKENS ── */
+    :root {
+      --navy:        #0B1F3A;
+      --navy-mid:    #122444;
+      --navy-light:  #1a3560;
+      --teal:        #00C2B3;
+      --teal-dark:   #009d90;
+      --teal-glow:   rgba(0,194,179,.15);
+      --white:       #ffffff;
+      --off-white:   #f4f7fb;
+      --text-dark:   #0d1b2e;
+      --text-muted:  #5a7087;
+      --border:      rgba(11,31,58,.10);
+      --font:        'Plus Jakarta Sans', sans-serif;
+      --radius:      12px;
+      --radius-lg:   20px;
+      --shadow:      0 4px 24px rgba(11,31,58,.10);
+      --shadow-lg:   0 12px 48px rgba(11,31,58,.18);
+      --transition:  200ms cubic-bezier(.16,1,.3,1);
+    }
+
+    /* ── RESET ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font); color: var(--text-dark); background: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    img { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+
+    /* ── UTILITIES ── */
+    .container { max-width: 1160px; margin-inline: auto; padding-inline: 24px; }
+    .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
+
+    /* ── NAV ── */
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--navy);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 68px; gap: 24px;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 1.1rem; font-weight: 800; color: var(--white); letter-spacing: -.01em;
+    }
+    .nav-logo svg { flex-shrink: 0; }
+    .nav-logo span { color: var(--teal); }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-links a { color: rgba(255,255,255,.75); font-size: .9rem; font-weight: 500; transition: color var(--transition); }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta {
+      background: var(--teal); color: var(--navy); font-weight: 700;
+      padding: 10px 22px; border-radius: 8px; font-size: .9rem;
+      transition: background var(--transition), transform var(--transition);
+      white-space: nowrap;
+    }
+    .nav-cta:hover { background: var(--teal-dark); transform: translateY(-1px); }
+    .nav-hamburger { display: none; background: none; border: none; color: var(--white); font-size: 1.4rem; cursor: pointer; padding: 8px; }
+    .mobile-menu { display: none; }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--navy);
+      padding: 80px 0 0;
+      overflow: hidden;
+    }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--teal-glow); border: 1px solid rgba(0,194,179,.3);
+      color: var(--teal); font-size: .8rem; font-weight: 600;
+      padding: 6px 14px; border-radius: 100px; margin-bottom: 24px;
+      text-transform: uppercase; letter-spacing: .06em;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.15;
+      letter-spacing: -.02em;
+      margin-bottom: 20px;
+    }
+    .hero h1 em { color: var(--teal); font-style: normal; }
+    .hero-lead {
+      color: rgba(255,255,255,.65);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      margin-bottom: 32px;
+      max-width: 500px;
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 40px; }
+    .btn-primary-hero {
+      background: var(--teal); color: var(--navy);
+      font-weight: 700; font-size: 1rem;
+      padding: 14px 28px; border-radius: 10px;
+      display: inline-flex; align-items: center; gap: 8px;
+      transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+      box-shadow: 0 4px 20px rgba(0,194,179,.35);
+    }
+    .btn-primary-hero:hover { background: var(--teal-dark); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,194,179,.45); }
+    .btn-ghost-hero {
+      background: rgba(255,255,255,.08); color: var(--white);
+      font-weight: 600; font-size: 1rem;
+      padding: 14px 28px; border-radius: 10px;
+      border: 1px solid rgba(255,255,255,.15);
+      display: inline-flex; align-items: center; gap: 8px;
+      transition: background var(--transition);
+    }
+    .btn-ghost-hero:hover { background: rgba(255,255,255,.14); }
+    .hero-trust {
+      display: flex; flex-wrap: wrap; gap: 20px;
+      border-top: 1px solid rgba(255,255,255,.08);
+      padding-top: 28px;
+    }
+    .hero-trust-item {
+      display: flex; align-items: center; gap: 8px;
+      color: rgba(255,255,255,.6); font-size: .83rem; font-weight: 500;
+    }
+    .hero-trust-item i { color: var(--teal); font-size: .9rem; }
+
+    /* Hero image side */
+    .hero-visual { position: relative; display: flex; flex-direction: column; gap: 16px; padding-bottom: 0; }
+    .hero-img-wrap {
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+      overflow: hidden;
+      background: var(--navy-light);
+      aspect-ratio: 4/3;
+      position: relative;
+    }
+    .hero-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-img-placeholder {
+      width: 100%; height: 100%;
+      background: linear-gradient(135deg, #122444 0%, #1a3560 100%);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 12px; color: rgba(255,255,255,.25); font-size: .85rem;
+    }
+    .hero-img-placeholder i { font-size: 3rem; color: rgba(0,194,179,.4); }
+    .hero-stat-row {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1px; background: rgba(255,255,255,.06);
+      border-radius: 0 0 var(--radius) var(--radius);
+      overflow: hidden;
+    }
+    .hero-stat {
+      background: var(--navy-mid);
+      padding: 18px 16px; text-align: center;
+    }
+    .hero-stat strong { display: block; font-size: 1.5rem; font-weight: 800; color: var(--teal); line-height: 1; margin-bottom: 4px; }
+    .hero-stat span { font-size: .75rem; color: rgba(255,255,255,.5); font-weight: 500; }
+
+    /* ── TRUST STRIP ── */
+    .trust-strip {
+      background: var(--off-white);
+      border-top: 3px solid var(--teal);
+      border-bottom: 1px solid var(--border);
+      padding: 28px 0;
+    }
+    .trust-strip-inner {
+      display: flex; align-items: center; justify-content: center;
+      flex-wrap: wrap; gap: 12px 40px;
+    }
+    .trust-item {
+      display: flex; align-items: center; gap: 10px;
+      font-size: .88rem; font-weight: 600; color: var(--navy);
+    }
+    .trust-item i { color: var(--teal); font-size: 1rem; }
+
+    /* ── SECTION STYLES ── */
+    .section { padding: 80px 0; }
+    .section-alt { background: var(--off-white); }
+    .section-navy { background: var(--navy); }
+    .eyebrow {
+      display: inline-block;
+      font-size: .75rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--teal);
+      margin-bottom: 10px;
+    }
+    .eyebrow-light { color: var(--teal); }
+    .section-title {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 800; color: var(--navy);
+      letter-spacing: -.02em; line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .section-title-light { color: var(--white); }
+    .section-subtitle {
+      font-size: 1.05rem; color: var(--text-muted);
+      max-width: 580px; line-height: 1.7;
+    }
+    .section-header { margin-bottom: 48px; }
+    .section-header-center { text-align: center; }
+    .section-header-center .section-subtitle { margin-inline: auto; }
+
+    /* ── SERVICES GRID ── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .service-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      transition: box-shadow var(--transition), transform var(--transition), border-color var(--transition);
+    }
+    .service-card:hover {
+      box-shadow: var(--shadow);
+      transform: translateY(-4px);
+      border-color: var(--teal);
+    }
+    .service-icon {
+      width: 48px; height: 48px;
+      background: var(--teal-glow);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 16px;
+    }
+    .service-icon i { color: var(--teal); font-size: 1.3rem; }
+    .service-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 8px; color: var(--navy); }
+    .service-card p { font-size: .9rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 16px; }
+    .card-link-arrow {
+      font-size: .85rem; font-weight: 600; color: var(--teal);
+      display: inline-flex; align-items: center; gap: 6px;
+      transition: gap var(--transition);
+    }
+    .card-link-arrow:hover { gap: 10px; }
+
+    /* ── WHY CHOOSE US — SPLIT ── */
+    .split-section {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 64px; align-items: center;
+    }
+    .split-visual {
+      background: var(--navy);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      position: relative;
+    }
+    .split-visual img { width: 100%; height: 100%; object-fit: cover; }
+    .split-visual-placeholder {
+      width: 100%; height: 100%;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .split-visual-placeholder i { font-size: 4rem; color: rgba(0,194,179,.3); }
+    .split-content .eyebrow { margin-bottom: 12px; }
+    .benefit-list { margin-top: 28px; display: flex; flex-direction: column; gap: 18px; }
+    .benefit-item {
+      display: flex; gap: 14px; align-items: flex-start;
+    }
+    .benefit-icon {
+      width: 36px; height: 36px; flex-shrink: 0;
+      background: var(--teal-glow); border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .benefit-icon i { color: var(--teal); font-size: .9rem; }
+    .benefit-item h4 { font-size: .95rem; font-weight: 700; color: var(--navy); margin-bottom: 2px; }
+    .benefit-item p { font-size: .88rem; color: var(--text-muted); line-height: 1.5; }
+
+    /* ── PROCESS ── */
+    .process-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 24px; position: relative;
+    }
+    .process-grid::before {
+      content: '';
+      position: absolute; top: 28px; left: calc(16.66% + 16px); right: calc(16.66% + 16px);
+      height: 2px; background: linear-gradient(90deg, var(--teal) 0%, transparent 100%);
+      border-top: 2px dashed rgba(0,194,179,.3);
+    }
+    .process-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 22px;
+      position: relative;
+    }
+    .process-num {
+      width: 56px; height: 56px;
+      background: var(--navy);
+      color: var(--teal);
+      font-weight: 800; font-size: 1.1rem;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      margin-bottom: 20px;
+      border: 3px solid var(--teal-glow);
+    }
+    .process-card h3 { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+    .process-card p { font-size: .88rem; color: var(--text-muted); line-height: 1.6; }
+
+    /* ── CTA BAND ── */
+    .cta-band {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+      padding: 72px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-band::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(circle at 50% 0%, rgba(0,194,179,.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-band-content { position: relative; max-width: 600px; margin-inline: auto; }
+    .cta-band h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      font-weight: 800; color: var(--white);
+      line-height: 1.2; letter-spacing: -.02em;
+      margin-bottom: 16px;
+    }
+    .cta-band p { color: rgba(255,255,255,.65); font-size: 1rem; line-height: 1.7; margin-bottom: 36px; }
+    .cta-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; }
+    .btn-cta {
+      background: var(--teal); color: var(--navy);
+      font-weight: 700; font-size: 1rem;
+      padding: 14px 30px; border-radius: 10px;
+      display: inline-flex; align-items: center; gap: 8px;
+      box-shadow: 0 4px 20px rgba(0,194,179,.4);
+      transition: background var(--transition), transform var(--transition);
+    }
+    .btn-cta:hover { background: var(--teal-dark); transform: translateY(-2px); }
+    .btn-cta-outline {
+      background: transparent; color: var(--white);
+      font-weight: 600; font-size: 1rem;
+      padding: 14px 30px; border-radius: 10px;
+      border: 1px solid rgba(255,255,255,.25);
+      display: inline-flex; align-items: center; gap: 8px;
+      transition: background var(--transition);
+    }
+    .btn-cta-outline:hover { background: rgba(255,255,255,.08); }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: #07131f;
+      padding: 56px 0 28px;
+      color: rgba(255,255,255,.5);
+    }
+    .footer-inner {
+      display: grid; grid-template-columns: 2fr 1fr 1fr;
+      gap: 48px; margin-bottom: 48px;
+    }
+    .footer-brand { max-width: 280px; }
+    .footer-logo {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 1rem; font-weight: 800; color: var(--white); margin-bottom: 12px;
+    }
+    .footer-logo span { color: var(--teal); }
+    .footer-brand p { font-size: .85rem; line-height: 1.7; margin-bottom: 20px; }
+    .footer-contact a {
+      display: flex; align-items: center; gap: 8px;
+      font-size: .85rem; color: rgba(255,255,255,.6);
+      margin-bottom: 8px; transition: color var(--transition);
+    }
+    .footer-contact a:hover { color: var(--teal); }
+    .footer-contact i { color: var(--teal); width: 16px; }
+    .footer-col h4 { font-size: .8rem; font-weight: 700; color: var(--white); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 16px; }
+    .footer-col a { display: block; font-size: .85rem; color: rgba(255,255,255,.55); margin-bottom: 10px; transition: color var(--transition); }
+    .footer-col a:hover { color: var(--teal); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.07);
+      padding-top: 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 12px;
+      font-size: .8rem;
+    }
+    .footer-bottom a { color: rgba(255,255,255,.5); transition: color var(--transition); }
+    .footer-bottom a:hover { color: var(--teal); }
+
+    /* ── FLOATING BUTTONS ── */
+    .whatsapp-float {
+      position: fixed; bottom: 24px; right: 24px; z-index: 999;
+      width: 56px; height: 56px;
+      background: #25D366; color: var(--white);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem;
+      box-shadow: 0 4px 20px rgba(37,211,102,.4);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .whatsapp-float:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(37,211,102,.5); }
+    .mobile-cta-bar {
+      display: none;
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 100;
+      background: var(--navy); border-top: 2px solid var(--teal);
+      padding: 12px 20px;
+    }
+    .mobile-cta-bar a {
+      display: block; text-align: center;
+      background: var(--teal); color: var(--navy);
+      font-weight: 700; font-size: 1rem;
+      padding: 13px; border-radius: 8px;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+      .hero-visual { display: none; }
+      .split-section { grid-template-columns: 1fr; }
+      .split-visual { display: none; }
+      .process-grid { grid-template-columns: 1fr; }
+      .process-grid::before { display: none; }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .hero { padding: 56px 0 0; }
+      .hero h1 { font-size: 1.85rem; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: block; }
+      .trust-strip-inner { gap: 10px 28px; }
+      .footer-inner { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .mobile-cta-bar { display: block; }
+      .whatsapp-float { bottom: 88px; }
+      .section { padding: 56px 0; }
+    }
+  </style>
 </head>
 <body>
-  <div id="site-header"></div>
+
+  <!-- ── NAV ── -->
+  <nav class="nav" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a href="/" class="nav-logo" aria-label="FC Cleaning Company home">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <rect width="32" height="32" rx="8" fill="#00C2B3"/>
+          <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" fill="#0B1F3A" font-family="Plus Jakarta Sans,sans-serif" font-weight="800" font-size="13">FC</text>
+        </svg>
+        FC <span>Cleaning</span>
+      </a>
+      <div class="nav-links" role="list">
+        <a href="services.html" role="listitem">Services</a>
+        <a href="about.html" role="listitem">About</a>
+        <a href="faq.html" role="listitem">FAQ</a>
+        <a href="contact.html" role="listitem">Contact</a>
+      </div>
+      <a href="contact.html#contact-form" class="nav-cta">Get a Free Quote</a>
+      <button class="nav-hamburger" aria-label="Open menu" onclick="document.querySelector('.mobile-menu').style.display='block'">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section class="hero" aria-labelledby="hero-heading">
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <div class="hero-badge">
+          <i class="fa-solid fa-location-dot"></i> Manchester · Hospitality Specialists
+        </div>
+        <h1 id="hero-heading">
+          Commercial Cleaning <em>Built for Busy</em> Hospitality Venues
+        </h1>
+        <p class="hero-lead">
+          Owner-managed cleaning for restaurants, pubs, bars, cafés, takeaways and commercial kitchens in Manchester. Flexible out-of-hours scheduling, clear communication, reliable results.
+        </p>
+        <div class="hero-actions">
+          <a href="contact.html#contact-form" class="btn-primary-hero">
+            Get a Free Quote <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <a href="services.html" class="btn-ghost-hero">
+            Our Services
+          </a>
+        </div>
+        <div class="hero-trust">
+          <div class="hero-trust-item"><i class="fa-solid fa-user-tie"></i> Owner-managed</div>
+          <div class="hero-trust-item"><i class="fa-solid fa-shield-halved"></i> Fully insured</div>
+          <div class="hero-trust-item"><i class="fa-solid fa-clock"></i> Out-of-hours available</div>
+          <div class="hero-trust-item"><i class="fa-solid fa-location-dot"></i> Manchester based</div>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-img-wrap">
+          <img src="images/card-images/wet-sign.jpg" alt="Professional restaurant cleaning in Manchester" loading="eager" decoding="async" />
+        </div>
+        <div class="hero-stat-row">
+          <div class="hero-stat"><strong>100%</strong><span>Owner managed</span></div>
+          <div class="hero-stat"><strong>24/7</strong><span>Flexible hours</span></div>
+          <div class="hero-stat"><strong>MCR</strong><span>Manchester based</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TRUST STRIP ── -->
+  <div class="trust-strip" role="list" aria-label="Key service highlights">
+    <div class="container trust-strip-inner">
+      <div class="trust-item" role="listitem"><i class="fa-solid fa-user-tie"></i> Owner-managed service</div>
+      <div class="trust-item" role="listitem"><i class="fa-solid fa-kitchen-set"></i> Hospitality specialists</div>
+      <div class="trust-item" role="listitem"><i class="fa-solid fa-clock"></i> Flexible out-of-hours</div>
+      <div class="trust-item" role="listitem"><i class="fa-solid fa-shield-halved"></i> Fully insured</div>
+      <div class="trust-item" role="listitem"><i class="fa-solid fa-phone"></i> Direct contact — no call centres</div>
+    </div>
+  </div>
+
   <main>
-    <section class="hero hero-saas">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <div class="hero-badge"><i class="fa-solid fa-utensils"></i> Restaurant, pub & commercial kitchen cleaning in Manchester</div>
-          <h1>Cleaning That Keeps Your Restaurant Ready for Service</h1>
-          <p class="lead">FC Cleaning Company supports restaurants, pubs, bars, cafés, takeaways, and commercial kitchens with reliable cleaning routines, flexible out-of-hours scheduling, and standards shaped by real hospitality experience.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="contact.html#contact-form">Request a Restaurant Cleaning Quote</a>
-            <a class="btn btn-secondary" href="services.html">View Restaurant Cleaning Services</a>
-          </div>
-          <ul class="mini-points mini-points-mobile">
-            <li><i class="fa-solid fa-check"></i> Flexible cleaning around service hours</li>
-            <li><i class="fa-solid fa-check"></i> Kitchen, bar and dining area cleaning</li>
-            <li><i class="fa-solid fa-check"></i> Public liability insurance</li>
-            <li><i class="fa-solid fa-check"></i> Manchester-based hospitality experience</li>
-          </ul>
-        </div>
-        <div class="hero-side">
-          <div class="hero-card hero-showcase">
-            <div class="mock-office">
-              <img src="images/card-images/wet-sign.jpg" alt="Restaurant cleaning wet floor sign in a hospitality venue" fetchpriority="high" decoding="async" />
-            </div>
-            <div class="hero-card-text">
-              <strong>Built for busy hospitality venues</strong>
-              <p>From commercial kitchen deep cleans to front-of-house dining areas, bars, washrooms, and staff areas, our cleaning is planned around how your venue operates before, during, and after service.</p>
-              <a href="services.html" class="card-link">Explore our services <i class="fa-solid fa-arrow-right"></i></a>
-            </div>
-          </div>
-          <ul class="mini-points hero-mini-points mini-points-desktop">
-            <li><i class="fa-solid fa-check"></i> Flexible cleaning around service hours</li>
-            <li><i class="fa-solid fa-check"></i> Kitchen, bar and dining area cleaning</li>
-            <li><i class="fa-solid fa-check"></i> Public liability insurance</li>
-            <li><i class="fa-solid fa-check"></i> Manchester-based hospitality experience</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="section trust-strip-section">
+    <!-- ── SERVICES ── -->
+    <section class="section" aria-labelledby="services-heading">
       <div class="container">
-        <div class="trust-strip">
-          <div class="trust-item"><i class="fa-solid fa-user-tie"></i><span>Owner-managed service</span></div>
-          <div class="trust-item"><i class="fa-solid fa-kitchen-set"></i><span>Kitchen and hospitality focus</span></div>
-          <div class="trust-item"><i class="fa-solid fa-clock"></i><span>Flexible out-of-hours cleaning</span></div>
-          <div class="trust-item"><i class="fa-solid fa-location-dot"></i><span>Manchester restaurant support</span></div>
+        <div class="section-header section-header-center">
+          <p class="eyebrow">What we clean</p>
+          <h2 class="section-title" id="services-heading">Specialist cleaning for every corner of your venue</h2>
+          <p class="section-subtitle">From commercial kitchens to customer-facing areas — we cover every space that matters to your guests and your inspection scores.</p>
         </div>
-      </div>
-    </section>
-
-    <section class="section section-soft">
-      <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">Why restaurants choose FC</p>
-          <h2>A dependable cleaning partner for restaurants, pubs, bars, cafés and takeaways</h2>
-        </div>
-        <div class="split-text-center">
-          <p class="lead">
-            Your venue needs to look clean, feel fresh, and be ready for customers every day. FC Cleaning provides practical, reliable cleaning support for hospitality spaces where presentation, hygiene, and timing matter.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">Restaurant cleaning services</p>
-          <h2>Specialist cleaning for kitchens, dining areas, bars and washrooms</h2>
-        </div>
-        <div class="card-grid four-up">
-          <article class="card feature-card">
-            <div class="card-icon">
-              <img src="images/icons/kitchen-cleaning.png" alt="Commercial kitchen cleaning icon" />
-            </div>
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="service-icon"><i class="fa-solid fa-fire-burner"></i></div>
             <h3>Commercial Kitchen Cleaning</h3>
-            <p>Deep cleaning for restaurant kitchens, food prep areas, back-of-house spaces, floors, tiles, surfaces, and high-grease environments.</p>
-            <a href="services.html" class="card-link">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+            <p>Deep cleans for kitchens, food prep areas, floors, surfaces, and high-grease environments that meet hygiene standards.</p>
+            <a href="services.html" class="card-link-arrow">Learn more <i class="fa-solid fa-arrow-right"></i></a>
           </article>
-          <article class="card feature-card">
-            <div class="card-icon">
-              <img src="images/icons/pub-bar-cleaning.png" alt="Restaurant pub bar cleaning icon" />
-            </div>
+          <article class="service-card">
+            <div class="service-icon"><i class="fa-solid fa-champagne-glasses"></i></div>
             <h3>Restaurant, Pub & Bar Cleaning</h3>
-            <p>Routine cleaning for dining rooms, bar areas, entrances, floors, tables, customer areas, and front-of-house presentation.</p>
-            <a href="services.html" class="card-link">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+            <p>Routine cleaning for dining rooms, bar areas, entrances, floors, tables, and front-of-house presentation.</p>
+            <a href="services.html" class="card-link-arrow">Learn more <i class="fa-solid fa-arrow-right"></i></a>
           </article>
-          <article class="card feature-card">
-            <div class="card-icon">
-              <img src="images/icons/deep-cleaning.png" alt="Restaurant deep cleaning icon" />
-            </div>
+          <article class="service-card">
+            <div class="service-icon"><i class="fa-solid fa-broom"></i></div>
             <h3>Hospitality Deep Cleaning</h3>
-            <p>Periodic reset cleans for kitchens, washrooms, floors, high-touch areas, extraction-adjacent areas, and spaces that build up over time.</p>
-            <a href="services.html" class="card-link">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+            <p>Periodic reset cleans for kitchens, washrooms, floors, high-touch areas, and spaces that build up over time.</p>
+            <a href="services.html" class="card-link-arrow">Learn more <i class="fa-solid fa-arrow-right"></i></a>
           </article>
-          <article class="card feature-card">
-            <div class="card-icon">
-              <img src="images/icons/restroom.svg" alt="Restroom icon" />
+          <article class="service-card">
+            <div class="service-icon"><i class="fa-solid fa-restroom"></i></div>
+            <h3>Washroom & Front-of-House</h3>
+            <p>Customer toilets, staff washrooms, entrances, and high-traffic spaces that directly affect guest experience.</p>
+            <a href="services.html" class="card-link-arrow">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── WHY FC ── -->
+    <section class="section section-alt" aria-labelledby="why-heading">
+      <div class="container">
+        <div class="split-section">
+          <div class="split-visual" aria-hidden="true">
+            <div class="split-visual-placeholder">
+              <i class="fa-solid fa-spray-can-sparkles"></i>
             </div>
-            <h3>Washroom & Front-of-House Cleaning</h3>
-            <p>Cleaning for customer toilets, staff washrooms, entrances, waiting areas, and high-traffic spaces that affect guest experience.</p>
-            <a href="services.html" class="card-link">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+          <div class="split-content">
+            <p class="eyebrow">Why choose FC Cleaning</p>
+            <h2 class="section-title" id="why-heading">Cleaning that works around your service hours, not against them</h2>
+            <p class="section-subtitle">We understand hospitality. That means turning up when it suits your venue — early mornings, late evenings, between services.</p>
+            <ul class="benefit-list" role="list">
+              <li class="benefit-item">
+                <div class="benefit-icon"><i class="fa-solid fa-user-tie"></i></div>
+                <div>
+                  <h4>Owner-managed, every time</h4>
+                  <p>You deal directly with the person running the business — not a call centre or account manager.</p>
+                </div>
+              </li>
+              <li class="benefit-item">
+                <div class="benefit-icon"><i class="fa-solid fa-clock"></i></div>
+                <div>
+                  <h4>Flexible scheduling</h4>
+                  <p>Early mornings, late evenings, between services — we work around your restaurant, not the other way round.</p>
+                </div>
+              </li>
+              <li class="benefit-item">
+                <div class="benefit-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                <div>
+                  <h4>Fully insured, professionally equipped</h4>
+                  <p>Public liability insurance and the right products for commercial hospitality environments.</p>
+                </div>
+              </li>
+              <li class="benefit-item">
+                <div class="benefit-icon"><i class="fa-solid fa-star"></i></div>
+                <div>
+                  <h4>Hygiene-standard results</h4>
+                  <p>Cleaning that meets the standards your venue needs — for inspections, staff, and customers.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── HOW IT WORKS ── -->
+    <section class="section" aria-labelledby="process-heading">
+      <div class="container">
+        <div class="section-header section-header-center">
+          <p class="eyebrow">How it works</p>
+          <h2 class="section-title" id="process-heading">From first message to first clean — it's straightforward</h2>
+        </div>
+        <div class="process-grid">
+          <article class="process-card">
+            <div class="process-num">01</div>
+            <h3>Tell us about your venue</h3>
+            <p>Restaurant, pub, bar, café, kitchen — share your cleaning priorities and your preferred schedule.</p>
+          </article>
+          <article class="process-card">
+            <div class="process-num">02</div>
+            <h3>We recommend a plan</h3>
+            <p>We review your space, service hours, and requirements, then suggest the best approach and a clear quote.</p>
+          </article>
+          <article class="process-card">
+            <div class="process-num">03</div>
+            <h3>Cleaning starts — reliably</h3>
+            <p>Dependable cleaning, direct communication, and a routine designed to keep your venue guest-ready every day.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section section-soft">
-      <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">Built around service hours</p>
-          <h2>Cleaning that works around your restaurant, not against it</h2>
-        </div>
-        <div class="bullet-panel">
-          <div class="bullet-item" style="justify-content: center;"><span>Early morning, daytime, evening and out-of-hours cleaning options</span></div>
-          <div class="bullet-item" style="justify-content: center;"><span>Support for kitchens, bars, dining rooms, washrooms and staff areas</span></div>
-          <div class="bullet-item" style="justify-content: center;"><span>Reliable routines for venues that need to stay customer-ready</span></div>
-          <div class="bullet-item" style="justify-content: center;"><span>Clear communication with one owner-managed point of contact</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-soft">
-      <div class="container">
-        <div class="section-heading"><p class="eyebrow">How it works</p><h2>A simple route from enquiry to regular restaurant cleaning</h2></div>
-        <div class="card-grid three-up">
-          <article class="card process-card"><div class="process-number">01</div><h3>Tell us about your venue</h3><p>Tell us whether you run a restaurant, pub, bar, café, takeaway, or commercial kitchen, and share your cleaning priorities and preferred schedule.</p></article>
-          <article class="card process-card"><div class="process-number">02</div><h3>We recommend the right plan</h3><p>We review your venue, service hours, kitchen setup, customer areas, and cleaning requirements before recommending the best approach.</p></article>
-          <article class="card process-card"><div class="process-number">03</div><h3>Cleaning starts with clear standards</h3><p>You get dependable cleaning, direct communication, and a routine designed to keep your venue ready for staff, customers, and service.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="cta-band">
-      <div class="container cta-band-wrap">
-        <div>
-          <p class="eyebrow eyebrow-light">Get started</p>
-          <h2>Need a restaurant, pub or kitchen cleaning quote?</h2>
-          <p>Tell us about your venue, kitchen, service hours, and cleaning needs, and we'll recommend the right next step with a tailored proposal.</p>
-        </div>
+    <!-- ── CTA BAND ── -->
+    <section class="cta-band" aria-labelledby="cta-heading">
+      <div class="container cta-band-content">
+        <p class="eyebrow eyebrow-light">Ready to get started?</p>
+        <h2 id="cta-heading">Get a free quote for your restaurant or kitchen</h2>
+        <p>Tell us about your venue and cleaning needs — we'll respond quickly with a tailored proposal and no obligation.</p>
         <div class="cta-actions">
-          <a class="btn btn-light" href="contact.html#contact-form">Request a Quote</a>
-          <a class="btn btn-secondary cta-outline" href="services.html">Explore Services</a>
+          <a href="contact.html#contact-form" class="btn-cta">
+            Request a Free Quote <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <a href="https://wa.me/447473379928?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20your%20cleaning%20services." class="btn-cta-outline" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-whatsapp"></i> WhatsApp Us
+          </a>
         </div>
       </div>
     </section>
   </main>
 
-  <div id="site-footer"></div>
-  <a href="contact.html#contact-form" class="mobile-quote-tab"><span>Request a Quote</span></a>
+  <!-- ── FOOTER ── -->
+  <footer class="footer" aria-label="Site footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <svg width="28" height="28" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+              <rect width="32" height="32" rx="8" fill="#00C2B3"/>
+              <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" fill="#0B1F3A" font-family="Plus Jakarta Sans,sans-serif" font-weight="800" font-size="13">FC</text>
+            </svg>
+            FC <span>Cleaning</span>
+          </div>
+          <p>Owner-managed cleaning for restaurants, pubs, bars, cafés, takeaways and commercial kitchens across Manchester.</p>
+          <div class="footer-contact">
+            <a href="tel:+447473379928"><i class="fa-solid fa-phone"></i> 07473 379 928</a>
+            <a href="mailto:info@fccleaningcompany.com"><i class="fa-solid fa-envelope"></i> info@fccleaningcompany.com</a>
+            <a href="#"><i class="fa-solid fa-location-dot"></i> Manchester, UK</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <a href="services.html">Kitchen Cleaning</a>
+          <a href="services.html">Restaurant & Bar</a>
+          <a href="services.html">Deep Cleaning</a>
+          <a href="services.html">Washroom Cleaning</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="about.html">About Us</a>
+          <a href="faq.html">FAQ</a>
+          <a href="contact.html">Contact</a>
+          <a href="contact.html#contact-form">Get a Quote</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 FC Cleaning Company Ltd. All rights reserved.</span>
+        <div style="display:flex;gap:20px;">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ── FLOATING ELEMENTS ── -->
+  <div class="mobile-cta-bar" role="complementary" aria-label="Quick quote button">
+    <a href="contact.html#contact-form">Get a Free Quote</a>
+  </div>
   <a href="https://wa.me/447473379928?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20your%20cleaning%20services." class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">
     <i class="fa-brands fa-whatsapp"></i>
   </a>
-  <script src="includes.js"></script>
+
 </body>
 </html>
