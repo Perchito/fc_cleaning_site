@@ -1,18 +1,25 @@
-<header class="site-header">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
+<header class="site-header" id="site-header">
+
+  <!-- Step 1 font: Plus Jakarta Sans via Fontshare -->
+  <link href="https://api.fontshare.com/v2/css?f[]=plus-jakarta-sans@400,500,600,700,800&display=swap" rel="stylesheet">
+
   <div class="container nav-wrap">
 
+    <!-- Brand -->
     <a class="brand" href="index.html" aria-label="FC Cleaning Company home">
-      <img src="images/company-logo/FC-NO-BG.png" alt="FC Cleaning Company logo" />
-
+      <img
+        src="images/company-logo/FC-NO-BG.png"
+        alt="FC Cleaning Company logo"
+        width="60" height="60"
+        loading="eager"
+      />
       <div class="brand-text">
         <strong>FC Cleaning Company</strong>
-        <span>Restaurant & Commercial Kitchen Cleaning Manchester</span>
+        <span>Restaurant &amp; Commercial Kitchen Cleaning</span>
       </div>
     </a>
 
+    <!-- Mobile hamburger -->
     <button
       class="nav-toggle"
       type="button"
@@ -25,6 +32,7 @@
       <span></span>
     </button>
 
+    <!-- Primary nav -->
     <nav class="nav" id="site-navigation" aria-label="Primary navigation">
       <a href="index.html">Home</a>
       <a href="services.html">Services</a>
@@ -33,11 +41,144 @@
       <a href="contact.html">Contact</a>
     </nav>
 
+    <!-- Desktop CTA group -->
     <div class="nav-cta-group">
+      <a href="tel:+447700000000" class="nav-phone desktop-cta" aria-label="Call us">
+        <i class="fa-solid fa-phone" aria-hidden="true"></i>
+        <span>Call Us</span>
+      </a>
       <a href="contact.html#contact-form" class="btn btn-primary desktop-cta">
-        Request a Quote
+        Get a Free Quote
       </a>
     </div>
 
   </div>
 </header>
+
+<style>
+  /* Nav phone link */
+  .nav-phone {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.55rem 0.9rem;
+    border: 1.5px solid rgba(255,255,255,0.15);
+    border-radius: var(--radius-full);
+    color: rgba(229,231,235,0.85);
+    font-size: 0.88rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    transition: color var(--transition), border-color var(--transition), background var(--transition);
+  }
+
+  .nav-phone:hover {
+    color: var(--white);
+    border-color: rgba(255,255,255,0.30);
+    background: rgba(255,255,255,0.06);
+  }
+
+  .nav-phone i { font-size: 0.82rem; }
+
+  /* Scrolled state: slight blur for glass effect */
+  .site-header.scrolled {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  /* Active page link highlight */
+  .nav a[aria-current="page"] {
+    color: var(--white);
+  }
+
+  .nav a[aria-current="page"]::after {
+    transform: scaleX(1);
+  }
+
+  /* Mobile: show phone in nav menu too */
+  @media (max-width: 900px) {
+    .nav-phone.desktop-cta { display: none; }
+
+    .nav::after {
+      content: '';
+      display: block;
+      margin-top: auto;
+    }
+
+    /* Mobile quote button inside the nav drawer */
+    .nav-mobile-cta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+  }
+
+  @media (min-width: 901px) {
+    .nav-mobile-cta { display: none; }
+  }
+</style>
+
+<script>
+  /* Scrolled class for glass header */
+  (function () {
+    var header = document.getElementById('site-header');
+    if (!header) return;
+    var onScroll = function () {
+      header.classList.toggle('scrolled', window.scrollY > 40);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
+
+  /* Active nav link */
+  (function () {
+    var links = document.querySelectorAll('.nav a');
+    var path = window.location.pathname.split('/').pop() || 'index.html';
+    links.forEach(function (link) {
+      var href = link.getAttribute('href');
+      if (href === path || (path === '' && href === 'index.html')) {
+        link.setAttribute('aria-current', 'page');
+      }
+    });
+  })();
+
+  /* Hamburger toggle */
+  (function () {
+    var toggle = document.querySelector('.nav-toggle');
+    var nav    = document.getElementById('site-navigation');
+    if (!toggle || !nav) return;
+
+    toggle.addEventListener('click', function () {
+      var open = toggle.classList.toggle('is-open');
+      nav.classList.toggle('is-open', open);
+      document.body.classList.toggle('menu-open', open);
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      toggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+    });
+
+    /* Close on nav link click */
+    nav.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        toggle.classList.remove('is-open');
+        nav.classList.remove('is-open');
+        document.body.classList.remove('menu-open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', 'Open navigation menu');
+      });
+    });
+
+    /* Close on Escape */
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && nav.classList.contains('is-open')) {
+        toggle.classList.remove('is-open');
+        nav.classList.remove('is-open');
+        document.body.classList.remove('menu-open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', 'Open navigation menu');
+        toggle.focus();
+      }
+    });
+  })();
+</script>
