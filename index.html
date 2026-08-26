@@ -24,6 +24,109 @@
     "areaServed": { "@type": "City", "name": "Manchester" }
   }
   </script>
+  <style>
+    /* ── MOBILE POLISH ── */
+
+    /* Hero: on mobile stack vertically and clip image nicely */
+    @media (max-width: 900px) {
+      .hero-wrap {
+        grid-template-columns: 1fr !important;
+        min-height: auto !important;
+      }
+      .hero-left {
+        padding: 3rem 0 2.5rem !important;
+      }
+      .hero-copy {
+        padding-left: 0 !important;
+        max-width: 100% !important;
+      }
+      .hero-copy h1 {
+        font-size: clamp(2rem, 9vw, 2.8rem) !important;
+        line-height: 1.1 !important;
+      }
+      .hero-right {
+        min-height: 240px;
+        max-height: 280px;
+        display: block;
+      }
+      /* Hero action buttons: stack and go full width */
+      .hero-actions {
+        flex-direction: column !important;
+        gap: 0.75rem !important;
+      }
+      .hero-actions .btn {
+        width: 100% !important;
+        justify-content: center !important;
+      }
+      /* Pills: smaller and tighter */
+      .hero-pills {
+        gap: 0.35rem 0.5rem !important;
+      }
+      .hero-pill {
+        font-size: 0.78rem !important;
+        padding: 0.3rem 0.65rem !important;
+      }
+
+      /* Trusted panel: single column on small screens */
+      .trusted-panel {
+        margin-top: -20px;
+        padding: 1.25rem 1rem;
+      }
+      .trusted-logos {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .trusted-logo-item {
+        border-right: none !important;
+        padding: 0.4rem 0.75rem;
+        text-align: center;
+      }
+
+      /* Service cards: single column, full-width button */
+      .service-card .card-link {
+        display: inline-flex;
+        width: 100%;
+        justify-content: center;
+        margin-top: 1.25rem;
+      }
+
+      /* CTA band: stack text + buttons */
+      .cta-band-inner {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 1.5rem !important;
+      }
+      .cta-actions {
+        flex-direction: column !important;
+        width: 100% !important;
+      }
+      .cta-actions .btn {
+        width: 100% !important;
+        justify-content: center !important;
+      }
+
+      /* Section padding reduced */
+      .section {
+        padding: 3rem 0 !important;
+      }
+    }
+
+    @media (max-width: 640px) {
+      /* Two-up grids → single column */
+      .two-up {
+        grid-template-columns: 1fr !important;
+      }
+      /* Three-up grids → single column */
+      .three-up {
+        grid-template-columns: 1fr !important;
+      }
+      /* Trusted logos: compact */
+      .trusted-logos {
+        gap: 0.4rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -60,13 +163,7 @@
       </div>
       <div class="hero-right">
         <img src="images/card-images/office-cleaning-hero.jpg" alt="Clean, bright commercial kitchen and restaurant interior" loading="eager" />
-        <div class="hero-trust-badge">
-          <div class="trust-badge-icon"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i></div>
-          <div class="trust-badge-text">
-            <strong>Trusted &amp; Insured</strong>
-            <span>Serving Manchester &amp; the North West</span>
-          </div>
-        </div>
+        <!-- hero-trust-badge removed -->
       </div>
     </section>
 
