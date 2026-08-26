@@ -15,11 +15,10 @@ async function loadIncludes() {
     initMobileMenu();
     initDraggableQuoteTab();
 
-    // Reveal body smoothly once header/footer are in place
     document.body.style.opacity = '1';
   } catch (err) {
     console.error('Includes failed:', err);
-    document.body.style.opacity = '1'; // always reveal even on error
+    document.body.style.opacity = '1';
   }
 }
 
@@ -46,17 +45,21 @@ function initMobileMenu() {
   };
 
   toggle.addEventListener('click', () => {
-    const isOpen = nav.classList.contains('is-open');
-    isOpen ? closeMenu() : openMenu();
+    nav.classList.contains('is-open') ? closeMenu() : openMenu();
   });
 
   nav.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', closeMenu);
   });
 
+  // Debounced resize — avoids spamming reflows on resize
+  let resizeTimer;
   window.addEventListener('resize', () => {
-    if (window.innerWidth > 900) closeMenu();
-  });
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      if (window.innerWidth > 900) closeMenu();
+    }, 120);
+  }, { passive: true });
 }
 
 // ===== FAVICON SWITCH =====
@@ -90,29 +93,25 @@ function initDraggableQuoteTab() {
   let moved = false;
   let startY = 0;
   let currentTop = window.innerHeight / 2;
-  let resizeTicking = false;
+  let rafId = null;
 
   const saved = localStorage.getItem('quoteTabTop');
   if (saved) currentTop = parseFloat(saved);
 
   function getHeaderBottom() {
     const header = document.querySelector('.site-header');
-    if (!header) return 82;
-    return header.getBoundingClientRect().bottom;
-  }
-
-  function getTabVisualHeight() {
-    return tab.getBoundingClientRect().height;
+    return header ? header.getBoundingClientRect().bottom : 82;
   }
 
   function applyPosition() {
+    // Read once, write once — no interleaved forced layouts
     const headerBottom = getHeaderBottom();
-    const tabHalfHeight = getTabVisualHeight() / 2;
-    const minTop = headerBottom + tabHalfHeight + 12;
-    const maxTop = window.innerHeight - tabHalfHeight - 12;
+    const tabH = tab.offsetHeight;
+    const half = tabH / 2;
+    const minTop = headerBottom + half + 12;
+    const maxTop = window.innerHeight - half - 12;
     currentTop = Math.max(minTop, Math.min(maxTop, currentTop));
     tab.style.top = currentTop + 'px';
-    tab.style.transform = 'translateY(-50%)';
   }
 
   applyPosition();
@@ -121,6 +120,7 @@ function initDraggableQuoteTab() {
     isDragging = true;
     moved = false;
     startY = e.touches[0].clientY;
+    if (rafId) cancelAnimationFrame(rafId);
   }, { passive: true });
 
   tab.addEventListener('touchmove', (e) => {
@@ -130,7 +130,8 @@ function initDraggableQuoteTab() {
     if (Math.abs(delta) > 3) moved = true;
     currentTop += delta;
     startY = moveY;
-    applyPosition();
+    // Batch DOM write in rAF to avoid mid-frame layout thrash
+    rafId = requestAnimationFrame(applyPosition);
     e.preventDefault();
   }, { passive: false });
 
@@ -138,13 +139,14 @@ function initDraggableQuoteTab() {
     if (!isDragging) return;
     isDragging = false;
     localStorage.setItem('quoteTabTop', currentTop);
-  });
+  }, { passive: true });
 
   tab.addEventListener('click', (e) => {
     if (moved) { e.preventDefault(); moved = false; }
   });
 
-  // Throttle resize via rAF
+  // rAF-throttled resize
+  let resizeTicking = false;
   window.addEventListener('resize', () => {
     if (!resizeTicking) {
       resizeTicking = true;
@@ -153,11 +155,11 @@ function initDraggableQuoteTab() {
         resizeTicking = false;
       });
     }
-  });
+  }, { passive: true });
 }
 
 // ===== HEADER SCROLL EFFECT =====
-// Throttled with requestAnimationFrame so it never blocks the main thread
+// rAF-throttled + passive — never blocks main thread during scroll
 let scrollTicking = false;
 window.addEventListener('scroll', () => {
   if (!scrollTicking) {
@@ -171,7 +173,6 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 // ===== INIT =====
-// Hide body immediately so header/footer fetch doesn't cause a visible layout jump
 document.body.style.opacity = '0';
 document.body.style.transition = 'opacity 0.15s ease';
 
