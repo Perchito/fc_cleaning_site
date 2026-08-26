@@ -1,21 +1,9 @@
 /* FC Cleaning Company Ltd - cleaned stylesheet with fixed mobile menu */
 
 
-@font-face {
-  font-family: 'Inter';
-  src: url('fonts/inter/Inter-VariableFont_opsz,wght.woff2') format('woff2');
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: swap;
-}
+/* Inter now loaded via Google Fonts CDN in HTML */
 
-@font-face {
-  font-family: 'Inter';
-  src: url('fonts/inter/Inter-Italic-VariableFont_opsz,wght.woff2') format('woff2');
-  font-weight: 100 900;
-  font-style: italic;
-  font-display: swap;
-}
+/* Inter now loaded via Google Fonts CDN in HTML */
 :root {
 	--navy: #131a2c;
 	--teal: #0f8b8d;
