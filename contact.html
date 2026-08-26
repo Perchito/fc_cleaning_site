@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact FC Cleaning Company | Request a Restaurant Cleaning Quote</title>
@@ -13,7 +10,6 @@
   <meta property="og:description" content="Request a tailored restaurant, pub, bar or commercial kitchen cleaning quote in Manchester." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://fccleaningcompany.com/contact.html" />
-
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -22,16 +18,24 @@
   <div id="site-header"></div>
 
   <main class="page-main">
+
+    <!-- PAGE HERO -->
     <section class="page-hero page-hero-saas">
       <div class="container services-hero">
         <div>
-          <div class="hero-badge"><i class="fa-solid fa-paper-plane"></i> Fast, straightforward restaurant cleaning quote process</div>
+          <div class="hero-badge">
+            <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+            Fast, straightforward restaurant cleaning quote process
+          </div>
           <h1>Request a restaurant cleaning quote for your venue</h1>
-          <p class="lead">Tell us about your restaurant, pub, bar, café, takeaway or commercial kitchen, and we'll review the best cleaning option for your venue and schedule.</p>
-
+          <p class="lead">Tell us about your restaurant, pub, bar, caf&eacute;, takeaway or commercial kitchen, and we&rsquo;ll review the best cleaning option for your venue and schedule.</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#contact-form">Request a Quote</a>
-            <a class="btn btn-secondary" href="services.html">View Services</a>
+            <a class="btn btn-primary" href="#contact-form">
+              <i class="fa-solid fa-envelope" aria-hidden="true"></i> Request a Quote
+            </a>
+            <a class="btn btn-secondary" href="tel:+441613990482">
+              <i class="fa-solid fa-phone" aria-hidden="true"></i> 0161 399 0482
+            </a>
           </div>
         </div>
 
@@ -41,7 +45,7 @@
             <span>Deep cleaning for prep areas, floors, surfaces, tiles, and grease-prone spaces.</span>
           </div>
           <div class="services-hero-stat">
-            <strong>Restaurant, Pub & Bar Cleaning</strong>
+            <strong>Restaurant, Pub &amp; Bar Cleaning</strong>
             <span>Cleaning for dining rooms, bars, entrances, customer areas, and service spaces.</span>
           </div>
           <div class="services-hero-stat">
@@ -49,20 +53,22 @@
             <span>Periodic reset cleans for kitchens, washrooms, floors, and high-touch areas.</span>
           </div>
           <div class="services-hero-stat">
-            <strong>Washroom & Front-of-House Cleaning</strong>
+            <strong>Washroom &amp; Front-of-House Cleaning</strong>
             <span>Support for customer toilets, waiting areas, entrances, and front-of-house presentation.</span>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- FORM + SIDEBAR -->
     <section class="section">
       <div class="container contact-grid contact-grid-saas">
+
         <form class="contact-form contact-form-saas" id="contact-form" action="https://formspree.io/f/mzdjyqnv" method="POST">
           <div class="form-heading">
             <p class="eyebrow">Request a quote</p>
             <h2>Tell us what your venue needs</h2>
-            <p>Complete the form below and we'll review the right next step for your restaurant, kitchen, bar or customer areas.</p>
+            <p>Complete the form below and we&rsquo;ll review the right next step for your restaurant, kitchen, bar or customer areas.</p>
           </div>
 
           <div class="form-row two-col">
@@ -88,7 +94,7 @@
               <input type="text" name="postcode" placeholder="Postcode" />
             </label>
             <label>Type of venue
-              <input type="text" name="premisestype" placeholder="Restaurant, pub, bar, café, takeaway, commercial kitchen" />
+              <input type="text" name="premisestype" placeholder="Restaurant, pub, bar, café, takeaway, kitchen" />
             </label>
           </div>
 
@@ -99,31 +105,50 @@
           <input type="hidden" name="subject" value="New restaurant cleaning enquiry from FC Cleaning Company website" />
 
           <div class="form-actions">
-            <button class="btn btn-primary" type="submit">Send enquiry</button>
-            <p class="form-note">We'll review your enquiry and reply with the next step.</p>
+            <button class="btn btn-primary" type="submit">
+              <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Send enquiry
+            </button>
+            <p class="form-note">We&rsquo;ll review your enquiry and reply with the next step.</p>
           </div>
 
           <p id="form-status" style="margin-top:12px;color:#0f8b8d;font-weight:600"></p>
         </form>
 
         <aside class="contact-panel contact-panel-saas">
+
           <div class="info-box contact-info-card">
             <h3>Contact details</h3>
             <div class="contact-info-item">
-              <i class="fa-solid fa-phone"></i>
-              <div><strong>Phone</strong><p>0161 399 0482</p></div>
+              <i class="fa-solid fa-phone" aria-hidden="true"></i>
+              <div>
+                <strong>Phone</strong>
+                <p><a href="tel:+441613990482" style="color:inherit;">0161 399 0482</a></p>
+              </div>
             </div>
             <div class="contact-info-item">
-              <i class="fa-solid fa-envelope"></i>
-              <div><strong>Email</strong><p>fernando.c@fccleaningcompany.com</p></div>
+              <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+              <div>
+                <strong>WhatsApp</strong>
+                <p><a href="https://wa.me/447473379928?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20your%20cleaning%20services." target="_blank" rel="noopener noreferrer" style="color:inherit;">Message us on WhatsApp</a></p>
+              </div>
             </div>
             <div class="contact-info-item">
-              <i class="fa-solid fa-location-dot"></i>
+              <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+              <div>
+                <strong>Email</strong>
+                <p><a href="mailto:fernando.c@fccleaningcompany.com" style="color:inherit;">fernando.c@fccleaningcompany.com</a></p>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
               <div><strong>Location</strong><p>Manchester, UK</p></div>
             </div>
             <div class="contact-info-item">
-              <i class="fa-solid fa-clock"></i>
-              <div><strong>Scheduling</strong><p>Flexible cleaning around service hours, including early mornings, evenings and weekends where available.</p></div>
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              <div>
+                <strong>Scheduling</strong>
+                <p>Flexible cleaning around service hours, including early mornings, evenings and weekends where available.</p>
+              </div>
             </div>
           </div>
 
@@ -138,31 +163,48 @@
 
           <div class="info-box contact-info-card">
             <h3>Best suited to</h3>
-            <p>Restaurants, pubs, bars, cafés, takeaways, commercial kitchens, customer washrooms, dining areas, and front-of-house spaces that need dependable cleaning support.</p>
+            <p>Restaurants, pubs, bars, caf&eacute;s, takeaways, commercial kitchens, customer washrooms, dining areas, and front-of-house spaces that need dependable cleaning support.</p>
           </div>
+
         </aside>
       </div>
     </section>
 
+    <!-- CTA BAND -->
     <section class="cta-band">
       <div class="container cta-band-wrap">
         <div>
           <p class="eyebrow eyebrow-light">Ready to enquire?</p>
-          <h2>Tell us about your venue and we'll take it from there</h2>
-          <p>Whether you need regular restaurant cleaning, commercial kitchen cleaning, hospitality deep cleaning, or washroom and front-of-house support, we'll help you move forward with a clear next step.</p>
+          <h2>Tell us about your venue and we&rsquo;ll take it from there</h2>
+          <p>Whether you need regular restaurant cleaning, commercial kitchen cleaning, hospitality deep cleaning, or washroom and front-of-house support, we&rsquo;ll help you move forward with a clear next step.</p>
         </div>
         <div class="cta-actions">
-          <a class="btn btn-light" href="#contact-form">Send an Enquiry</a>
-          <a class="btn btn-secondary cta-outline" href="services.html">View Services</a>
+          <a class="btn btn-light" href="#contact-form">
+            <i class="fa-solid fa-envelope" aria-hidden="true"></i> Send an Enquiry
+          </a>
+          <a class="btn cta-outline" href="tel:+441613990482">
+            <i class="fa-solid fa-phone" aria-hidden="true"></i> 0161 399 0482
+          </a>
         </div>
       </div>
     </section>
+
   </main>
 
   <div id="site-footer"></div>
-  <a href="#contact-form" class="mobile-quote-tab"><span>Request a Quote</span></a>
-  <a href="https://wa.me/447473379928?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20your%20cleaning%20services." class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">
-    <i class="fa-brands fa-whatsapp"></i>
+
+  <a href="#contact-form" class="mobile-quote-tab" aria-label="Request a quote">
+    <span>Request a Quote</span>
+  </a>
+
+  <a
+    href="https://wa.me/447473379928?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20your%20cleaning%20services."
+    class="whatsapp-float"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Chat with us on WhatsApp"
+  >
+    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
   </a>
 
   <script src="includes.js"></script>
