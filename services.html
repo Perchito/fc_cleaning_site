@@ -4,10 +4,35 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Commercial Cleaning Services Manchester | FC Cleaning Company Ltd</title>
-  <meta name="description" content="Office cleaning, commercial kitchen cleaning, window cleaning, daily cleaning and deep cleaning services across Manchester and the North West. Owner-managed and fully insured." />
+  <meta name="description" content="Commercial kitchen cleaning, restaurant, pub and bar cleaning, hospitality deep cleaning, and washroom and front-of-house cleaning in Manchester and the North West." />
   <link rel="canonical" href="https://www.fccleaningcompany.com/services.html" />
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    /* Service card button always pinned to bottom with clear breathing room */
+    .service-card {
+      display: flex;
+      flex-direction: column;
+    }
+    .service-card ul {
+      flex-grow: 1;
+      margin-top: 1rem;
+      margin-bottom: 0;
+      padding-left: 1.1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.9;
+    }
+    .service-card-btn {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--line);
+    }
+    .service-card-btn .btn {
+      width: 100%;
+      justify-content: center;
+    }
+  </style>
 </head>
 <body>
   <div id="site-header"></div>
@@ -17,8 +42,8 @@
     <section class="page-hero">
       <div class="container">
         <div class="hero-eyebrow"><i class="fa-solid fa-spray-can-sparkles" aria-hidden="true"></i> Manchester &amp; the North West</div>
-        <h1>Commercial cleaning services<br>built around your business</h1>
-        <p class="lead">From daily office cleaning to commercial kitchen deep cleans &mdash; we provide flexible, reliable cleaning scheduled around your hours, not ours.</p>
+        <h1>Hospitality cleaning services<br>built around your business</h1>
+        <p class="lead">From commercial kitchen deep cleans to daily front-of-house routines &mdash; flexible, reliable cleaning scheduled around your hours, not ours.</p>
         <div class="hero-actions" style="margin-top:1.75rem;">
           <a class="btn btn-primary" href="contact.html#contact-form"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i> Get a Free Quote</a>
           <a class="btn btn-ghost" href="tel:+441613990482"><i class="fa-solid fa-phone" aria-hidden="true"></i> 0161 399 0482</a>
@@ -26,98 +51,75 @@
       </div>
     </section>
 
-    <!-- SERVICES GRID -->
+    <!-- SERVICES -->
     <section class="section">
       <div class="container">
         <div class="section-heading">
           <p class="eyebrow">What we offer</p>
-          <h2>Cleaning services for every type of commercial venue</h2>
+          <h2>Four specialist cleaning services</h2>
           <div class="section-divider"></div>
-          <p class="lead">Whether you run an office, restaurant, pub, bar or commercial kitchen, we have the right routine for your premises.</p>
+          <p class="lead">Each service is designed around how hospitality venues actually operate &mdash; before service, after close, or when a full reset is needed.</p>
         </div>
+
         <div class="card-grid two-up">
 
-          <article class="service-card">
-            <div class="service-card-icon"><i class="fa-solid fa-building" aria-hidden="true"></i></div>
-            <h3>Office Cleaning</h3>
-            <p>Regular cleaning to keep your office clean, tidy and healthy for your team. Scheduled around your working hours &mdash; early mornings, evenings or weekends.</p>
-            <ul style="color:var(--muted);font-size:0.92rem;line-height:1.9;margin:1rem 0 0;padding-left:1.1rem;">
-              <li>Desks, floors, kitchenettes &amp; washrooms</li>
-              <li>Entrances, reception areas &amp; meeting rooms</li>
-              <li>Flexible daily or weekly schedules</li>
-            </ul>
-            <div style="margin-top:1.75rem;">
-              <a href="contact.html#contact-form" class="btn btn-primary" style="width:100%;justify-content:center;">Get an Office Cleaning Quote</a>
-            </div>
-          </article>
-
-          <article class="service-card">
+          <article class="service-card" id="kitchen-cleaning">
             <div class="service-card-icon"><i class="fa-solid fa-fire-burner" aria-hidden="true"></i></div>
             <h3>Commercial Kitchen Cleaning</h3>
             <p>Deep cleaning for restaurant kitchens, food prep areas, back-of-house spaces, floors, walls, tiles, and grease-prone surfaces.</p>
-            <ul style="color:var(--muted);font-size:0.92rem;line-height:1.9;margin:1rem 0 0;padding-left:1.1rem;">
+            <ul>
               <li>Grease build-up &amp; high-use surfaces</li>
               <li>Equipment exteriors, floors &amp; tiles</li>
               <li>Scheduled around service &amp; prep times</li>
+              <li>Best for restaurants, caf&eacute;s, takeaways &amp; dark kitchens</li>
             </ul>
-            <div style="margin-top:1.75rem;">
-              <a href="contact.html#contact-form" class="btn btn-primary" style="width:100%;justify-content:center;">Get a Kitchen Cleaning Quote</a>
+            <div class="service-card-btn">
+              <a href="contact.html#contact-form" class="btn btn-primary">Get a Kitchen Cleaning Quote</a>
             </div>
           </article>
 
-          <article class="service-card">
-            <div class="service-card-icon"><i class="fa-solid fa-spray-can-sparkles" aria-hidden="true"></i></div>
-            <h3>Commercial Window Cleaning</h3>
-            <p>Professional window cleaning for a clear, sparkling finish on your commercial premises. Offices, restaurants, shops and more.</p>
-            <ul style="color:var(--muted);font-size:0.92rem;line-height:1.9;margin:1rem 0 0;padding-left:1.1rem;">
-              <li>Internal &amp; external window cleaning</li>
-              <li>Storefronts, offices &amp; commercial buildings</li>
-              <li>One-off or regular schedule</li>
-            </ul>
-            <div style="margin-top:1.75rem;">
-              <a href="contact.html#contact-form" class="btn btn-primary" style="width:100%;justify-content:center;">Get a Window Cleaning Quote</a>
-            </div>
-          </article>
-
-          <article class="service-card">
+          <article class="service-card" id="venue-cleaning">
             <div class="service-card-icon"><i class="fa-solid fa-champagne-glasses" aria-hidden="true"></i></div>
             <h3>Restaurant, Pub &amp; Bar Cleaning</h3>
             <p>Routine cleaning for dining rooms, bar areas, entrances, customer toilets, staff areas, and front-of-house spaces before or after service.</p>
-            <ul style="color:var(--muted);font-size:0.92rem;line-height:1.9;margin:1rem 0 0;padding-left:1.1rem;">
+            <ul>
               <li>Flexible around opening &amp; closing times</li>
               <li>Floors, surfaces, washrooms &amp; touchpoints</li>
               <li>Daily or weekly routines available</li>
+              <li>Best for restaurants, pubs, bars, caf&eacute;s &amp; bistros</li>
             </ul>
-            <div style="margin-top:1.75rem;">
-              <a href="contact.html#contact-form" class="btn btn-primary" style="width:100%;justify-content:center;">Book Restaurant &amp; Bar Cleaning</a>
+            <div class="service-card-btn">
+              <a href="contact.html#contact-form" class="btn btn-primary">Book Restaurant &amp; Bar Cleaning</a>
             </div>
           </article>
 
-          <article class="service-card">
-            <div class="service-card-icon"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i></div>
-            <h3>Daily Cleaning</h3>
-            <p>Daily cleaning support to maintain a clean and safe environment for your staff, customers and visitors every single day.</p>
-            <ul style="color:var(--muted);font-size:0.92rem;line-height:1.9;margin:1rem 0 0;padding-left:1.1rem;">
-              <li>Consistent daily standards maintained</li>
-              <li>Washrooms, communal areas &amp; floors</li>
-              <li>Owner-managed &amp; reliable</li>
-            </ul>
-            <div style="margin-top:1.75rem;">
-              <a href="contact.html#contact-form" class="btn btn-primary" style="width:100%;justify-content:center;">Enquire About Daily Cleaning</a>
-            </div>
-          </article>
-
-          <article class="service-card">
+          <article class="service-card" id="deep-cleaning">
             <div class="service-card-icon"><i class="fa-solid fa-soap" aria-hidden="true"></i></div>
             <h3>Hospitality Deep Cleaning</h3>
-            <p>Periodic deep cleans for kitchens, dining rooms, washrooms, floors, and venues that need a full reset before inspections or events.</p>
-            <ul style="color:var(--muted);font-size:0.92rem;line-height:1.9;margin:1rem 0 0;padding-left:1.1rem;">
+            <p>Periodic deep cleans for kitchens, dining rooms, washrooms, floors, and venues that need a full reset before inspections, events or busy periods.</p>
+            <ul>
               <li>Pre-inspection &amp; seasonal deep cleans</li>
-              <li>Extra attention for built-up areas</li>
-              <li>One-off or repeat schedule</li>
+              <li>Extra attention for built-up grease &amp; grime</li>
+              <li>One-off or repeat schedule available</li>
+              <li>Best for any hospitality venue needing a thorough reset</li>
             </ul>
-            <div style="margin-top:1.75rem;">
-              <a href="contact.html#contact-form" class="btn btn-primary" style="width:100%;justify-content:center;">Ask About Deep Cleaning</a>
+            <div class="service-card-btn">
+              <a href="contact.html#contact-form" class="btn btn-primary">Ask About Deep Cleaning</a>
+            </div>
+          </article>
+
+          <article class="service-card" id="front-house-cleaning">
+            <div class="service-card-icon"><i class="fa-solid fa-soap" aria-hidden="true"></i></div>
+            <h3>Washroom &amp; Front-of-House Cleaning</h3>
+            <p>Cleaning for customer toilets, entrances, waiting areas, dining spaces, bar fronts, staff rooms, and all high-traffic customer-facing areas.</p>
+            <ul>
+              <li>Washroom cleaning for customer &amp; staff facilities</li>
+              <li>Entrances, floors, tables &amp; high-touch surfaces</li>
+              <li>Keeps your venue presentable before, during &amp; after trading</li>
+              <li>Best for venues where customer presentation matters every service</li>
+            </ul>
+            <div class="service-card-btn">
+              <a href="contact.html#contact-form" class="btn btn-primary">Get a Venue Cleaning Quote</a>
             </div>
           </article>
 
@@ -159,7 +161,7 @@
         <div>
           <p class="eyebrow">Get started</p>
           <h2>Not sure which service is right for you?</h2>
-          <p>Tell us about your venue and we&rsquo;ll recommend the best cleaning plan for your site and schedule.</p>
+          <p>Tell us about your venue and we&rsquo;ll recommend the right cleaning plan for your site and schedule.</p>
         </div>
         <div class="cta-actions">
           <a class="btn btn-primary" href="contact.html#contact-form"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i> Get a Free Quote</a>
