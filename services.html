@@ -10,142 +10,24 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
     .service-card { display: flex; flex-direction: column; }
-    .service-card ul {
-      flex-grow: 1; margin-top: 1rem; margin-bottom: 0;
-      padding-left: 1.1rem; color: var(--muted);
-      font-size: 0.92rem; line-height: 1.9;
-    }
+    .service-card ul { flex-grow: 1; margin-top: 1rem; margin-bottom: 0; padding-left: 1.1rem; color: var(--muted); font-size: 0.92rem; line-height: 1.9; }
     .service-card-btn { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--line); }
     .service-card-btn .btn { width: 100%; justify-content: center; }
 
-    /* ── TIMELINE RAIL ── */
-    .process-timeline {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0 5rem;
-      align-items: start;
-    }
-    .process-aside {
-      position: sticky;
-      top: 100px;
-      padding-top: 0.5rem;
-    }
-    .process-aside h2 {
-      font-size: clamp(1.75rem, 2.8vw, 2.4rem);
-      font-weight: 900;
-      letter-spacing: -0.04em;
-      line-height: 1.1;
-      color: var(--navy);
-      margin-bottom: 1rem;
-    }
-    .process-aside .lead {
-      color: var(--muted);
-      font-size: 1rem;
-      line-height: 1.7;
-      margin-bottom: 2rem;
-      max-width: 36ch;
-    }
-    .process-steps {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-    }
-    .process-steps::before {
-      content: '';
-      position: absolute;
-      left: 23px; top: 24px; bottom: 24px;
-      width: 2px;
-      background: linear-gradient(to bottom, var(--teal), rgba(8,185,181,0.15));
-      border-radius: 2px;
-    }
-    .process-step {
-      display: grid;
-      grid-template-columns: 48px 1fr;
-      gap: 0 1.5rem;
-      padding-bottom: 3rem;
-      position: relative;
-    }
+    /* TIMELINE RAIL */
+    .process-timeline { display: grid; grid-template-columns: 1fr 1fr; gap: 0 5rem; align-items: start; }
+    .process-aside { position: sticky; top: 100px; padding-top: 0.5rem; }
+    .process-aside h2 { font-size: clamp(1.75rem, 2.8vw, 2.4rem); font-weight: 900; letter-spacing: -0.04em; line-height: 1.1; color: var(--navy); margin-bottom: 1rem; }
+    .process-aside .lead { color: var(--muted); font-size: 1rem; line-height: 1.7; margin-bottom: 2rem; max-width: 36ch; }
+    .process-steps { position: relative; display: flex; flex-direction: column; }
+    .process-steps::before { content: ''; position: absolute; left: 23px; top: 24px; bottom: 24px; width: 2px; background: linear-gradient(to bottom, var(--teal), rgba(8,185,181,0.15)); border-radius: 2px; }
+    .process-step { display: grid; grid-template-columns: 48px 1fr; gap: 0 1.5rem; padding-bottom: 3rem; position: relative; }
     .process-step:last-child { padding-bottom: 0; }
-    .process-node {
-      width: 48px; height: 48px;
-      border-radius: 50%;
-      background: var(--navy);
-      border: 3px solid var(--teal);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--teal); font-size: 0.82rem; font-weight: 900;
-      letter-spacing: 0.03em;
-      flex-shrink: 0;
-      position: relative; z-index: 1;
-    }
+    .process-node { width: 48px; height: 48px; border-radius: 50%; background: var(--navy); border: 3px solid var(--teal); display: flex; align-items: center; justify-content: center; color: var(--teal); font-size: 0.82rem; font-weight: 900; letter-spacing: 0.03em; flex-shrink: 0; position: relative; z-index: 1; }
     .process-body { padding-top: 0.6rem; }
-    .process-body h3 {
-      font-size: 1.1rem; font-weight: 800;
-      color: var(--navy); margin-bottom: 0.45rem; letter-spacing: -0.02em;
-    }
-    .process-body p {
-      color: var(--muted); font-size: 0.95rem; line-height: 1.7; max-width: 44ch;
-    }
-    .step-chip {
-      display: inline-flex; align-items: center; gap: 0.35rem;
-      margin-top: 0.8rem; padding: 0.3rem 0.75rem;
-      background: rgba(8,185,181,0.10); border: 1px solid rgba(8,185,181,0.25);
-      border-radius: 999px; color: var(--teal); font-size: 0.8rem; font-weight: 700;
-    }
-
-    /* ── UPGRADED FOOTER CTA ── */
-    .cta-full {
-      padding: 6rem 0;
-      background: linear-gradient(135deg, #031426 0%, #06182B 55%, #082a40 100%);
-      position: relative; overflow: hidden; color: var(--white);
-    }
-    .cta-full::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: radial-gradient(ellipse at 70% 50%, rgba(8,185,181,0.18), transparent 60%);
-      pointer-events: none;
-    }
-    .cta-full-inner {
-      position: relative;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 3rem;
-      align-items: center;
-    }
-    .cta-full .eyebrow { color: var(--teal); }
-    .cta-full h2 {
-      color: var(--white);
-      font-size: clamp(1.8rem, 3vw, 2.6rem);
-      font-weight: 900;
-      letter-spacing: -0.04em;
-      line-height: 1.1;
-      margin: 0.4rem 0 0.75rem;
-    }
-    .cta-full p { color: rgba(255,255,255,0.58); max-width: 52ch; font-size: 1rem; }
-    .cta-full-trust {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      margin-top: 1.5rem;
-    }
-    .cta-trust-chip {
-      display: inline-flex; align-items: center; gap: 0.4rem;
-      padding: 0.35rem 0.8rem;
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.13);
-      border-radius: 999px;
-      color: rgba(210,228,235,0.80);
-      font-size: 0.8rem; font-weight: 600;
-    }
-    .cta-trust-chip i { color: var(--teal); font-size: 0.72rem; }
-    .cta-full-actions {
-      display: flex;
-      flex-direction: column;
-      gap: 0.85rem;
-      flex-shrink: 0;
-      min-width: 220px;
-    }
-    .cta-full-actions .btn { width: 100%; justify-content: center; }
-
+    .process-body h3 { font-size: 1.1rem; font-weight: 800; color: var(--navy); margin-bottom: 0.45rem; letter-spacing: -0.02em; }
+    .process-body p { color: var(--muted); font-size: 0.95rem; line-height: 1.7; max-width: 44ch; }
+    .step-chip { display: inline-flex; align-items: center; gap: 0.35rem; margin-top: 0.8rem; padding: 0.3rem 0.75rem; background: rgba(8,185,181,0.10); border: 1px solid rgba(8,185,181,0.25); border-radius: 999px; color: var(--teal); font-size: 0.8rem; font-weight: 700; }
     @media (max-width: 860px) {
       .process-timeline { grid-template-columns: 1fr; gap: 2.5rem 0; }
       .process-aside { position: static; text-align: center; }
@@ -154,9 +36,6 @@
       .process-steps::before { left: 19px; }
       .process-step { grid-template-columns: 40px 1fr; gap: 0 1.1rem; }
       .process-node { width: 40px; height: 40px; font-size: 0.75rem; }
-      .cta-full-inner { grid-template-columns: 1fr; }
-      .cta-full-actions { flex-direction: row; flex-wrap: wrap; min-width: 0; }
-      .cta-full-actions .btn { width: auto; flex: 1 1 200px; }
     }
   </style>
 </head>
@@ -187,7 +66,6 @@
           <p class="lead">Each service is designed around how hospitality venues actually operate &mdash; before service, after close, or when a full reset is needed.</p>
         </div>
         <div class="card-grid two-up">
-
           <article class="service-card" id="kitchen-cleaning">
             <div class="service-card-icon"><i class="fa-solid fa-fire-burner" aria-hidden="true"></i></div>
             <h3>Commercial Kitchen Cleaning</h3>
@@ -198,11 +76,8 @@
               <li>Scheduled around service &amp; prep times</li>
               <li>Best for restaurants, caf&eacute;s, takeaways &amp; dark kitchens</li>
             </ul>
-            <div class="service-card-btn">
-              <a href="contact.html#contact-form" class="btn btn-primary">Get a Kitchen Cleaning Quote</a>
-            </div>
+            <div class="service-card-btn"><a href="contact.html#contact-form" class="btn btn-primary">Get a Kitchen Cleaning Quote</a></div>
           </article>
-
           <article class="service-card" id="venue-cleaning">
             <div class="service-card-icon"><i class="fa-solid fa-champagne-glasses" aria-hidden="true"></i></div>
             <h3>Restaurant, Pub &amp; Bar Cleaning</h3>
@@ -213,11 +88,8 @@
               <li>Daily or weekly routines available</li>
               <li>Best for restaurants, pubs, bars, caf&eacute;s &amp; bistros</li>
             </ul>
-            <div class="service-card-btn">
-              <a href="contact.html#contact-form" class="btn btn-primary">Book Restaurant &amp; Bar Cleaning</a>
-            </div>
+            <div class="service-card-btn"><a href="contact.html#contact-form" class="btn btn-primary">Book Restaurant &amp; Bar Cleaning</a></div>
           </article>
-
           <article class="service-card" id="deep-cleaning">
             <div class="service-card-icon"><i class="fa-solid fa-soap" aria-hidden="true"></i></div>
             <h3>Hospitality Deep Cleaning</h3>
@@ -228,11 +100,8 @@
               <li>One-off or repeat schedule available</li>
               <li>Best for any hospitality venue needing a thorough reset</li>
             </ul>
-            <div class="service-card-btn">
-              <a href="contact.html#contact-form" class="btn btn-primary">Ask About Deep Cleaning</a>
-            </div>
+            <div class="service-card-btn"><a href="contact.html#contact-form" class="btn btn-primary">Ask About Deep Cleaning</a></div>
           </article>
-
           <article class="service-card" id="front-house-cleaning">
             <div class="service-card-icon"><i class="fa-solid fa-door-open" aria-hidden="true"></i></div>
             <h3>Washroom &amp; Front-of-House Cleaning</h3>
@@ -243,11 +112,8 @@
               <li>Keeps your venue presentable before, during &amp; after trading</li>
               <li>Best for venues where customer presentation matters every service</li>
             </ul>
-            <div class="service-card-btn">
-              <a href="contact.html#contact-form" class="btn btn-primary">Get a Venue Cleaning Quote</a>
-            </div>
+            <div class="service-card-btn"><a href="contact.html#contact-form" class="btn btn-primary">Get a Venue Cleaning Quote</a></div>
           </article>
-
         </div>
       </div>
     </section>
@@ -256,7 +122,6 @@
     <section class="section section-light" aria-label="How it works">
       <div class="container">
         <div class="process-timeline">
-
           <div class="process-aside">
             <p class="eyebrow">Simple process</p>
             <h2>From enquiry to sparkling clean</h2>
@@ -266,9 +131,7 @@
               <i class="fa-solid fa-calendar-check" aria-hidden="true"></i> Start with a free quote
             </a>
           </div>
-
           <div class="process-steps">
-
             <div class="process-step">
               <div class="process-node">01</div>
               <div class="process-body">
@@ -276,7 +139,6 @@
                 <p>Drop us a message or call &mdash; share your business type, size and the cleaning schedule that works for you. Zero obligation, no pushy sales calls.</p>
               </div>
             </div>
-
             <div class="process-step">
               <div class="process-node">02</div>
               <div class="process-body">
@@ -284,7 +146,6 @@
                 <p>We visit your venue in person, get a clear picture of what you need and put together a tailored cleaning proposal with transparent pricing.</p>
               </div>
             </div>
-
             <div class="process-step">
               <div class="process-node">03</div>
               <div class="process-body">
@@ -293,33 +154,7 @@
                 <span class="step-chip"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Fully insured &amp; owner-managed</span>
               </div>
             </div>
-
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SINGLE FOOTER CTA — UPGRADED -->
-    <section class="cta-full" aria-label="Get a quote">
-      <div class="container cta-full-inner">
-        <div>
-          <p class="eyebrow">Not sure where to start?</p>
-          <h2>Tell us about your venue &mdash;<br>we&rsquo;ll handle the rest</h2>
-          <p>Whether you need a daily routine or a one-off deep clean, we&rsquo;ll put together a tailored proposal fast. No obligation, no call centres &mdash; just a straight answer from the owner.</p>
-          <div class="cta-full-trust">
-            <span class="cta-trust-chip"><i class="fa-solid fa-check"></i> Free quote, no obligation</span>
-            <span class="cta-trust-chip"><i class="fa-solid fa-check"></i> Reply within 24 hours</span>
-            <span class="cta-trust-chip"><i class="fa-solid fa-check"></i> Fully insured</span>
-            <span class="cta-trust-chip"><i class="fa-solid fa-check"></i> Owner-managed</span>
-          </div>
-        </div>
-        <div class="cta-full-actions">
-          <a class="btn btn-primary" href="contact.html#contact-form">
-            <i class="fa-solid fa-calendar-check" aria-hidden="true"></i> Get a Free Quote
-          </a>
-          <a class="btn btn-cta-outline" href="tel:+441613990482">
-            <i class="fa-solid fa-phone" aria-hidden="true"></i> 0161 399 0482
-          </a>
         </div>
       </div>
     </section>

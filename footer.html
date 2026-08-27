@@ -1,22 +1,29 @@
 <footer class="site-footer">
 
-  <!-- Teal CTA strip -->
-  <div style="background:linear-gradient(135deg,var(--teal-dark) 0%,var(--teal) 100%);padding:2.25rem 0;">
-    <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;">
+  <!-- Upgraded CTA — single instance across all pages -->
+  <section class="cta-full" aria-label="Get a quote">
+    <div class="container cta-full-inner">
       <div>
-        <p style="margin:0;color:rgba(255,255,255,0.75);font-size:0.82rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;">Ready to book?</p>
-        <p style="margin:0.2rem 0 0;color:#fff;font-size:clamp(1.2rem,2.5vw,1.6rem);font-weight:800;letter-spacing:-0.025em;">Get your free cleaning quote today</p>
+        <p class="eyebrow">Not sure where to start?</p>
+        <h2>Tell us about your venue &mdash;<br>we&rsquo;ll handle the rest</h2>
+        <p>Whether you need a daily routine or a one-off deep clean, we&rsquo;ll put together a tailored proposal fast. No obligation, no call centres &mdash; just a straight answer from the owner.</p>
+        <div class="cta-full-trust">
+          <span class="cta-trust-chip"><i class="fa-solid fa-check"></i> Free quote, no obligation</span>
+          <span class="cta-trust-chip"><i class="fa-solid fa-check"></i> Reply within 24 hours</span>
+          <span class="cta-trust-chip"><i class="fa-solid fa-check"></i> Fully insured</span>
+          <span class="cta-trust-chip"><i class="fa-solid fa-check"></i> Owner-managed</span>
+        </div>
       </div>
-      <div style="display:flex;gap:0.75rem;flex-wrap:wrap;flex-shrink:0;">
-        <a href="tel:+441613990482" class="btn" style="background:#fff;color:var(--teal-dark);border-color:#fff;box-shadow:0 4px 16px rgba(0,0,0,0.12);">
-          <i class="fa-solid fa-phone" aria-hidden="true"></i> 0161 399 0482
+      <div class="cta-full-actions">
+        <a class="btn btn-primary" href="contact.html#contact-form">
+          <i class="fa-solid fa-calendar-check" aria-hidden="true"></i> Get a Free Quote
         </a>
-        <a href="contact.html#contact-form" class="btn" style="color:#fff;border-color:rgba(255,255,255,0.4);background:transparent;">
-          Send us a message
+        <a class="btn btn-cta-outline" href="tel:+441613990482">
+          <i class="fa-solid fa-phone" aria-hidden="true"></i> 0161 399 0482
         </a>
       </div>
     </div>
-  </div>
+  </section>
 
   <!-- Footer main -->
   <div class="container footer-top">
@@ -51,7 +58,7 @@
       <a href="contact.html">Contact Us</a>
     </div>
 
-    <!-- Services — 4 canonical services with anchor links -->
+    <!-- Services -->
     <div class="footer-col">
       <h4>Our Services</h4>
       <a href="services.html#kitchen-cleaning">Commercial Kitchen Cleaning</a>

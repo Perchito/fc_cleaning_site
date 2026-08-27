@@ -25,7 +25,6 @@
   }
   </script>
   <style>
-    /* ── MOBILE POLISH ── */
     @media (max-width: 900px) {
       .hero-wrap { grid-template-columns: 1fr !important; min-height: auto !important; }
       .hero-left { padding: 3rem 1.5rem 2.5rem !important; }
@@ -40,9 +39,6 @@
       .trusted-logos { flex-direction: column; align-items: center; gap: 0.5rem; }
       .trusted-logo-item { border-right: none !important; padding: 0.4rem 0.75rem; text-align: center; }
       .service-card .card-link { display: inline-flex; width: 100%; justify-content: center; margin-top: 1.25rem; }
-      .cta-band-inner { flex-direction: column !important; align-items: flex-start !important; gap: 1.5rem !important; }
-      .cta-actions { flex-direction: column !important; width: 100% !important; }
-      .cta-actions .btn { width: 100% !important; justify-content: center !important; }
       .section { padding: 3rem 0 !important; }
     }
     @media (max-width: 640px) {
@@ -53,7 +49,7 @@
       .hero-right { min-height: 220px; max-height: 260px; }
     }
 
-    /* ── WHY FC — SPLIT PANEL ── */
+    /* WHY FC — SPLIT PANEL */
     .why-fc-block {
       display: grid;
       grid-template-columns: 380px 1fr;
@@ -61,207 +57,96 @@
       overflow: hidden;
       box-shadow: var(--shadow-lg);
     }
-
-    /* Dark left panel */
     .why-fc-panel {
       background: linear-gradient(160deg, #06182B 0%, #031426 100%);
       padding: 3rem 2.5rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      position: relative;
-      overflow: hidden;
+      display: flex; flex-direction: column; justify-content: space-between;
+      position: relative; overflow: hidden;
     }
     .why-fc-panel::before {
-      content: '';
-      position: absolute;
-      top: -60px; right: -60px;
-      width: 240px; height: 240px;
+      content: ''; position: absolute;
+      top: -60px; right: -60px; width: 240px; height: 240px;
       border-radius: 50%;
       background: radial-gradient(circle, rgba(8,185,181,0.18) 0%, transparent 70%);
       pointer-events: none;
     }
     .why-fc-panel .eyebrow { color: var(--teal); margin-bottom: 1rem; }
     .why-fc-panel h2 {
-      color: var(--white);
-      font-size: clamp(1.6rem, 2.5vw, 2.1rem);
-      font-weight: 900;
-      letter-spacing: -0.04em;
-      line-height: 1.15;
-      margin-bottom: 1.25rem;
+      color: var(--white); font-size: clamp(1.6rem, 2.5vw, 2.1rem);
+      font-weight: 900; letter-spacing: -0.04em; line-height: 1.15; margin-bottom: 1.25rem;
     }
     .why-fc-panel .lead {
-      color: rgba(210,228,235,0.65);
-      font-size: 0.92rem;
-      line-height: 1.7;
-      max-width: 30ch;
-      margin-bottom: 2.5rem;
+      color: rgba(210,228,235,0.65); font-size: 0.92rem;
+      line-height: 1.7; max-width: 30ch; margin-bottom: 2.5rem;
     }
-
-    /* Stats row inside left panel */
-    .why-fc-stats {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-      margin-bottom: 2rem;
-    }
+    .why-fc-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2rem; }
     .why-fc-stat {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: var(--radius);
-      padding: 1rem;
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius); padding: 1rem;
     }
     .why-fc-stat strong {
-      display: block;
-      color: var(--teal);
-      font-size: 1.6rem;
-      font-weight: 900;
-      letter-spacing: -0.04em;
-      line-height: 1;
-      margin-bottom: 0.2rem;
+      display: block; color: var(--teal); font-size: 1.6rem;
+      font-weight: 900; letter-spacing: -0.04em; line-height: 1; margin-bottom: 0.2rem;
     }
-    .why-fc-stat span {
-      color: rgba(210,228,235,0.55);
-      font-size: 0.78rem;
-      font-weight: 600;
-      line-height: 1.3;
-    }
-
-    /* CTA in panel */
+    .why-fc-stat span { color: rgba(210,228,235,0.55); font-size: 0.78rem; font-weight: 600; line-height: 1.3; }
     .why-fc-panel .btn { align-self: flex-start; }
-
-    /* Right features list */
     .why-fc-features {
-      background: var(--white);
-      padding: 3rem 2.5rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 0;
+      background: var(--white); padding: 3rem 2.5rem;
+      display: flex; flex-direction: column; justify-content: center; gap: 0;
     }
-
     .why-fc-row {
-      display: grid;
-      grid-template-columns: 52px 1fr;
-      gap: 0 1.5rem;
-      align-items: start;
-      padding: 1.6rem 0;
-      border-bottom: 1px solid var(--line);
+      display: grid; grid-template-columns: 52px 1fr;
+      gap: 0 1.5rem; align-items: start;
+      padding: 1.6rem 0; border-bottom: 1px solid var(--line);
     }
     .why-fc-row:first-child { padding-top: 0; }
     .why-fc-row:last-child { border-bottom: none; padding-bottom: 0; }
-
     .why-fc-icon {
-      width: 52px; height: 52px;
-      border-radius: var(--radius);
+      width: 52px; height: 52px; border-radius: var(--radius);
       background: linear-gradient(135deg, rgba(8,185,181,0.12), rgba(8,127,131,0.06));
       border: 1px solid var(--teal-border);
       display: flex; align-items: center; justify-content: center;
-      font-size: 1.3rem; color: var(--teal);
-      flex-shrink: 0;
+      font-size: 1.3rem; color: var(--teal); flex-shrink: 0;
     }
-    .why-fc-text h3 {
-      font-size: 1rem;
-      font-weight: 800;
-      color: var(--navy);
-      letter-spacing: -0.02em;
-      margin-bottom: 0.3rem;
-    }
-    .why-fc-text p {
-      color: var(--muted);
-      font-size: 0.9rem;
-      line-height: 1.65;
-      max-width: 52ch;
-    }
-
-    /* ── MOBILE: stack panel above features ── */
+    .why-fc-text h3 { font-size: 1rem; font-weight: 800; color: var(--navy); letter-spacing: -0.02em; margin-bottom: 0.3rem; }
+    .why-fc-text p { color: var(--muted); font-size: 0.9rem; line-height: 1.65; max-width: 52ch; }
     @media (max-width: 860px) {
-      .why-fc-block {
-        grid-template-columns: 1fr;
-        border-radius: var(--radius-lg);
-      }
-      .why-fc-panel {
-        padding: 2.5rem 1.75rem;
-      }
+      .why-fc-block { grid-template-columns: 1fr; border-radius: var(--radius-lg); }
+      .why-fc-panel { padding: 2.5rem 1.75rem; }
       .why-fc-panel .lead { max-width: none; }
       .why-fc-panel .btn { width: 100%; justify-content: center; }
-      .why-fc-features {
-        padding: 2rem 1.75rem;
-      }
+      .why-fc-features { padding: 2rem 1.75rem; }
       .why-fc-stats { grid-template-columns: repeat(2, 1fr); }
     }
 
-    /* ── TIMELINE / HOW IT WORKS ── */
+    /* TIMELINE / HOW IT WORKS */
     .process-timeline {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0 5rem;
-      align-items: start;
-      position: relative;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 0 5rem; align-items: start;
     }
-    .process-aside {
-      position: sticky;
-      top: 100px;
-      padding-top: 0.5rem;
-    }
+    .process-aside { position: sticky; top: 100px; padding-top: 0.5rem; }
     .process-aside h2 {
-      font-size: clamp(1.75rem, 2.8vw, 2.4rem);
-      font-weight: 900;
-      letter-spacing: -0.04em;
-      line-height: 1.1;
-      color: var(--navy);
-      margin-bottom: 1rem;
+      font-size: clamp(1.75rem, 2.8vw, 2.4rem); font-weight: 900;
+      letter-spacing: -0.04em; line-height: 1.1; color: var(--navy); margin-bottom: 1rem;
     }
-    .process-aside .lead {
-      color: var(--muted);
-      font-size: 1rem;
-      line-height: 1.7;
-      margin-bottom: 2rem;
-      max-width: 36ch;
-    }
-    .process-steps {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
+    .process-aside .lead { color: var(--muted); font-size: 1rem; line-height: 1.7; margin-bottom: 2rem; max-width: 36ch; }
+    .process-steps { position: relative; display: flex; flex-direction: column; gap: 0; }
     .process-steps::before {
-      content: '';
-      position: absolute;
-      left: 23px;
-      top: 24px;
-      bottom: 24px;
-      width: 2px;
-      background: linear-gradient(to bottom, var(--teal), rgba(8,185,181,0.15));
-      border-radius: 2px;
+      content: ''; position: absolute; left: 23px; top: 24px; bottom: 24px; width: 2px;
+      background: linear-gradient(to bottom, var(--teal), rgba(8,185,181,0.15)); border-radius: 2px;
     }
-    .process-step {
-      display: grid;
-      grid-template-columns: 48px 1fr;
-      gap: 0 1.5rem;
-      padding-bottom: 3rem;
-      position: relative;
-    }
+    .process-step { display: grid; grid-template-columns: 48px 1fr; gap: 0 1.5rem; padding-bottom: 3rem; position: relative; }
     .process-step:last-child { padding-bottom: 0; }
     .process-node {
-      width: 48px; height: 48px;
-      border-radius: 50%;
-      background: var(--navy);
-      border: 3px solid var(--teal);
+      width: 48px; height: 48px; border-radius: 50%;
+      background: var(--navy); border: 3px solid var(--teal);
       display: flex; align-items: center; justify-content: center;
       color: var(--teal); font-size: 0.82rem; font-weight: 900;
-      letter-spacing: 0.03em;
-      flex-shrink: 0;
-      position: relative; z-index: 1;
+      letter-spacing: 0.03em; flex-shrink: 0; position: relative; z-index: 1;
     }
     .process-body { padding-top: 0.6rem; }
-    .process-body h3 {
-      font-size: 1.1rem; font-weight: 800;
-      color: var(--navy); margin-bottom: 0.45rem; letter-spacing: -0.02em;
-    }
-    .process-body p {
-      color: var(--muted); font-size: 0.95rem; line-height: 1.7; max-width: 44ch;
-    }
+    .process-body h3 { font-size: 1.1rem; font-weight: 800; color: var(--navy); margin-bottom: 0.45rem; letter-spacing: -0.02em; }
+    .process-body p { color: var(--muted); font-size: 0.95rem; line-height: 1.7; max-width: 44ch; }
     .process-body .step-chip {
       display: inline-flex; align-items: center; gap: 0.35rem;
       margin-top: 0.8rem; padding: 0.3rem 0.75rem;
@@ -335,78 +220,45 @@
     <section class="section" aria-label="Why choose FC Cleaning">
       <div class="container">
         <div class="why-fc-block">
-
-          <!-- Dark left panel: heading + stats + CTA -->
           <div class="why-fc-panel">
             <div>
               <p class="eyebrow">Why businesses choose FC</p>
               <h2>A cleaning partner you can actually rely on</h2>
               <p class="lead">From restaurants and pubs to bars and commercial kitchens across Manchester and the North West.</p>
               <div class="why-fc-stats">
-                <div class="why-fc-stat">
-                  <strong>10+</strong>
-                  <span>Years of hospitality cleaning experience</span>
-                </div>
-                <div class="why-fc-stat">
-                  <strong>100%</strong>
-                  <span>Owner-managed &mdash; direct contact always</span>
-                </div>
-                <div class="why-fc-stat">
-                  <strong>5&thinsp;&star;</strong>
-                  <span>Consistent client satisfaction rating</span>
-                </div>
-                <div class="why-fc-stat">
-                  <strong>24h</strong>
-                  <span>Typical quote turnaround time</span>
-                </div>
+                <div class="why-fc-stat"><strong>10+</strong><span>Years of hospitality cleaning experience</span></div>
+                <div class="why-fc-stat"><strong>100%</strong><span>Owner-managed &mdash; direct contact always</span></div>
+                <div class="why-fc-stat"><strong>5&thinsp;&star;</strong><span>Consistent client satisfaction rating</span></div>
+                <div class="why-fc-stat"><strong>24h</strong><span>Typical quote turnaround time</span></div>
               </div>
             </div>
             <a href="contact.html#contact-form" class="btn btn-primary">
               <i class="fa-solid fa-calendar-check" aria-hidden="true"></i> Get a free quote
             </a>
           </div>
-
-          <!-- Right: horizontal feature rows -->
           <div class="why-fc-features">
-
             <div class="why-fc-row">
               <div class="why-fc-icon"><i class="fa-solid fa-clock" aria-hidden="true"></i></div>
-              <div class="why-fc-text">
-                <h3>Scheduled around your operation</h3>
-                <p>Early mornings, late evenings, weekends &mdash; we clean when it suits your business, not when it suits us.</p>
-              </div>
+              <div class="why-fc-text"><h3>Scheduled around your operation</h3><p>Early mornings, late evenings, weekends &mdash; we clean when it suits your business, not when it suits us.</p></div>
             </div>
-
             <div class="why-fc-row">
               <div class="why-fc-icon"><i class="fa-solid fa-user-tie" aria-hidden="true"></i></div>
-              <div class="why-fc-text">
-                <h3>Owner-managed, always</h3>
-                <p>You deal directly with the owner. No call centres, no handoffs &mdash; clear, consistent communication every single time.</p>
-              </div>
+              <div class="why-fc-text"><h3>Owner-managed, always</h3><p>You deal directly with the owner. No call centres, no handoffs &mdash; clear, consistent communication every single time.</p></div>
             </div>
-
             <div class="why-fc-row">
               <div class="why-fc-icon"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i></div>
-              <div class="why-fc-text">
-                <h3>Fully insured &amp; accountable</h3>
-                <p>Manchester-based, fully insured and proud of our reliability. We show up, every time, to exactly the standard you expect.</p>
-              </div>
+              <div class="why-fc-text"><h3>Fully insured &amp; accountable</h3><p>Manchester-based, fully insured and proud of our reliability. We show up, every time, to exactly the standard you expect.</p></div>
             </div>
-
             <div class="why-fc-row">
               <div class="why-fc-icon"><i class="fa-solid fa-star" aria-hidden="true"></i></div>
-              <div class="why-fc-text">
-                <h3>Tailored, not templated</h3>
-                <p>Every quote and routine is built around your specific venue &mdash; no one-size-fits-all packages that don&rsquo;t actually fit.</p>
-              </div>
+              <div class="why-fc-text"><h3>Tailored, not templated</h3><p>Every quote and routine is built around your specific venue &mdash; no one-size-fits-all packages that don&rsquo;t actually fit.</p></div>
             </div>
-
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SERVICES (4 canonical) -->
+    <!-- SERVICES -->
     <section class="section section-light" aria-label="Our cleaning services">
       <div class="container">
         <div class="section-heading">
@@ -484,25 +336,6 @@
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA BAND -->
-    <section class="cta-band" aria-label="Call to action">
-      <div class="container cta-band-inner">
-        <div>
-          <p class="eyebrow">Get started today</p>
-          <h2>Need a cleaning quote for your business?</h2>
-          <p>Tell us about your venue and we&rsquo;ll come back with a tailored proposal, fast. No obligation.</p>
-        </div>
-        <div class="cta-actions">
-          <a class="btn btn-primary" href="contact.html#contact-form">
-            <i class="fa-solid fa-calendar-check" aria-hidden="true"></i> Get a Free Quote
-          </a>
-          <a class="btn btn-cta-outline" href="tel:+441613990482">
-            <i class="fa-solid fa-phone" aria-hidden="true"></i> 0161 399 0482
-          </a>
         </div>
       </div>
     </section>
