@@ -101,45 +101,11 @@
 
 </footer>
 
-<!-- Cookie Consent Banner -->
-<div id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite" style="
-  display:none;
-  position:fixed;bottom:0;left:0;right:0;z-index:9999;
-  background:var(--navy-dark);
-  border-top:1px solid rgba(255,255,255,0.08);
-  padding:1.1rem 1.5rem;
-  display:flex;align-items:center;justify-content:space-between;
-  flex-wrap:wrap;gap:1rem;
-  font-size:0.88rem;color:rgba(210,228,235,0.75);
-" id="cookie-banner">
-  <p style="margin:0;max-width:65ch;">
-    We use only a strictly necessary cookie to remember your cookie preference. No tracking or analytics cookies are used.
-    <a href="privacy.html" style="color:var(--teal);font-weight:600;">Privacy Policy</a>
-  </p>
-  <div style="display:flex;gap:0.65rem;flex-shrink:0;">
-    <button onclick="fcAcceptCookies()" class="btn btn-primary" style="min-height:38px;padding:0.45rem 1.1rem;font-size:0.84rem;">Accept</button>
-    <button onclick="fcDismissCookies()" class="btn btn-ghost" style="min-height:38px;padding:0.45rem 1rem;font-size:0.84rem;">Dismiss</button>
-  </div>
-</div>
-
-<script>
-(function(){
-  var banner = document.getElementById('cookie-banner');
-  if(!banner) return;
-  var consent = localStorage.getItem('fc_cookie_consent');
-  if(!consent) banner.style.display = 'flex';
-})();
-function fcAcceptCookies(){
-  localStorage.setItem('fc_cookie_consent','accepted');
-  var b = document.getElementById('cookie-banner');
-  if(b) b.style.display='none';
-}
-function fcDismissCookies(){
-  localStorage.setItem('fc_cookie_consent','dismissed');
-  var b = document.getElementById('cookie-banner');
-  if(b) b.style.display='none';
-}
-</script>
+<!-- WhatsApp Float Button -->
+<a href="https://wa.me/447473379928?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20your%20cleaning%20services."
+   class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+  <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+</a>
 
 <style>
   .footer-contact-item a { color: #94a3b8; transition: color 200ms; }
