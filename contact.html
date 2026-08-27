@@ -20,6 +20,11 @@
   <link rel="apple-touch-icon" href="images/company-logo/FC-NO-BG.png" />
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    .form-label { display:block; margin-bottom:1rem; }
+    .form-label-text { display:block; margin-bottom:0.35rem; font-size:0.88rem; font-weight:600; color:var(--white); }
+    .form-label-text abbr { text-decoration:none; color:var(--teal); margin-left:2px; }
+  </style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -53,19 +58,29 @@
             <div class="contact-form-wrap">
               <h2 style="font-size:1.4rem;margin-bottom:1.5rem;">Send us a message</h2>
               <form id="contact-form" action="https://formspree.io/f/your-form-id" method="POST" novalidate>
-                <label for="name">Your name <abbr title="required" aria-label="required">*</abbr>
+
+                <label class="form-label" for="name">
+                  <span class="form-label-text">Your name <abbr title="required" aria-label="required">*</abbr></span>
                   <input type="text" id="name" name="name" autocomplete="name" required placeholder="e.g. John Smith" />
                 </label>
-                <label for="business">Business name
+
+                <label class="form-label" for="business">
+                  <span class="form-label-text">Business name</span>
                   <input type="text" id="business" name="business" autocomplete="organization" placeholder="e.g. The Crown Pub" />
                 </label>
-                <label for="email">Email address <abbr title="required" aria-label="required">*</abbr>
+
+                <label class="form-label" for="email">
+                  <span class="form-label-text">Email address <abbr title="required" aria-label="required">*</abbr></span>
                   <input type="email" id="email" name="email" autocomplete="email" required placeholder="you@yourbusiness.com" />
                 </label>
-                <label for="phone">Phone number
+
+                <label class="form-label" for="phone">
+                  <span class="form-label-text">Phone number</span>
                   <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="e.g. 07700 900000" />
                 </label>
-                <label for="service">Service required
+
+                <label class="form-label" for="service">
+                  <span class="form-label-text">Service required</span>
                   <select id="service" name="service">
                     <option value="">Select a service&hellip;</option>
                     <option>Commercial Kitchen Cleaning</option>
@@ -75,9 +90,12 @@
                     <option>Not sure &mdash; need advice</option>
                   </select>
                 </label>
-                <label for="message">Tell us about your venue <abbr title="required" aria-label="required">*</abbr>
+
+                <label class="form-label" for="message">
+                  <span class="form-label-text">Tell us about your venue <abbr title="required" aria-label="required">*</abbr></span>
                   <textarea id="message" name="message" rows="5" required placeholder="Venue type, size, cleaning frequency, preferred times&hellip;"></textarea>
                 </label>
+
                 <button type="submit" class="btn btn-primary" style="width:100%;margin-top:0.5rem;">
                   <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Send my enquiry
                 </button>
