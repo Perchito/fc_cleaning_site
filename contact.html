@@ -3,167 +3,140 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact Us | FC Cleaning Company Ltd &mdash; Get a Free Quote</title>
-  <meta name="description" content="Get a free commercial cleaning quote from FC Cleaning Company in Manchester. Call 0161 399 0482 or fill in our quick contact form." />
+  <title>Contact Us | FC Cleaning Company Ltd &mdash; Free Quote Manchester</title>
+  <meta name="description" content="Get a free commercial cleaning quote from FC Cleaning Company Ltd. Serving restaurants, pubs, bars and commercial kitchens across Manchester and the North West. Reply within 24 hours." />
   <link rel="canonical" href="https://www.fccleaningcompany.com/contact.html" />
+  <meta property="og:title" content="Contact FC Cleaning Company Ltd | Free Cleaning Quote Manchester" />
+  <meta property="og:description" content="Get a free commercial cleaning quote in Manchester. Reply within 24 hours, no obligation." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.fccleaningcompany.com/contact.html" />
+  <meta property="og:image" content="https://www.fccleaningcompany.com/images/og-image.jpg" />
+  <meta property="og:site_name" content="FC Cleaning Company Ltd" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Contact FC Cleaning Company Ltd" />
+  <meta name="twitter:description" content="Free commercial cleaning quote. Manchester and North West. Reply within 24 hours." />
+  <meta name="twitter:image" content="https://www.fccleaningcompany.com/images/og-image.jpg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="images/company-logo/FC-NO-BG.png" />
+  <link rel="apple-touch-icon" href="images/company-logo/FC-NO-BG.png" />
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "FC Cleaning Company Ltd",
+    "telephone": "+441613990482",
+    "email": "fernando.c@fccleaningcompany.com",
+    "address": { "@type": "PostalAddress", "addressLocality": "Manchester", "addressRegion": "Greater Manchester", "addressCountry": "GB" },
+    "url": "https://www.fccleaningcompany.com/",
+    "openingHours": "Mo-Su 05:00-23:00"
+  }
+  </script>
 </head>
 <body>
   <div id="site-header"></div>
   <main>
-
-    <!-- PAGE HERO -->
     <section class="page-hero">
       <div class="container">
-        <div class="hero-eyebrow"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i> No obligation, free quote</div>
-        <h1>Get in touch</h1>
-        <p class="lead">Tell us about your venue, your schedule and what you need cleaned. We&rsquo;ll come back with a tailored proposal within 24 hours.</p>
+        <div class="hero-eyebrow"><i class="fa-solid fa-envelope" aria-hidden="true"></i> Get in Touch</div>
+        <h1>Get a free cleaning quote</h1>
+        <p class="lead">Tell us about your venue and we&rsquo;ll put together a tailored proposal within 24 hours. No obligation, no call centres.</p>
       </div>
     </section>
 
-    <!-- CONTACT SECTION -->
-    <section class="section">
+    <section class="section" id="contact-section">
       <div class="container">
-        <div class="split-grid" style="align-items:start;">
+        <div class="split-grid">
 
           <!-- FORM -->
-          <div id="contact-form">
+          <div>
             <div class="contact-form-wrap">
-              <p class="eyebrow" style="margin-bottom:0.5rem;">Send us a message</p>
-              <h2 style="margin-bottom:1.5rem;font-size:1.5rem;">Request a free quote</h2>
-
-              <form action="https://formspree.io/f/xwkgprqy" method="POST" novalidate>
-                <div class="card-grid two-up" style="gap:1rem;">
-                  <label>
-                    Your name *
-                    <input type="text" name="name" placeholder="e.g. James Smith" required autocomplete="name" />
-                  </label>
-                  <label>
-                    Business name
-                    <input type="text" name="business" placeholder="e.g. The Crown Restaurant" autocomplete="organization" />
-                  </label>
-                </div>
-                <label style="margin-top:0.5rem;">
-                  Email address *
-                  <input type="email" name="email" placeholder="you@yourbusiness.com" required autocomplete="email" />
+              <h2 style="font-size:1.4rem;margin-bottom:1.5rem;">Send us a message</h2>
+              <form id="contact-form" action="https://formspree.io/f/your-form-id" method="POST" novalidate>
+                <label for="name">Your name <abbr title="required" aria-label="required">*</abbr>
+                  <input type="text" id="name" name="name" autocomplete="name" required placeholder="e.g. John Smith" />
                 </label>
-                <label style="margin-top:0.5rem;">
-                  Phone number
-                  <input type="tel" name="phone" placeholder="e.g. 07700 900 123" autocomplete="tel" />
+                <label for="business">Business name
+                  <input type="text" id="business" name="business" autocomplete="organization" placeholder="e.g. The Crown Pub" />
                 </label>
-                <label style="margin-top:0.5rem;">
-                  Type of venue
-                  <select name="venue_type">
-                    <option value="">Select your venue type&hellip;</option>
-                    <option>Restaurant / Caf&eacute;</option>
-                    <option>Pub / Bar</option>
-                    <option>Commercial Kitchen</option>
-                    <option>Hotel / Hospitality</option>
-                    <option>Other</option>
-                  </select>
+                <label for="email">Email address <abbr title="required" aria-label="required">*</abbr>
+                  <input type="email" id="email" name="email" autocomplete="email" required placeholder="you@yourbusiness.com" />
                 </label>
-                <label style="margin-top:0.5rem;">
-                  Service interested in
-                  <select name="service">
+                <label for="phone">Phone number
+                  <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="e.g. 07700 900000" />
+                </label>
+                <label for="service">Service required
+                  <select id="service" name="service">
                     <option value="">Select a service&hellip;</option>
                     <option>Commercial Kitchen Cleaning</option>
                     <option>Restaurant, Pub &amp; Bar Cleaning</option>
                     <option>Hospitality Deep Cleaning</option>
                     <option>Washroom &amp; Front-of-House Cleaning</option>
-                    <option>Not sure &mdash; advise me</option>
+                    <option>Not sure &mdash; need advice</option>
                   </select>
                 </label>
-                <label style="margin-top:0.5rem;">
-                  Tell us more about your requirements
-                  <textarea name="message" rows="5" placeholder="e.g. We need kitchen cleaning 5 mornings a week before 9am. Approx 800 sq ft kitchen."></textarea>
+                <label for="message">Tell us about your venue <abbr title="required" aria-label="required">*</abbr>
+                  <textarea id="message" name="message" rows="5" required placeholder="Venue type, size, cleaning frequency, preferred times&hellip;"></textarea>
                 </label>
-                <button type="submit" class="btn btn-primary" style="width:100%;margin-top:0.75rem;justify-content:center;font-size:1rem;">
-                  <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Send enquiry
+                <button type="submit" class="btn btn-primary" style="width:100%;margin-top:0.5rem;">
+                  <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Send my enquiry
                 </button>
-                <p style="color:var(--muted);font-size:0.82rem;margin-top:0.75rem;text-align:center;">We&rsquo;ll respond within 24 hours. No spam, ever.</p>
+                <p style="font-size:0.8rem;color:var(--muted);margin-top:0.75rem;text-align:center;">We reply within 24 hours &bull; Your data is never shared &bull; <a href="privacy.html" style="color:var(--teal);">Privacy Policy</a></p>
               </form>
             </div>
           </div>
 
           <!-- INFO -->
           <div>
-            <div class="contact-info-card">
-              <h3 style="margin-bottom:1rem;">Contact details</h3>
+            <div class="contact-info-card" style="margin-bottom:1.5rem;">
+              <h2 style="font-size:1.15rem;margin-bottom:1.25rem;">Other ways to reach us</h2>
               <div class="contact-info-item">
                 <i class="fa-solid fa-phone" aria-hidden="true"></i>
                 <div>
-                  <p style="font-weight:700;color:var(--navy);margin-bottom:0.15rem;">Phone</p>
-                  <p><a href="tel:+441613990482" style="color:var(--teal);font-weight:700;">0161 399 0482</a></p>
-                </div>
-              </div>
-              <div class="contact-info-item">
-                <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
-                <div>
-                  <p style="font-weight:700;color:var(--navy);margin-bottom:0.15rem;">WhatsApp</p>
-                  <p><a href="https://wa.me/447473379928" target="_blank" rel="noopener" style="color:var(--teal);font-weight:700;">Message us on WhatsApp</a></p>
+                  <strong style="display:block;font-size:0.88rem;margin-bottom:0.2rem;">Phone</strong>
+                  <a href="tel:+441613990482" style="color:var(--teal);font-weight:700;">0161 399 0482</a>
+                  <p>Mon&ndash;Sun, early mornings to late evenings</p>
                 </div>
               </div>
               <div class="contact-info-item">
                 <i class="fa-solid fa-envelope" aria-hidden="true"></i>
                 <div>
-                  <p style="font-weight:700;color:var(--navy);margin-bottom:0.15rem;">Email</p>
-                  <p><a href="mailto:fernando.c@fccleaningcompany.com" style="color:var(--teal);font-weight:700;">fernando.c@fccleaningcompany.com</a></p>
+                  <strong style="display:block;font-size:0.88rem;margin-bottom:0.2rem;">Email</strong>
+                  <a href="mailto:fernando.c@fccleaningcompany.com" style="color:var(--teal);font-weight:700;">fernando.c@fccleaningcompany.com</a>
+                </div>
+              </div>
+              <div class="contact-info-item">
+                <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+                <div>
+                  <strong style="display:block;font-size:0.88rem;margin-bottom:0.2rem;">WhatsApp</strong>
+                  <a href="https://wa.me/447473379928" target="_blank" rel="noopener" style="color:var(--teal);font-weight:700;">Message us on WhatsApp</a>
                 </div>
               </div>
               <div class="contact-info-item">
                 <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
                 <div>
-                  <p style="font-weight:700;color:var(--navy);margin-bottom:0.15rem;">Location</p>
+                  <strong style="display:block;font-size:0.88rem;margin-bottom:0.2rem;">Service area</strong>
                   <p>Manchester &amp; the North West</p>
                 </div>
               </div>
+            </div>
+            <div class="contact-info-card">
+              <h3 style="font-size:1rem;margin-bottom:0.85rem;">What to expect</h3>
               <div class="contact-info-item">
                 <i class="fa-solid fa-clock" aria-hidden="true"></i>
-                <div>
-                  <p style="font-weight:700;color:var(--navy);margin-bottom:0.15rem;">Response time</p>
-                  <p>We reply to all enquiries within 24 hours</p>
-                </div>
+                <p>We reply to all enquiries within 24 hours</p>
               </div>
-            </div>
-
-            <div class="contact-info-card" style="margin-top:1.25rem;">
-              <h3 style="margin-bottom:1rem;">Our services</h3>
-              <div style="display:flex;flex-direction:column;gap:0.65rem;">
-                <a href="services.html#kitchen-cleaning" style="display:flex;gap:0.65rem;align-items:center;color:var(--navy);font-size:0.92rem;font-weight:600;transition:color 200ms;">
-                  <i class="fa-solid fa-fire-burner" style="color:var(--teal);width:16px;flex-shrink:0;"></i> Commercial Kitchen Cleaning
-                </a>
-                <a href="services.html#venue-cleaning" style="display:flex;gap:0.65rem;align-items:center;color:var(--navy);font-size:0.92rem;font-weight:600;transition:color 200ms;">
-                  <i class="fa-solid fa-champagne-glasses" style="color:var(--teal);width:16px;flex-shrink:0;"></i> Restaurant, Pub &amp; Bar Cleaning
-                </a>
-                <a href="services.html#deep-cleaning" style="display:flex;gap:0.65rem;align-items:center;color:var(--navy);font-size:0.92rem;font-weight:600;transition:color 200ms;">
-                  <i class="fa-solid fa-soap" style="color:var(--teal);width:16px;flex-shrink:0;"></i> Hospitality Deep Cleaning
-                </a>
-                <a href="services.html#front-house-cleaning" style="display:flex;gap:0.65rem;align-items:center;color:var(--navy);font-size:0.92rem;font-weight:600;transition:color 200ms;">
-                  <i class="fa-solid fa-door-open" style="color:var(--teal);width:16px;flex-shrink:0;"></i> Washroom &amp; Front-of-House Cleaning
-                </a>
+              <div class="contact-info-item">
+                <i class="fa-solid fa-calendar-check" aria-hidden="true"></i>
+                <p>Free, no-obligation quote tailored to your venue</p>
               </div>
-            </div>
-
-            <div class="contact-info-card" style="margin-top:1.25rem;">
-              <h3 style="margin-bottom:1rem;">Why businesses choose us</h3>
-              <div style="display:flex;flex-direction:column;gap:0.75rem;">
-                <div style="display:flex;gap:0.65rem;align-items:flex-start;">
-                  <i class="fa-solid fa-check" style="color:var(--teal);margin-top:0.2rem;flex-shrink:0;"></i>
-                  <p style="color:var(--muted);font-size:0.92rem;">Owner-managed &mdash; you deal directly with the person responsible</p>
-                </div>
-                <div style="display:flex;gap:0.65rem;align-items:flex-start;">
-                  <i class="fa-solid fa-check" style="color:var(--teal);margin-top:0.2rem;flex-shrink:0;"></i>
-                  <p style="color:var(--muted);font-size:0.92rem;">Fully insured with public liability cover</p>
-                </div>
-                <div style="display:flex;gap:0.65rem;align-items:flex-start;">
-                  <i class="fa-solid fa-check" style="color:var(--teal);margin-top:0.2rem;flex-shrink:0;"></i>
-                  <p style="color:var(--muted);font-size:0.92rem;">Flexible scheduling around your hospitality hours</p>
-                </div>
-                <div style="display:flex;gap:0.65rem;align-items:flex-start;">
-                  <i class="fa-solid fa-check" style="color:var(--teal);margin-top:0.2rem;flex-shrink:0;"></i>
-                  <p style="color:var(--muted);font-size:0.92rem;">Free no-obligation quote with tailored proposal</p>
-                </div>
+              <div class="contact-info-item">
+                <i class="fa-solid fa-user-tie" aria-hidden="true"></i>
+                <p>You speak directly to the owner &mdash; always</p>
+              </div>
+              <div class="contact-info-item">
+                <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+                <p>Fully insured on every job</p>
               </div>
             </div>
           </div>
@@ -171,11 +144,9 @@
         </div>
       </div>
     </section>
-
-
   </main>
   <div id="site-footer"></div>
-  <a href="#contact-form" class="mobile-quote-tab" aria-label="Get a quote"><span>Get a Quote</span></a>
+  <a href="contact.html#contact-form" class="mobile-quote-tab" aria-label="Get a quote"><span>Get a Quote</span></a>
   <a href="https://wa.me/447473379928?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20your%20cleaning%20services." class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
   <script src="includes.js"></script>
 </body>

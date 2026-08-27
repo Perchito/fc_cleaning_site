@@ -8,10 +8,10 @@
         <h2>Tell us about your venue &mdash;<br>we&rsquo;ll handle the rest</h2>
         <p>Whether you need a daily routine or a one-off deep clean, we&rsquo;ll put together a tailored proposal fast. No obligation, no call centres &mdash; just a straight answer from the owner.</p>
         <div class="cta-full-trust">
-          <span class="cta-trust-chip"><i class="fa-solid fa-check"></i> Free quote, no obligation</span>
-          <span class="cta-trust-chip"><i class="fa-solid fa-check"></i> Reply within 24 hours</span>
-          <span class="cta-trust-chip"><i class="fa-solid fa-check"></i> Fully insured</span>
-          <span class="cta-trust-chip"><i class="fa-solid fa-check"></i> Owner-managed</span>
+          <span class="cta-trust-chip"><i class="fa-solid fa-check" aria-hidden="true"></i> Free quote, no obligation</span>
+          <span class="cta-trust-chip"><i class="fa-solid fa-check" aria-hidden="true"></i> Reply within 24 hours</span>
+          <span class="cta-trust-chip"><i class="fa-solid fa-check" aria-hidden="true"></i> Fully insured</span>
+          <span class="cta-trust-chip"><i class="fa-solid fa-check" aria-hidden="true"></i> Owner-managed</span>
         </div>
       </div>
       <div class="cta-full-actions">
@@ -37,13 +37,13 @@
       <p>Specialist restaurant, pub, bar and commercial kitchen cleaning across Manchester and the North West. Owner-managed and fully insured.</p>
       <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1.1rem;">
         <span style="display:inline-flex;align-items:center;gap:0.4rem;padding:0.35rem 0.75rem;border:1px solid rgba(255,255,255,0.12);border-radius:9999px;background:rgba(255,255,255,0.05);color:rgba(229,231,235,0.80);font-size:0.78rem;font-weight:600;">
-          <i class="fa-solid fa-shield-halved" style="color:var(--teal);font-size:0.72rem;"></i> Fully Insured
+          <i class="fa-solid fa-shield-halved" style="color:var(--teal);font-size:0.72rem;" aria-hidden="true"></i> Fully Insured
         </span>
         <span style="display:inline-flex;align-items:center;gap:0.4rem;padding:0.35rem 0.75rem;border:1px solid rgba(255,255,255,0.12);border-radius:9999px;background:rgba(255,255,255,0.05);color:rgba(229,231,235,0.80);font-size:0.78rem;font-weight:600;">
-          <i class="fa-solid fa-user-tie" style="color:var(--teal);font-size:0.72rem;"></i> Owner-managed
+          <i class="fa-solid fa-user-tie" style="color:var(--teal);font-size:0.72rem;" aria-hidden="true"></i> Owner-managed
         </span>
         <span style="display:inline-flex;align-items:center;gap:0.4rem;padding:0.35rem 0.75rem;border:1px solid rgba(255,255,255,0.12);border-radius:9999px;background:rgba(255,255,255,0.05);color:rgba(229,231,235,0.80);font-size:0.78rem;font-weight:600;">
-          <i class="fa-solid fa-clock" style="color:var(--teal);font-size:0.72rem;"></i> Flexible Hours
+          <i class="fa-solid fa-clock" style="color:var(--teal);font-size:0.72rem;" aria-hidden="true"></i> Flexible Hours
         </span>
       </div>
     </div>
@@ -92,19 +92,56 @@
 
   <!-- Footer bottom -->
   <div class="container footer-bottom">
-    <p>&copy; 2026 FC Cleaning Company Ltd. All rights reserved.</p>
+    <p>&copy; 2026 FC Cleaning Company Ltd. All rights reserved.
+      &bull; <a href="privacy.html" style="color:#6a8498;font-weight:500;">Privacy Policy</a>
+      &bull; <a href="terms.html" style="color:#6a8498;font-weight:500;">Terms &amp; Conditions</a>
+    </p>
     <a href="contact.html#contact-form" class="btn btn-primary" style="min-height:40px;padding:0.55rem 1.1rem;font-size:0.86rem;">Get a Free Quote</a>
   </div>
 
 </footer>
 
+<!-- Cookie Consent Banner -->
+<div id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite" style="
+  display:none;
+  position:fixed;bottom:0;left:0;right:0;z-index:9999;
+  background:var(--navy-dark);
+  border-top:1px solid rgba(255,255,255,0.08);
+  padding:1.1rem 1.5rem;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:1rem;
+  font-size:0.88rem;color:rgba(210,228,235,0.75);
+" id="cookie-banner">
+  <p style="margin:0;max-width:65ch;">
+    We use only a strictly necessary cookie to remember your cookie preference. No tracking or analytics cookies are used.
+    <a href="privacy.html" style="color:var(--teal);font-weight:600;">Privacy Policy</a>
+  </p>
+  <div style="display:flex;gap:0.65rem;flex-shrink:0;">
+    <button onclick="fcAcceptCookies()" class="btn btn-primary" style="min-height:38px;padding:0.45rem 1.1rem;font-size:0.84rem;">Accept</button>
+    <button onclick="fcDismissCookies()" class="btn btn-ghost" style="min-height:38px;padding:0.45rem 1rem;font-size:0.84rem;">Dismiss</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  var banner = document.getElementById('cookie-banner');
+  if(!banner) return;
+  var consent = localStorage.getItem('fc_cookie_consent');
+  if(!consent) banner.style.display = 'flex';
+})();
+function fcAcceptCookies(){
+  localStorage.setItem('fc_cookie_consent','accepted');
+  var b = document.getElementById('cookie-banner');
+  if(b) b.style.display='none';
+}
+function fcDismissCookies(){
+  localStorage.setItem('fc_cookie_consent','dismissed');
+  var b = document.getElementById('cookie-banner');
+  if(b) b.style.display='none';
+}
+</script>
+
 <style>
-  @media (max-width: 900px) {
-    .footer-top { grid-template-columns: 1fr 1fr !important; }
-  }
-  @media (max-width: 640px) {
-    .footer-top { grid-template-columns: 1fr !important; }
-  }
   .footer-contact-item a { color: #94a3b8; transition: color 200ms; }
   .footer-contact-item a:hover { color: #fff; }
 </style>

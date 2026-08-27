@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page Not Found | FC Cleaning Company Ltd</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" type="image/png" sizes="32x32" href="images/company-logo/FC-NO-BG.png" />
+  <link rel="apple-touch-icon" href="images/company-logo/FC-NO-BG.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    .error-wrap {
+      min-height: calc(100dvh - 80px);
+      display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, #031426 0%, #06182B 60%, #082a40 100%);
+      padding: 4rem 1.5rem;
+    }
+    .error-inner { text-align: center; max-width: 520px; }
+    .error-code {
+      font-size: clamp(5rem, 18vw, 9rem);
+      font-weight: 900; letter-spacing: -0.06em;
+      color: transparent;
+      background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+      -webkit-background-clip: text; background-clip: text;
+      line-height: 1; margin-bottom: 0.5rem;
+    }
+    .error-inner h1 { color: var(--white); font-size: clamp(1.4rem,3vw,2rem); font-weight: 800; margin-bottom: 1rem; }
+    .error-inner p { color: rgba(210,228,235,0.65); margin-bottom: 2rem; line-height: 1.7; }
+    .error-actions { display: flex; flex-wrap: wrap; gap: 0.85rem; justify-content: center; }
+  </style>
+</head>
+<body>
+  <div id="site-header"></div>
+  <main>
+    <div class="error-wrap">
+      <div class="error-inner">
+        <p class="error-code" aria-hidden="true">404</p>
+        <h1>Page not found</h1>
+        <p>Sorry, we couldn&rsquo;t find the page you were looking for. It may have moved or the link might be incorrect.</p>
+        <div class="error-actions">
+          <a href="index.html" class="btn btn-primary"><i class="fa-solid fa-house" aria-hidden="true"></i> Back to Home</a>
+          <a href="contact.html#contact-form" class="btn btn-ghost"><i class="fa-solid fa-envelope" aria-hidden="true"></i> Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="includes.js"></script>
+</body>
+</html>
