@@ -16,6 +16,10 @@ async function loadIncludes() {
     initDraggableQuoteTab();
 
     document.body.style.opacity = '1';
+
+    // Kick off Motion One animations after DOM is fully populated
+    if (typeof initMotionAnimations === 'function') initMotionAnimations();
+
   } catch (err) {
     console.error('Includes failed:', err);
     document.body.style.opacity = '1';
@@ -104,7 +108,6 @@ function initDraggableQuoteTab() {
   }
 
   function applyPosition() {
-    // Read once, write once — no interleaved forced layouts
     const headerBottom = getHeaderBottom();
     const tabH = tab.offsetHeight;
     const half = tabH / 2;
@@ -130,7 +133,6 @@ function initDraggableQuoteTab() {
     if (Math.abs(delta) > 3) moved = true;
     currentTop += delta;
     startY = moveY;
-    // Batch DOM write in rAF to avoid mid-frame layout thrash
     rafId = requestAnimationFrame(applyPosition);
     e.preventDefault();
   }, { passive: false });
@@ -145,7 +147,6 @@ function initDraggableQuoteTab() {
     if (moved) { e.preventDefault(); moved = false; }
   });
 
-  // rAF-throttled resize
   let resizeTicking = false;
   window.addEventListener('resize', () => {
     if (!resizeTicking) {
@@ -159,7 +160,6 @@ function initDraggableQuoteTab() {
 }
 
 // ===== HEADER SCROLL EFFECT =====
-// rAF-throttled + passive — never blocks main thread during scroll
 let scrollTicking = false;
 window.addEventListener('scroll', () => {
   if (!scrollTicking) {
