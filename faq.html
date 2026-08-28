@@ -20,6 +20,65 @@
   <link rel="apple-touch-icon" href="images/company-logo/FC-NO-BG.png" />
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    /* FAQ CATEGORIES */
+    .faq-categories { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 2.5rem; justify-content: center; }
+    .faq-cat-btn {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.45rem 1.1rem; border-radius: 999px;
+      border: 1.5px solid var(--line); background: transparent;
+      color: var(--muted); font-size: 0.88rem; font-weight: 700;
+      cursor: pointer; transition: all 0.18s ease;
+    }
+    .faq-cat-btn:hover { border-color: var(--teal); color: var(--teal); }
+    .faq-cat-btn.active { background: var(--teal); border-color: var(--teal); color: #fff; }
+    .faq-cat-btn i { font-size: 0.82rem; }
+
+    /* FAQ CATEGORY GROUPS */
+    .faq-group { margin-bottom: 2.75rem; }
+    .faq-group-heading {
+      display: flex; align-items: center; gap: 0.65rem;
+      font-size: 1rem; font-weight: 800; letter-spacing: -0.01em;
+      color: var(--navy); margin-bottom: 1rem;
+      padding-bottom: 0.6rem; border-bottom: 2px solid var(--teal);
+    }
+    .faq-group-heading i { color: var(--teal); font-size: 0.9rem; }
+    .faq-group[data-cat].hidden { display: none; }
+
+    /* ACCORDION ITEMS */
+    .faq-item {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      margin-bottom: 0.65rem;
+      overflow: hidden;
+      transition: box-shadow 0.2s ease;
+    }
+    .faq-item:hover { box-shadow: 0 2px 12px rgba(8,185,181,0.10); }
+    .faq-item[open] { border-color: rgba(8,185,181,0.4); }
+    .faq-item summary {
+      list-style: none;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 1rem;
+      padding: 1.05rem 1.25rem;
+      font-size: 0.97rem; font-weight: 700; color: var(--navy);
+      cursor: pointer; user-select: none;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after {
+      content: '\f067'; /* plus */
+      font-family: 'Font Awesome 6 Free'; font-weight: 900;
+      font-size: 0.75rem; color: var(--teal);
+      flex-shrink: 0; transition: transform 0.22s ease;
+    }
+    .faq-item[open] summary::after {
+      content: '\f068'; /* minus */
+    }
+    .faq-item p {
+      margin: 0; padding: 0 1.25rem 1.1rem;
+      color: var(--muted); font-size: 0.94rem; line-height: 1.75;
+    }
+    .faq-item p a { color: var(--teal); text-decoration: underline; }
+  </style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -28,7 +87,10 @@
       {"@type":"Question","name":"What areas do you cover?","acceptedAnswer":{"@type":"Answer","text":"We cover Manchester city centre, Greater Manchester and the wider North West including Cheshire and Lancashire."}},
       {"@type":"Question","name":"Are you insured?","acceptedAnswer":{"@type":"Answer","text":"Yes. FC Cleaning Company Ltd carries full public liability insurance on every job."}},
       {"@type":"Question","name":"How quickly can you provide a quote?","acceptedAnswer":{"@type":"Answer","text":"We typically respond to all enquiries within 24 hours. For urgent requirements, call us directly on 0161 399 0482."}},
-      {"@type":"Question","name":"Do you clean outside normal hours?","acceptedAnswer":{"@type":"Answer","text":"Yes. We clean early mornings, late evenings and weekends to work around your service hours."}}
+      {"@type":"Question","name":"Do you clean outside normal hours?","acceptedAnswer":{"@type":"Answer","text":"Yes. We clean early mornings, late evenings and weekends to work around your service hours."}},
+      {"@type":"Question","name":"Do you offer one-off deep cleans?","acceptedAnswer":{"@type":"Answer","text":"Yes. We offer both one-off deep cleans and regular contracts, all tailored to your venue."}},
+      {"@type":"Question","name":"Do I need to sign a long-term contract?","acceptedAnswer":{"@type":"Answer","text":"No. We offer flexible rolling monthly or job-by-job arrangements."}},
+      {"@type":"Question","name":"What types of venue do you clean?","acceptedAnswer":{"@type":"Answer","text":"We specialise in hospitality venues including restaurants, pubs, bars, cafes, bistros, takeaways and dark kitchens."}}
     ]
   }
   </script>
@@ -38,25 +100,39 @@
   <main>
     <section class="page-hero">
       <div class="container">
-        <div class="hero-eyebrow"><i class="fa-solid fa-circle-question" aria-hidden="true"></i> Help</div>
+        <div class="hero-eyebrow"><i class="fa-solid fa-circle-question" aria-hidden="true"></i> Help Centre</div>
         <h1>Frequently Asked Questions</h1>
         <p class="lead">Everything you need to know about our commercial cleaning services in Manchester and the North West.</p>
       </div>
     </section>
 
     <section class="section">
-      <div class="container" style="max-width:840px;">
-        <div class="faq-grid">
+      <div class="container" style="max-width:860px;">
 
-          <details class="faq-item">
-            <summary>What areas do you cover?</summary>
-            <p>We cover Manchester city centre and all of Greater Manchester including Salford, Trafford, Bolton, Stockport, Oldham and Wigan. We also serve venues across Cheshire, Lancashire and the wider North West &mdash; just get in touch to confirm your location.</p>
-          </details>
+        <!-- FILTER TABS -->
+        <div class="faq-categories" role="tablist" aria-label="FAQ categories">
+          <button class="faq-cat-btn active" data-filter="all" role="tab" aria-selected="true">
+            <i class="fa-solid fa-list" aria-hidden="true"></i> All questions
+          </button>
+          <button class="faq-cat-btn" data-filter="services" role="tab" aria-selected="false">
+            <i class="fa-solid fa-spray-can-sparkles" aria-hidden="true"></i> Services
+          </button>
+          <button class="faq-cat-btn" data-filter="coverage" role="tab" aria-selected="false">
+            <i class="fa-solid fa-map-location-dot" aria-hidden="true"></i> Coverage &amp; Hours
+          </button>
+          <button class="faq-cat-btn" data-filter="pricing" role="tab" aria-selected="false">
+            <i class="fa-solid fa-tag" aria-hidden="true"></i> Pricing &amp; Contracts
+          </button>
+          <button class="faq-cat-btn" data-filter="trust" role="tab" aria-selected="false">
+            <i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Trust &amp; Quality
+          </button>
+        </div>
 
-          <details class="faq-item">
-            <summary>Are you fully insured?</summary>
-            <p>Yes. FC Cleaning Company Ltd carries full public liability insurance on every job. You can book with complete confidence that you&rsquo;re covered.</p>
-          </details>
+        <!-- CATEGORY: SERVICES -->
+        <div class="faq-group" data-cat="services">
+          <div class="faq-group-heading">
+            <i class="fa-solid fa-spray-can-sparkles" aria-hidden="true"></i> Services
+          </div>
 
           <details class="faq-item">
             <summary>What types of venue do you clean?</summary>
@@ -64,28 +140,8 @@
           </details>
 
           <details class="faq-item">
-            <summary>How quickly can you give me a quote?</summary>
-            <p>We typically respond to all enquiries within 24 hours. For urgent requirements, call us directly on <a href="tel:+441613990482" style="color:var(--teal);">0161 399 0482</a>. Quotes are always free and there&rsquo;s no obligation.</p>
-          </details>
-
-          <details class="faq-item">
-            <summary>Do you clean outside normal business hours?</summary>
-            <p>Yes. We specifically schedule cleaning for early mornings, late evenings and weekends so we can work around your service hours without any disruption.</p>
-          </details>
-
-          <details class="faq-item">
             <summary>Do you offer one-off deep cleans as well as regular contracts?</summary>
             <p>Yes. We offer both. One-off deep cleans are ideal before inspections, refurbishments or busy periods. We also offer regular weekly and daily cleaning contracts. All options are tailored to your venue.</p>
-          </details>
-
-          <details class="faq-item">
-            <summary>Will I speak to the owner or a call centre?</summary>
-            <p>You&rsquo;ll always speak directly to the owner. There are no call centres, account managers or third parties. Direct communication is one of the things our clients appreciate most.</p>
-          </details>
-
-          <details class="faq-item">
-            <summary>Do I need to sign a long-term contract?</summary>
-            <p>No. We offer flexible arrangements. Some clients prefer a rolling monthly agreement; others book on a job-by-job basis. We&rsquo;ll agree the terms that work for your business.</p>
           </details>
 
           <details class="faq-item">
@@ -95,10 +151,71 @@
 
           <details class="faq-item">
             <summary>How do I get started?</summary>
-            <p>Simply <a href="contact.html#contact-form" style="color:var(--teal);">fill in our contact form</a> or call <a href="tel:+441613990482" style="color:var(--teal);">0161 399 0482</a>. Tell us about your venue and we&rsquo;ll get back to you within 24 hours with a tailored proposal.</p>
+            <p>Simply <a href="contact.html#contact-form">fill in our contact form</a> or call <a href="tel:+441613990482">0161 399 0482</a>. Tell us about your venue and we&rsquo;ll get back to you within 24 hours with a tailored proposal.</p>
+          </details>
+        </div>
+
+        <!-- CATEGORY: COVERAGE & HOURS -->
+        <div class="faq-group" data-cat="coverage">
+          <div class="faq-group-heading">
+            <i class="fa-solid fa-map-location-dot" aria-hidden="true"></i> Coverage &amp; Hours
+          </div>
+
+          <details class="faq-item">
+            <summary>What areas do you cover?</summary>
+            <p>We cover Manchester city centre and all of Greater Manchester including Salford, Trafford, Bolton, Stockport, Oldham and Wigan. We also serve venues across Cheshire, Lancashire and the wider North West &mdash; just get in touch to confirm your location.</p>
           </details>
 
+          <details class="faq-item">
+            <summary>Do you clean outside normal business hours?</summary>
+            <p>Yes. We specifically schedule cleaning for early mornings, late evenings and weekends so we can work around your service hours without any disruption.</p>
+          </details>
         </div>
+
+        <!-- CATEGORY: PRICING & CONTRACTS -->
+        <div class="faq-group" data-cat="pricing">
+          <div class="faq-group-heading">
+            <i class="fa-solid fa-tag" aria-hidden="true"></i> Pricing &amp; Contracts
+          </div>
+
+          <details class="faq-item">
+            <summary>How quickly can you give me a quote?</summary>
+            <p>We typically respond to all enquiries within 24 hours. For urgent requirements, call us directly on <a href="tel:+441613990482">0161 399 0482</a>. Quotes are always free and there&rsquo;s no obligation.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Do I need to sign a long-term contract?</summary>
+            <p>No. We offer flexible arrangements. Some clients prefer a rolling monthly agreement; others book on a job-by-job basis. We&rsquo;ll agree the terms that work for your business.</p>
+          </details>
+        </div>
+
+        <!-- CATEGORY: TRUST & QUALITY -->
+        <div class="faq-group" data-cat="trust">
+          <div class="faq-group-heading">
+            <i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Trust &amp; Quality
+          </div>
+
+          <details class="faq-item">
+            <summary>Are you fully insured?</summary>
+            <p>Yes. FC Cleaning Company Ltd carries full public liability insurance on every job. You can book with complete confidence that you&rsquo;re covered.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Will I speak to the owner or a call centre?</summary>
+            <p>You&rsquo;ll always speak directly to the owner. There are no call centres, account managers or third parties. Direct communication is one of the things our clients appreciate most.</p>
+          </details>
+        </div>
+
+        <!-- CTA -->
+        <div style="text-align:center; margin-top:3rem; padding:2.5rem 1.5rem; background:var(--navy); border-radius:16px;">
+          <p style="color:rgba(255,255,255,0.65); font-size:0.95rem; margin-bottom:0.5rem;">Still have a question?</p>
+          <h3 style="color:#fff; font-size:1.4rem; font-weight:800; margin-bottom:1.25rem; letter-spacing:-0.03em;">Get in touch &mdash; we reply within 24 hours</h3>
+          <div style="display:flex; flex-wrap:wrap; gap:0.75rem; justify-content:center;">
+            <a href="contact.html#contact-form" class="btn btn-primary"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i> Send us a message</a>
+            <a href="tel:+441613990482" class="btn btn-ghost" style="color:#fff; border-color:rgba(255,255,255,0.35);"><i class="fa-solid fa-phone" aria-hidden="true"></i> 0161 399 0482</a>
+          </div>
+        </div>
+
       </div>
     </section>
   </main>
@@ -108,5 +225,21 @@
   <script src="includes.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/motion@11/dist/motion.js"></script>
   <script src="motion-animations.js"></script>
+  <script>
+    // FAQ category filter
+    const catBtns = document.querySelectorAll('.faq-cat-btn');
+    const groups  = document.querySelectorAll('.faq-group[data-cat]');
+    catBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        catBtns.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+        btn.classList.add('active'); btn.setAttribute('aria-selected','true');
+        const filter = btn.dataset.filter;
+        groups.forEach(g => {
+          if (filter === 'all' || g.dataset.cat === filter) g.classList.remove('hidden');
+          else g.classList.add('hidden');
+        });
+      });
+    });
+  </script>
 </body>
 </html>
