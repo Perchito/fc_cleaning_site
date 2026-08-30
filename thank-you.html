@@ -11,11 +11,18 @@
   <link rel="apple-touch-icon" href="images/company-logo/FC-NO-BG.png" />
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    /* Mobile fit: keep the whole message on screen */
+    @media (max-width: 640px) {
+      .page-hero h1 { font-size: clamp(1.55rem, 7vw, 2.1rem); }
+      .page-hero .lead { font-size: 1rem; line-height: 1.6; }
+    }
+  </style>
 </head>
 <body>
   <div id="site-header"></div>
   <main>
-    <section class="page-hero" style="text-align:center; padding: 5rem 1rem;">
+    <section class="page-hero" style="text-align:center; min-height:auto; padding: clamp(2.5rem, 9vh, 5rem) 1.25rem calc(2.5rem + env(safe-area-inset-bottom));">
       <div class="container" style="max-width:600px;">
         <div style="display:inline-flex; align-items:center; justify-content:center; width:72px; height:72px; border-radius:50%; background:rgba(8,185,181,0.12); margin-bottom:1.5rem;">
           <i class="fa-solid fa-circle-check" style="font-size:2rem; color:var(--teal);" aria-hidden="true"></i>
